@@ -8,8 +8,8 @@ export default class InvestigatorContainer extends React.Component {
     return (
       <div className="investigator-container">
         <Investigator displayStats={ true }></Investigator>
-        <Investigator displayStuff={ true }></Investigator>
-        <Investigator displaySkills={ true }></Investigator>
+        <Investigator displayStats={ true }></Investigator>
+        <Investigator displayStats={ true }></Investigator>
         <Investigator displayStats={ true }></Investigator>
         <Investigator displayStats={ true }></Investigator>
       </div>
