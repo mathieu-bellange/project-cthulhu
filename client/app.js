@@ -5,21 +5,63 @@ import InvestigatorContainer from './investigator-container';
 import './app.sss';
 
 class AppWrapper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      investigators: [
+        {
+          navData: {
+            displayStats: true,
+            displayStuff: false,
+            displaySkills: false
+          }
+        },
+        {
+          navData: {
+            displayStats: true,
+            displayStuff: false,
+            displaySkills: false
+          }
+        },
+        {
+          navData: {
+            displayStats: true,
+            displayStuff: false,
+            displaySkills: false
+          }
+        },
+        {
+          navData: {
+            displayStats: true,
+            displayStuff: false,
+            displaySkills: false
+          }
+        },
+        {
+          navData: {
+            displayStats: true,
+            displayStuff: false,
+            displaySkills: false
+          }
+        }
+      ]
+    };
+    this.updateNavData = this.updateNavData.bind(this);
+  }
 
-  updateNavData() {
-
+  updateNavData(updateData) {
+    const newNavData = Object.assign(this.state.investigators[updateData.key].navData, updateData.value);
+    Object.keys(this.state.investigators[updateData.key].navData).forEach((key) => {
+      if (key !== Object.keys(updateData.value)[0]) newNavData[key] = false;
+    });
+    this.setState(newNavData);
   }
 
   render() {
-    const navData = {
-      displayStats: true,
-      displayStuff: false,
-      displaySkills: false
-    };
     return (
       <div id="wrapper">
         <InvestigatorContainer
-          navData={ navData }
+          investigators={ this.state.investigators }
           updateNavData={this.updateNavData}
         ></InvestigatorContainer>
       </div>
