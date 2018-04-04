@@ -7,13 +7,14 @@ import './investigator-skills.sss';
 
 export default class InvestigatorSkills extends React.Component {
   static propTypes = {
-    show: PropTypes.bool
+    show: PropTypes.bool,
+    investigator: PropTypes.object
   };
 
   render() {
     return (
       <div className={ `investigator-skills ${this.props.show ? 'show' : ''}`}>
-        <Skills skills={ [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}] }></Skills>
+        <Skills skills={ this.props.investigator.skills }></Skills>
         <CombatSkills
           weapons={ [{}, {}] }
           dodge={ 75 }

@@ -8,13 +8,27 @@ export default class Skill extends React.Component {
     skill: PropTypes.object
   };
 
+  constructor(props) {
+    super(props);
+    this.half = this.half.bind(this);
+    this.fifth = this.fifth.bind(this);
+  }
+
+  half() {
+    return Math.trunc(this.props.skill.mastery / 2);
+  }
+
+  fifth() {
+    return Math.trunc(this.props.skill.mastery / 5);
+  }
+
   render() {
     return (
       <div className="skill">
-        <div className="name">Nom compétence</div>
-        <div className="percent">25 %</div>
-        <div className="half">12</div>
-        <div className="fifth">5</div>
+        <div className="name">{ this.props.skill.name }</div>
+        <div className="percent">{ this.props.skill.mastery } %</div>
+        <div className="half">{ this.half() }</div>
+        <div className="fifth">{ this.fifth() }</div>
       </div>
     );
   }

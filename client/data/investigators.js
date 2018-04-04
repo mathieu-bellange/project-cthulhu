@@ -32,6 +32,40 @@ const investigators = [
     luck: {
       current: 15
     },
+    skills: [
+      {
+        name: 'Baratin',
+        mastery: 65
+      },
+      {
+        name: 'Anthropologie',
+        mastery: 45
+      },
+      {
+        name: 'Charme',
+        mastery: 65
+      },
+      {
+        name: 'Droit',
+        mastery: 35
+      },
+      {
+        name: 'Orientation',
+        mastery: 69
+      },
+      {
+        name: 'Persuasion',
+        mastery: 86
+      },
+      {
+        name: 'Pister',
+        mastery: 75
+      },
+      {
+        name: 'Psychologie',
+        mastery: 85
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -71,6 +105,40 @@ const investigators = [
     luck: {
       current: 16
     },
+    skills: [
+      {
+        name: 'Baratin',
+        mastery: 65
+      },
+      {
+        name: 'Anthropologie',
+        mastery: 45
+      },
+      {
+        name: 'Charme',
+        mastery: 65
+      },
+      {
+        name: 'Droit',
+        mastery: 35
+      },
+      {
+        name: 'Orientation',
+        mastery: 69
+      },
+      {
+        name: 'Persuasion',
+        mastery: 86
+      },
+      {
+        name: 'Pister',
+        mastery: 75
+      },
+      {
+        name: 'Psychologie',
+        mastery: 85
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -110,6 +178,40 @@ const investigators = [
     luck: {
       current: 17
     },
+    skills: [
+      {
+        name: 'Baratin',
+        mastery: 65
+      },
+      {
+        name: 'Anthropologie',
+        mastery: 45
+      },
+      {
+        name: 'Charme',
+        mastery: 65
+      },
+      {
+        name: 'Droit',
+        mastery: 35
+      },
+      {
+        name: 'Orientation',
+        mastery: 69
+      },
+      {
+        name: 'Persuasion',
+        mastery: 86
+      },
+      {
+        name: 'Pister',
+        mastery: 75
+      },
+      {
+        name: 'Psychologie',
+        mastery: 85
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -149,6 +251,40 @@ const investigators = [
     luck: {
       current: 18
     },
+    skills: [
+      {
+        name: 'Baratin',
+        mastery: 65
+      },
+      {
+        name: 'Anthropologie',
+        mastery: 45
+      },
+      {
+        name: 'Charme',
+        mastery: 65
+      },
+      {
+        name: 'Droit',
+        mastery: 35
+      },
+      {
+        name: 'Orientation',
+        mastery: 69
+      },
+      {
+        name: 'Persuasion',
+        mastery: 86
+      },
+      {
+        name: 'Pister',
+        mastery: 75
+      },
+      {
+        name: 'Psychologie',
+        mastery: 85
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -188,6 +324,40 @@ const investigators = [
     luck: {
       current: 19
     },
+    skills: [
+      {
+        name: 'Baratin',
+        mastery: 65
+      },
+      {
+        name: 'Anthropologie',
+        mastery: 45
+      },
+      {
+        name: 'Charme',
+        mastery: 65
+      },
+      {
+        name: 'Droit',
+        mastery: 35
+      },
+      {
+        name: 'Orientation',
+        mastery: 69
+      },
+      {
+        name: 'Persuasion',
+        mastery: 86
+      },
+      {
+        name: 'Pister',
+        mastery: 75
+      },
+      {
+        name: 'Psychologie',
+        mastery: 85
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
