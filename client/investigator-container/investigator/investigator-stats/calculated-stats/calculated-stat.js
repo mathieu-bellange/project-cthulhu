@@ -10,18 +10,11 @@ export default class InvestigatorStat extends React.Component {
     src: PropTypes.string.isRequired
   };
 
-  constructor(props) {
-    super(props);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange() {}
-
   render() {
     return (
       <div className="calculate-stat">
         <img className="" src={this.props.src}></img>
-        <input defaultValue={ this.props.current } onChange={ this.onChange() }></input>
+        <input defaultValue={ this.props.current }></input>
         {
           this.props.max ? <span>/{ this.props.max }</span> : ''
         }

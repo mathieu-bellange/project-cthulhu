@@ -35,6 +35,7 @@ export default class Investigator extends React.Component {
         <div className="content">
           <InvestigatorStats
             show={ this.props.investigator.navData.displayStats }
+            investigator={ this.props.investigator }
           ></InvestigatorStats>
           <InvestigatorSkills
             show={ this.props.investigator.navData.displaySkills }

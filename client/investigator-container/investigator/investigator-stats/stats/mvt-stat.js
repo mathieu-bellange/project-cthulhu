@@ -16,20 +16,20 @@ export default class MvtStat extends React.Component {
     let mvt;
     if (str < tai && dex < tai) {
       mvt = 7;
-    } else if (str > tai || dex > tai || (str === tai && dex === tai)) {
-      mvt = 8;
     } else if (str > tai && dex > tai) {
       mvt = 9;
+    } else if (str >= tai || dex >= tai || (str === tai && dex === tai)) {
+      mvt = 8;
     }
     if (age >= 40 && age < 50) {
       mvt -= 1;
-    } else if (age >= 50 && age < 59) {
+    } else if (age >= 50 && age < 60) {
       mvt -= 2;
-    } else if (age >= 60 && age < 69) {
+    } else if (age >= 60 && age < 70) {
       mvt -= 3;
-    } else if (age >= 70 && age < 79) {
+    } else if (age >= 70 && age < 80) {
       mvt -= 4;
-    } else if (age >= 80 && age < 89) {
+    } else if (age >= 80 && age < 90) {
       mvt -= 5;
     }
     return mvt;

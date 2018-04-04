@@ -2,49 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import InvestigatorContainer from './investigator-container';
+import investigators from './data';
 import './app.sss';
 
 class AppWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      investigators: [
-        {
-          navData: {
-            displayStats: true,
-            displayStuff: false,
-            displaySkills: false
-          }
-        },
-        {
-          navData: {
-            displayStats: true,
-            displayStuff: false,
-            displaySkills: false
-          }
-        },
-        {
-          navData: {
-            displayStats: true,
-            displayStuff: false,
-            displaySkills: false
-          }
-        },
-        {
-          navData: {
-            displayStats: true,
-            displayStuff: false,
-            displaySkills: false
-          }
-        },
-        {
-          navData: {
-            displayStats: true,
-            displayStuff: false,
-            displaySkills: false
-          }
-        }
-      ]
+      investigators
     };
     this.updateNavData = this.updateNavData.bind(this);
   }

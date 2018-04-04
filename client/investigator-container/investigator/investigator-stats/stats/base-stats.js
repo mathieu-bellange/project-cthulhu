@@ -1,22 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BaseStat from './base-stat';
 import MvtStat from './mvt-stat';
 import './base-stats.sss';
 
 export default class BaseStats extends React.Component {
+  static propTypes = {
+    stats: PropTypes.object
+  };
+
   render() {
     return (
       <div className="base-stats">
-        <BaseStat stat={{ str: 75 }}></BaseStat>
-        <BaseStat stat={{ dex: 70 }}></BaseStat>
-        <BaseStat stat={{ con: 65 }}></BaseStat>
-        <BaseStat stat={{ int: 75 }}></BaseStat>
-        <BaseStat stat={{ edu: 60 }}></BaseStat>
-        <BaseStat stat={{ pou: 55 }}></BaseStat>
-        <BaseStat stat={{ app: 45 }}></BaseStat>
-        <BaseStat stat={{ tai: 85 }}></BaseStat>
-        <MvtStat stats={{ str: 75, dex: 70, tai: 85, age: 45 }}></MvtStat>
+        <BaseStat stat={{ str: this.props.stats.str }}></BaseStat>
+        <BaseStat stat={{ dex: this.props.stats.dex }}></BaseStat>
+        <BaseStat stat={{ con: this.props.stats.con }}></BaseStat>
+        <BaseStat stat={{ int: this.props.stats.int }}></BaseStat>
+        <BaseStat stat={{ edu: this.props.stats.edu }}></BaseStat>
+        <BaseStat stat={{ pou: this.props.stats.pou }}></BaseStat>
+        <BaseStat stat={{ app: this.props.stats.app }}></BaseStat>
+        <BaseStat stat={{ tai: this.props.stats.tai }}></BaseStat>
+        <MvtStat stats={ this.props.stats }></MvtStat>
       </div>
     );
   }
