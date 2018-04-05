@@ -8,6 +8,7 @@ export default class InvestigatorNav extends React.Component {
     activeStats: PropTypes.bool,
     activeSkills: PropTypes.bool,
     activeStuff: PropTypes.bool,
+    activeProfile: PropTypes.bool,
     onClickNavItem: PropTypes.func
   };
 
@@ -22,6 +23,9 @@ export default class InvestigatorNav extends React.Component {
         </div>
         <div className={`nav-item ${this.props.activeStuff ? 'active' : ''}`} onClick={() => this.props.onClickNavItem({ displayStuff: true })}>
           Equipement
+        </div>
+        <div className={`nav-item ${this.props.activeProfile ? 'active' : ''}`} onClick={() => this.props.onClickNavItem({ displayProfile: true })}>
+          Profil
         </div>
       </div>
     );

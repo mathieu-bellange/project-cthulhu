@@ -5,6 +5,7 @@ import InvestigatorNav from './investigator-nav';
 import InvestigatorStats from './investigator-stats';
 import InvestigatorSkills from './investigator-skills';
 import InvestigatorStuff from './investigator-stuff';
+import InvestigatorProfile from './investigator-profile';
 import './investigator.sss';
 
 export default class Investigator extends React.Component {
@@ -31,6 +32,7 @@ export default class Investigator extends React.Component {
           activeStats={ this.props.investigator.navData.displayStats }
           activeSkills={ this.props.investigator.navData.displaySkills }
           activeStuff={ this.props.investigator.navData.displayStuff }
+          activeProfile={ this.props.investigator.navData.displayProfile }
         ></InvestigatorNav>
         <div className="content">
           <InvestigatorStats
@@ -44,6 +46,9 @@ export default class Investigator extends React.Component {
           <InvestigatorStuff
             show={ this.props.investigator.navData.displayStuff }
           ></InvestigatorStuff>
+          <InvestigatorProfile
+            show={ this.props.investigator.navData.displayProfile }
+          ></InvestigatorProfile>
         </div>
       </div>
     );

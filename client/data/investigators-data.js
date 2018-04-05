@@ -94,7 +94,8 @@ const investigators = [
     navData: {
       displayStats: true,
       displayStuff: false,
-      displaySkills: false
+      displaySkills: false,
+      displayProfile: false
     }
   },
   {
@@ -183,7 +184,8 @@ const investigators = [
     navData: {
       displayStats: true,
       displayStuff: false,
-      displaySkills: false
+      displaySkills: false,
+      displayProfile: false
     }
   },
   {
@@ -281,7 +283,8 @@ const investigators = [
     navData: {
       displayStats: true,
       displayStuff: false,
-      displaySkills: false
+      displaySkills: false,
+      displayProfile: false
     }
   },
   {
@@ -360,7 +363,8 @@ const investigators = [
     navData: {
       displayStats: true,
       displayStuff: false,
-      displaySkills: false
+      displaySkills: false,
+      displayProfile: false
     }
   },
   {
@@ -439,7 +443,8 @@ const investigators = [
     navData: {
       displayStats: true,
       displayStuff: false,
-      displaySkills: false
+      displaySkills: false,
+      displayProfile: false
     }
   }
 ];
