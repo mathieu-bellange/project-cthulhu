@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import InvestigatorContainer from './investigator-container';
+import { InvestigatorContainer } from './investigator-container';
 import TimelinesContainer from './timelines-container';
 import TimeScale from './time-scale';
 import { investigators, timelines } from './data';

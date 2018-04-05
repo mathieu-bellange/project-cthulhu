@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Investigator from './investigator';
+import { Investigator } from './investigator';
 import './investigator-container.sss';
 
 export default class InvestigatorContainer extends React.Component {

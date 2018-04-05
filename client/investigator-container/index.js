@@ -1,3 +1,4 @@
 import InvestigatorContainer from './investigator-container';
+import { InvestigatorStats, InvestigatorSkills } from './investigator';
 
-export default InvestigatorContainer;
+export { InvestigatorContainer, InvestigatorStats, InvestigatorSkills };

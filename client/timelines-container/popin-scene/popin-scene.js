@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Pnjs from './pnjs';
 import ListCard from './list-card';
 import './popin-scene.sss';
 
@@ -21,7 +22,9 @@ export default class PopinScene extends React.Component {
               ''
           }
         </div>
-        <div className="aside"></div>
+        {
+          this.props.scene.pnjs ? <Pnjs pnjs={ this.props.scene.pnjs }></Pnjs> : ''
+        }
       </div>
     );
   }
