@@ -1,3 +1,4 @@
 import investigators from './investigators-data';
+import timelines from './timelines-data';
 
-export default investigators;
+export { investigators, timelines };

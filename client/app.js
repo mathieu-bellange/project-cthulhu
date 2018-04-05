@@ -4,16 +4,20 @@ import ReactDOM from 'react-dom';
 import InvestigatorContainer from './investigator-container';
 import TimelinesContainer from './timelines-container';
 import TimeScale from './time-scale';
-import investigators from './data';
+import { investigators, timelines } from './data';
 import './app.sss';
 
 class AppWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      investigators
+      investigators,
+      timelines,
+      scene: null
     };
     this.updateNavData = this.updateNavData.bind(this);
+    this.displayScene = this.displayScene.bind(this);
+    this.closeScene = this.closeScene.bind(this);
   }
 
   updateNavData(updateData) {
@@ -24,6 +28,14 @@ class AppWrapper extends React.Component {
     this.setState(newNavData);
   }
 
+  displayScene(scene) {
+    this.setState({ scene });
+  }
+
+  closeScene() {
+    this.setState({ scene: null });
+  }
+
   render() {
     return (
       <div id="wrapper">
@@ -31,7 +43,12 @@ class AppWrapper extends React.Component {
           investigators={ this.state.investigators }
           updateNavData={this.updateNavData}
         ></InvestigatorContainer>
-        <TimelinesContainer timelines={ [{}, {}] }></TimelinesContainer>
+        <TimelinesContainer
+          timelines={ this.state.timelines }
+          scene={ this.state.scene }
+          displayScene={ this.displayScene }
+          closeScene={ this.closeScene }
+        ></TimelinesContainer>
         <TimeScale></TimeScale>
       </div>
     );
