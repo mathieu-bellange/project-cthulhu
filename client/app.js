@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import InvestigatorContainer from './investigator-container';
+import TimelinesContainer from './timelines-container';
+import TimeScale from './time-scale';
 import investigators from './data';
 import './app.sss';
 
@@ -29,6 +31,8 @@ class AppWrapper extends React.Component {
           investigators={ this.state.investigators }
           updateNavData={this.updateNavData}
         ></InvestigatorContainer>
+        <TimelinesContainer timelines={ [{}, {}] }></TimelinesContainer>
+        <TimeScale></TimeScale>
       </div>
     );
   }
