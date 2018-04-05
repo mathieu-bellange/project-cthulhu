@@ -8,26 +8,32 @@ export default class Weapon extends React.Component {
     weapon: PropTypes.object
   };
 
-  half(val) {
-    return Math.trunc(val / 2);
+  constructor(props) {
+    super(props);
+    this.half = this.half.bind(this);
+    this.fifth = this.fifth.bind(this);
   }
 
-  fifth(val) {
-    return Math.trunc(val / 5);
+  half() {
+    return Math.trunc(this.props.weapon.mastery / 2);
+  }
+
+  fifth() {
+    return Math.trunc(this.props.weapon.mastery / 5);
   }
 
   render() {
     return (
       <div className="weapon">
-        <div className="weapon-item">Auto cal32</div>
-        <div className="weapon-item">70</div>
-        <div className="weapon-item">35</div>
-        <div className="weapon-item">14</div>
-        <div className="weapon-item">1D8</div>
-        <div className="weapon-item">15m</div>
-        <div className="weapon-item">1 (3)</div>
-        <div className="weapon-item">8</div>
-        <div className="weapon-item">99</div>
+        <div className="weapon-item">{ this.props.weapon.name }</div>
+        <div className="weapon-item">{ this.props.weapon.mastery }</div>
+        <div className="weapon-item">{ this.half() }</div>
+        <div className="weapon-item">{ this.fifth() }</div>
+        <div className="weapon-item">{ this.props.weapon.dmg }</div>
+        <div className="weapon-item">{ this.props.weapon.range }</div>
+        <div className="weapon-item">{ this.props.weapon.rate }</div>
+        <div className="weapon-item">{ this.props.weapon.capacity }</div>
+        <div className="weapon-item">{ this.props.weapon.breakdown }</div>
       </div>
     );
   }

@@ -7,7 +7,8 @@ import './base-stats.sss';
 
 export default class BaseStats extends React.Component {
   static propTypes = {
-    stats: PropTypes.object
+    stats: PropTypes.object,
+    age: PropTypes.number
   };
 
   render() {
@@ -21,7 +22,7 @@ export default class BaseStats extends React.Component {
         <BaseStat stat={{ pou: this.props.stats.pou }}></BaseStat>
         <BaseStat stat={{ app: this.props.stats.app }}></BaseStat>
         <BaseStat stat={{ tai: this.props.stats.tai }}></BaseStat>
-        <MvtStat stats={ this.props.stats }></MvtStat>
+        <MvtStat stats={ this.props.stats } age={ this.props.age }></MvtStat>
       </div>
     );
   }

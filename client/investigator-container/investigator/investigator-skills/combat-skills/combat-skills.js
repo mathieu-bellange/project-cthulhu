@@ -8,32 +8,19 @@ import './combat-skills.sss';
 export default class CombatSkills extends React.Component {
   static propTypes = {
     weapons: PropTypes.array,
-    dodge: PropTypes.number,
-    impact: PropTypes.number,
-    shoulders: PropTypes.number
+    dodge: PropTypes.object,
+    strength: PropTypes.number,
+    height: PropTypes.number
   };
-  constructor(props) {
-    super(props);
-    this.half = this.half.bind(this);
-    this.fifth = this.fifth.bind(this);
-  }
-
-  half() {
-    return Math.trunc(this.props.dodge / 2);
-  }
-
-  fifth() {
-    return Math.trunc(this.props.dodge / 5);
-  }
 
   render() {
     return (
       <div className="combat-skills">
         <Weapons weapons={ this.props.weapons }></Weapons>
         <CombatStats
-          dodge={ this.props.dodge }
-          impact={ this.props.impact }
-          shoulders={ this.props.shoulders }
+          dodge={ this.props.dodge.mastery }
+          strength={ this.props.strength }
+          height={ this.props.height }
         ></CombatStats>
       </div>
     );

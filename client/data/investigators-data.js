@@ -4,18 +4,18 @@ const investigators = [
       name: 'Harvey Bullock',
       player: 'Mathieu',
       occupation: 'Inspecteur',
-      img: '/images/harvey-bullock.jpg'
+      img: '/images/harvey-bullock.jpg',
+      age: 39
     },
     stats: {
-      str: 75,
+      str: 85,
       dex: 70,
       con: 65,
       int: 75,
       edu: 60,
       pou: 55,
       app: 45,
-      tai: 85,
-      age: 39
+      tai: 85
     },
     health: {
       current: 15,
@@ -34,6 +34,11 @@ const investigators = [
     },
     skills: [
       {
+        id: 'dodge',
+        name: 'Esquive',
+        mastery: 65
+      },
+      {
         name: 'Baratin',
         mastery: 65
       },
@@ -66,6 +71,26 @@ const investigators = [
         mastery: 85
       }
     ],
+    weapons: [
+      {
+        name: 'Auto cal 32',
+        mastery: 75,
+        dmg: '1D8',
+        range: '15m',
+        rate: '1 (3)',
+        capacity: '8',
+        breakdown: '99'
+      },
+      {
+        name: 'Auto cal 32',
+        mastery: 75,
+        dmg: '1D8',
+        range: '15m',
+        rate: '1 (3)',
+        capacity: '8',
+        breakdown: '99'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -77,7 +102,8 @@ const investigators = [
       name: 'Harvey Bullock',
       player: 'Mathieu',
       occupation: 'Inspecteur 2',
-      img: '/images/harvey-bullock.jpg'
+      img: '/images/harvey-bullock.jpg',
+      age: 49
     },
     stats: {
       str: 70,
@@ -87,8 +113,7 @@ const investigators = [
       edu: 60,
       pou: 55,
       app: 45,
-      tai: 60,
-      age: 49
+      tai: 60
     },
     health: {
       current: 16,
@@ -107,6 +132,11 @@ const investigators = [
     },
     skills: [
       {
+        id: 'dodge',
+        name: 'Esquive',
+        mastery: 65
+      },
+      {
         name: 'Baratin',
         mastery: 65
       },
@@ -139,6 +169,17 @@ const investigators = [
         mastery: 85
       }
     ],
+    weapons: [
+      {
+        name: 'Auto cal 32',
+        mastery: 75,
+        dmg: '1D8',
+        range: '15m',
+        rate: '1 (3)',
+        capacity: '8',
+        breakdown: '99'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -150,7 +191,8 @@ const investigators = [
       name: 'Harvey Bullock',
       player: 'Mathieu',
       occupation: 'Inspecteur 3',
-      img: '/images/harvey-bullock.jpg'
+      img: '/images/harvey-bullock.jpg',
+      age: 59
     },
     stats: {
       str: 71,
@@ -160,8 +202,7 @@ const investigators = [
       edu: 60,
       pou: 55,
       app: 45,
-      tai: 70,
-      age: 59
+      tai: 70
     },
     health: {
       current: 17,
@@ -180,6 +221,11 @@ const investigators = [
     },
     skills: [
       {
+        id: 'dodge',
+        name: 'Esquive',
+        mastery: 65
+      },
+      {
         name: 'Baratin',
         mastery: 65
       },
@@ -212,6 +258,26 @@ const investigators = [
         mastery: 85
       }
     ],
+    weapons: [
+      {
+        name: 'Auto cal 32',
+        mastery: 75,
+        dmg: '1D8',
+        range: '15m',
+        rate: '1 (3)',
+        capacity: '8',
+        breakdown: '99'
+      },
+      {
+        name: 'Auto cal 32',
+        mastery: 75,
+        dmg: '1D8',
+        range: '15m',
+        rate: '1 (3)',
+        capacity: '8',
+        breakdown: '99'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -223,7 +289,8 @@ const investigators = [
       name: 'Harvey Bullock',
       player: 'Mathieu',
       occupation: 'Inspecteur 4',
-      img: '/images/harvey-bullock.jpg'
+      img: '/images/harvey-bullock.jpg',
+      age: 69
     },
     stats: {
       str: 72,
@@ -233,8 +300,7 @@ const investigators = [
       edu: 60,
       pou: 55,
       app: 45,
-      tai: 72,
-      age: 69
+      tai: 72
     },
     health: {
       current: 18,
@@ -253,6 +319,11 @@ const investigators = [
     },
     skills: [
       {
+        id: 'dodge',
+        name: 'Esquive',
+        mastery: 65
+      },
+      {
         name: 'Baratin',
         mastery: 65
       },
@@ -285,6 +356,7 @@ const investigators = [
         mastery: 85
       }
     ],
+    weapons: [],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -296,7 +368,8 @@ const investigators = [
       name: 'Harvey Bullock',
       player: 'Mathieu',
       occupation: 'Inspecteur 5',
-      img: '/images/harvey-bullock.jpg'
+      img: '/images/harvey-bullock.jpg',
+      age: 79
     },
     stats: {
       str: 49,
@@ -306,8 +379,7 @@ const investigators = [
       edu: 60,
       pou: 55,
       app: 45,
-      tai: 50,
-      age: 79
+      tai: 50
     },
     health: {
       current: 19,
@@ -326,6 +398,11 @@ const investigators = [
     },
     skills: [
       {
+        id: 'dodge',
+        name: 'Esquive',
+        mastery: 65
+      },
+      {
         name: 'Baratin',
         mastery: 65
       },
@@ -358,6 +435,7 @@ const investigators = [
         mastery: 85
       }
     ],
+    weapons: [],
     navData: {
       displayStats: true,
       displayStuff: false,

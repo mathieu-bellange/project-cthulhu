@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class MvtStat extends React.Component {
   static propTypes = {
-    stats: PropTypes.object.isRequired
+    stats: PropTypes.object,
+    age: PropTypes.number
   };
 
   constructor(props) {
@@ -12,7 +13,7 @@ export default class MvtStat extends React.Component {
   }
 
   calcul() {
-    const { str, dex, tai, age } = this.props.stats;
+    const { str, dex, tai } = this.props.stats;
     let mvt;
     if (str < tai && dex < tai) {
       mvt = 7;
@@ -21,15 +22,15 @@ export default class MvtStat extends React.Component {
     } else if (str >= tai || dex >= tai || (str === tai && dex === tai)) {
       mvt = 8;
     }
-    if (age >= 40 && age < 50) {
+    if (this.props.age >= 40 && this.props.age < 50) {
       mvt -= 1;
-    } else if (age >= 50 && age < 60) {
+    } else if (this.props.age >= 50 && this.props.age < 60) {
       mvt -= 2;
-    } else if (age >= 60 && age < 70) {
+    } else if (this.props.age >= 60 && this.props.age < 70) {
       mvt -= 3;
-    } else if (age >= 70 && age < 80) {
+    } else if (this.props.age >= 70 && this.props.age < 80) {
       mvt -= 4;
-    } else if (age >= 80 && age < 90) {
+    } else if (this.props.age >= 80 && this.props.age < 90) {
       mvt -= 5;
     }
     return mvt;

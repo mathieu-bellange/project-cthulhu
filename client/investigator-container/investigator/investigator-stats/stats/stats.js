@@ -18,7 +18,7 @@ export default class Stats extends React.Component {
           <img src={ this.props.civilState.img }></img>
         </div>
         <CivilState civilState={ this.props.civilState}></CivilState>
-        <BaseStats stats={ this.props.stats }></BaseStats>
+        <BaseStats stats={ this.props.stats } age={ this.props.civilState.age }></BaseStats>
       </div>
     );
   }
