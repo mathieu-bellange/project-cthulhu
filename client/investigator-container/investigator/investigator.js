@@ -48,6 +48,7 @@ export default class Investigator extends React.Component {
           ></InvestigatorStuff>
           <InvestigatorProfile
             show={ this.props.investigator.navData.displayProfile }
+            profile={ this.props.investigator.profile }
           ></InvestigatorProfile>
         </div>
       </div>

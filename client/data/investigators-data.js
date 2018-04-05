@@ -91,6 +91,28 @@ const investigators = [
         breakdown: '99'
       }
     ],
+    profile: [
+      {
+        name: 'Description',
+        value: 'mon cul'
+      },
+      {
+        name: 'Idéologie et croyances',
+        value: 'mon cul'
+      },
+      {
+        name: 'Personnes importantes',
+        value: 'mon cul'
+      },
+      {
+        name: 'Lieux significatifs',
+        value: 'mon cul'
+      },
+      {
+        name: 'Bien précieux',
+        value: 'mon cul'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -179,6 +201,12 @@ const investigators = [
         rate: '1 (3)',
         capacity: '8',
         breakdown: '99'
+      }
+    ],
+    profile: [
+      {
+        name: 'Description',
+        value: 'mon cul'
       }
     ],
     navData: {
@@ -280,6 +308,12 @@ const investigators = [
         breakdown: '99'
       }
     ],
+    profile: [
+      {
+        name: 'Description',
+        value: 'mon cul'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -360,6 +394,12 @@ const investigators = [
       }
     ],
     weapons: [],
+    profile: [
+      {
+        name: 'Description',
+        value: 'mon cul'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -440,6 +480,12 @@ const investigators = [
       }
     ],
     weapons: [],
+    profile: [
+      {
+        name: 'Description',
+        value: 'mon cul'
+      }
+    ],
     navData: {
       displayStats: true,
       displayStuff: false,
