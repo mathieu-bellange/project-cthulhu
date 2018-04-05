@@ -13,7 +13,7 @@ class AppWrapper extends React.Component {
     this.state = {
       investigators,
       timelines,
-      scene: null
+      scene: {}
     };
     this.updateNavData = this.updateNavData.bind(this);
     this.displayScene = this.displayScene.bind(this);
@@ -33,7 +33,7 @@ class AppWrapper extends React.Component {
   }
 
   closeScene() {
-    this.setState({ scene: null });
+    this.setState({ scene: {} });
   }
 
   render() {

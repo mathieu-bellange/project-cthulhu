@@ -19,7 +19,14 @@ const timelines = [
             name: 'tests'
           }
         ],
-        interests: []
+        interests: [
+          {
+            name: 'Trouver un objet, Test majeur TOC'
+          },
+          {
+            name: 'Trouver une piste, Test Pistage'
+          }
+        ]
       },
       {
         pnjs: [],
