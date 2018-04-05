@@ -113,6 +113,16 @@ const investigators = [
         value: 'mon cul'
       }
     ],
+    stuff: [
+      'Automatique cal 32',
+      'Ma bite',
+      'Et mon couteau'
+    ],
+    wealth: {
+      current: 'Moyenne (10$)',
+      cash: '70$',
+      capital: '1750$'
+    },
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -209,6 +219,15 @@ const investigators = [
         value: 'mon cul'
       }
     ],
+    stuff: [
+      'Automatique cal 32',
+      'Ma bite'
+    ],
+    wealth: {
+      current: 'Moyenne (10$)',
+      cash: '70$',
+      capital: '1750$'
+    },
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -308,12 +327,21 @@ const investigators = [
         breakdown: '99'
       }
     ],
+    stuff: [
+      'Ma bite',
+      'Et mon couteau'
+    ],
     profile: [
       {
         name: 'Description',
         value: 'mon cul'
       }
     ],
+    wealth: {
+      current: 'Moyenne (10$)',
+      cash: '70$',
+      capital: '1750$'
+    },
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -394,12 +422,18 @@ const investigators = [
       }
     ],
     weapons: [],
+    stuff: [],
     profile: [
       {
         name: 'Description',
         value: 'mon cul'
       }
     ],
+    wealth: {
+      current: 'Moyenne (10$)',
+      cash: '70$',
+      capital: '1750$'
+    },
     navData: {
       displayStats: true,
       displayStuff: false,
@@ -480,12 +514,13 @@ const investigators = [
       }
     ],
     weapons: [],
-    profile: [
-      {
-        name: 'Description',
-        value: 'mon cul'
-      }
-    ],
+    stuff: [],
+    profile: [],
+    wealth: {
+      current: 'Moyenne (10$)',
+      cash: '70$',
+      capital: '1750$'
+    },
     navData: {
       displayStats: true,
       displayStuff: false,
