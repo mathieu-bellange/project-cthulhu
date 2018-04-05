@@ -14,6 +14,7 @@ export default class CivilState extends React.Component {
         <div>{ this.props.civilState.name }</div>
         <div>{ this.props.civilState.player }</div>
         <div>{ this.props.civilState.occupation }</div>
+        <div>{ this.props.civilState.age }</div>
       </div>
     );
   }
