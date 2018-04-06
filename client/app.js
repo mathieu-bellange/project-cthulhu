@@ -12,12 +12,16 @@ class AppWrapper extends React.Component {
     super(props);
     this.state = {
       investigators,
-      timelines,
+      timelines: timelines[0],
       scene: {}
     };
     this.updateNavData = this.updateNavData.bind(this);
     this.displayScene = this.displayScene.bind(this);
     this.closeScene = this.closeScene.bind(this);
+    this.isThereNextDay = this.isThereNextDay.bind(this);
+    this.isTherePreviousDay = this.isTherePreviousDay.bind(this);
+    this.onClickPreviousDay = this.onClickPreviousDay.bind(this);
+    this.onClickNextDay = this.onClickNextDay.bind(this);
   }
 
   updateNavData(updateData) {
@@ -36,6 +40,27 @@ class AppWrapper extends React.Component {
     this.setState({ scene: {} });
   }
 
+  isThereNextDay() {
+    return timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this) <
+      timelines.length - 1;
+  }
+
+  isTherePreviousDay() {
+    return timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this) > 0;
+  }
+
+  onClickNextDay() {
+    const nextIndex = timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this)
+      + 1;
+    this.setState({ timelines: timelines[nextIndex] });
+  }
+
+  onClickPreviousDay() {
+    const prevIndex = timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this)
+      - 1;
+    this.setState({ timelines: timelines[prevIndex] });
+  }
+
   render() {
     return (
       <div id="wrapper">
@@ -48,6 +73,10 @@ class AppWrapper extends React.Component {
           scene={ this.state.scene }
           displayScene={ this.displayScene }
           closeScene={ this.closeScene }
+          isThereNextDay={ this.isThereNextDay }
+          isTherePreviousDay={ this.isTherePreviousDay }
+          onClickNextDay={ this.onClickNextDay }
+          onClickPreviousDay={ this.onClickPreviousDay }
         ></TimelinesContainer>
         <TimeScale></TimeScale>
       </div>
