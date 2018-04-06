@@ -8,7 +8,6 @@ import './combat-skills.sss';
 export default class CombatSkills extends React.Component {
   static propTypes = {
     weapons: PropTypes.array,
-    dodge: PropTypes.object,
     strength: PropTypes.number,
     height: PropTypes.number
   };
@@ -18,7 +17,6 @@ export default class CombatSkills extends React.Component {
       <div className="combat-skills">
         <Weapons weapons={ this.props.weapons }></Weapons>
         <CombatStats
-          dodge={ this.props.dodge.mastery }
           strength={ this.props.strength }
           height={ this.props.height }
         ></CombatStats>

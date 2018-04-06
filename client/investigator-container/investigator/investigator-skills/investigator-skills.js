@@ -17,7 +17,6 @@ export default class InvestigatorSkills extends React.Component {
         <Skills skills={ this.props.investigator.skills }></Skills>
         <CombatSkills
           weapons={ this.props.investigator.weapons }
-          dodge={ this.props.investigator.skills.find(skill => skill.id === 'dodge') }
           strength={ this.props.investigator.stats.str }
           height={ this.props.investigator.stats.tai }
         ></CombatSkills>

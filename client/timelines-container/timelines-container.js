@@ -30,20 +30,22 @@ export default class TimelinesContainer extends React.Component {
               displayScene={ this.props.displayScene }
             ></Timeline>)
         }
-        <SelectDay
-          onClick={ this.props.onClickNextDay }
-          show={ this.props.isThereNextDay() }
-          classNames={ ['next-day'] }
-          icon="fa-caret-right"
-          name="Prochain jour"
-        ></SelectDay>
-        <SelectDay
-          onClick={ this.props.onClickPreviousDay }
-          show={ this.props.isTherePreviousDay() }
-          classNames={ ['previous-day'] }
-          icon="fa-caret-left"
-          name="Précédent jour"
-        ></SelectDay>
+        <div className="buttons">
+            <SelectDay
+              onClick={ this.props.onClickPreviousDay }
+              show={ this.props.isTherePreviousDay() }
+              classNames={ ['previous-day'] }
+              icon="fa-caret-left"
+              name="Précédent jour"
+            ></SelectDay>
+            <SelectDay
+              onClick={ this.props.onClickNextDay }
+              show={ this.props.isThereNextDay() }
+              classNames={ ['next-day'] }
+              icon="fa-caret-right"
+              name="Prochain jour"
+            ></SelectDay>
+        </div>
         <PopinScene closeScene={ this.props.closeScene } scene={ this.props.scene }></PopinScene>
       </div>
     );

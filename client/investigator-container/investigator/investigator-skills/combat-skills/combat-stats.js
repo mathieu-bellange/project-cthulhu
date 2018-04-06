@@ -5,24 +5,13 @@ import './combat-stats.sss';
 
 export default class CombatStats extends React.Component {
   static propTypes = {
-    dodge: PropTypes.number,
     strength: PropTypes.number,
     height: PropTypes.number
   };
   constructor(props) {
     super(props);
-    this.half = this.half.bind(this);
-    this.fifth = this.fifth.bind(this);
     this.impact = this.impact.bind(this);
     this.shoulders = this.shoulders.bind(this);
-  }
-
-  half() {
-    return Math.trunc(this.props.dodge / 2);
-  }
-
-  fifth() {
-    return Math.trunc(this.props.dodge / 5);
   }
 
   impact() {
@@ -69,16 +58,6 @@ export default class CombatStats extends React.Component {
         <div className="combat-stat">
           <span>Carrure</span>
           <span>{ this.shoulders() }</span>
-        </div>
-        <div className="combat-stat">
-          <span>Esquive</span>
-          <div className="roll-info">
-            <div className="ordinary">{ this.props.dodge }</div>
-            <div className="other">
-              <div className="major">{ this.half() }</div>
-              <div className="extreme">{ this.fifth() }</div>
-            </div>
-          </div>
         </div>
       </div>
     );
