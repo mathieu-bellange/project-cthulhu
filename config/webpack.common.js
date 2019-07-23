@@ -2,12 +2,13 @@
  * @author: mbellange
  */
 const helpers = require('./helpers');
+const devMode = process.env.NODE_ENV !== 'production'
 
 /**
  * Webpack Plugins
  */
-const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 /**
  * Webpack configuration
@@ -18,18 +19,18 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 
   entry: {
-    main: './client/app',
-    vendor: './client/vendor'
+    main: './client/app'
   },
 
   resolve: {
-    extensions: ['.js', '.css'],
+    extensions: ['.js', '.sss'],
     modules: [helpers.root('client'), helpers.root('public'), helpers.root('node_modules')]
   },
 
   module: {
 
     rules: [
+
       {
         test: /\.js$/,
         exclude: [/node_modules/, /config/, /server/, /public/],
@@ -38,8 +39,19 @@ module.exports = {
 
       {
         test: /\.sss$/,
+        exclude: [/@fortawesome/],
         use: [
-          'style-loader',
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader'
+        ]
+      },
+
+      {
+        test: /\.css$/,
+        include: [/@fortawesome/],
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -49,16 +61,10 @@ module.exports = {
                 './images': 'images'
               }
             }
-          },
-          'postcss-loader'
+          }
         ]
       },
 
-      {
-        test: /\.html$/,
-        use: 'raw-loader',
-        exclude: [helpers.root('client/index.html')]
-      },
       {
         test: /\.(woff(2)?|ttf|eot|png|jpg|jpeg|gif|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
@@ -73,12 +79,39 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('app.css'),
-
-    new CommonsChunkPlugin({
-      names: ['vendor']
-    })
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+    }),
+    new CleanWebpackPlugin()
   ],
+
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  },
 
   node: {
     global: true,

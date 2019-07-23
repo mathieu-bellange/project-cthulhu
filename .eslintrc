@@ -1,10 +1,11 @@
 {
   "root": true,
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb-base", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
     "react"
   ],
@@ -12,5 +13,10 @@
     "space-before-function-paren": [2, "never"],
     "comma-dangle": ["error", "never"],
     "class-methods-use-this": ["error", { "exceptMethods": ["render"] }]
+  },
+  "settings": {
+      "react": {
+        "version": "detect"
+      }
   }
 }

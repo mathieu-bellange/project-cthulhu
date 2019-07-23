@@ -1,84 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { InvestigatorContainer } from './investigator-container';
-import TimelinesContainer from './timelines-container';
-import TimeScale from './time-scale';
-import { investigators, timelines } from './data';
 import './app.sss';
 
 class AppWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      investigators,
-      timelines: timelines[0],
-      scene: {}
     };
-    this.updateNavData = this.updateNavData.bind(this);
-    this.displayScene = this.displayScene.bind(this);
-    this.closeScene = this.closeScene.bind(this);
-    this.isThereNextDay = this.isThereNextDay.bind(this);
-    this.isTherePreviousDay = this.isTherePreviousDay.bind(this);
-    this.onClickPreviousDay = this.onClickPreviousDay.bind(this);
-    this.onClickNextDay = this.onClickNextDay.bind(this);
-  }
-
-  updateNavData(updateData) {
-    const newNavData = Object.assign(this.state.investigators[updateData.key].navData, updateData.value);
-    Object.keys(this.state.investigators[updateData.key].navData).forEach((key) => {
-      if (key !== Object.keys(updateData.value)[0]) newNavData[key] = false;
-    });
-    this.setState(newNavData);
-  }
-
-  displayScene(scene) {
-    this.setState({ scene });
-  }
-
-  closeScene() {
-    this.setState({ scene: {} });
-  }
-
-  isThereNextDay() {
-    return timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this) <
-      timelines.length - 1;
-  }
-
-  isTherePreviousDay() {
-    return timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this) > 0;
-  }
-
-  onClickNextDay() {
-    const nextIndex = timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this)
-      + 1;
-    this.setState({ timelines: timelines[nextIndex] });
-  }
-
-  onClickPreviousDay() {
-    const prevIndex = timelines.findIndex(timeline => this.state.timelines.id === timeline.id, this)
-      - 1;
-    this.setState({ timelines: timelines[prevIndex] });
   }
 
   render() {
     return (
       <div id="wrapper">
-        <InvestigatorContainer
-          investigators={ this.state.investigators }
-          updateNavData={this.updateNavData}
-        ></InvestigatorContainer>
-        <TimelinesContainer
-          timelines={ this.state.timelines }
-          scene={ this.state.scene }
-          displayScene={ this.displayScene }
-          closeScene={ this.closeScene }
-          isThereNextDay={ this.isThereNextDay }
-          isTherePreviousDay={ this.isTherePreviousDay }
-          onClickNextDay={ this.onClickNextDay }
-          onClickPreviousDay={ this.onClickPreviousDay }
-        ></TimelinesContainer>
-        <TimeScale></TimeScale>
+
       </div>
     );
   }
