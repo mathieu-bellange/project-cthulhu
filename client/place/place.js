@@ -14,13 +14,15 @@ class PlaceComponent extends React.Component {
   static propTypes = {
     card: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    sound: PropTypes.object,
+    saveSoundRef: PropTypes.func.isRequired
   };
 
   constructor(props){
      super(props);
      this.state = {
-       play: false
+       play: props.sound ? props.sound.playing() : false
      };
      this.goBack = this.goBack.bind(this);
      this.play = this.play.bind(this);
@@ -28,23 +30,26 @@ class PlaceComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.sound = new Howl({
-       src: this.props.card.music,
-       html5: true,
-       autoplay: true,
-       loop: true,
-       volume: 0.5
-     });
+    if (!this.props.sound && this.props.card.music) {
+      this.sound = new Howl({
+        src: this.props.card.music,
+        html5: true,
+        autoplay: true,
+        loop: true,
+        volume: 0.5
+      });
+      this.props.saveSoundRef({ [this.props.match.params.otherId ? this.props.match.params.otherId : this.props.match.params.id]: this.sound});
+    }
   }
 
   play() {
     this.setState({ play: true });
-    this.sound.play();
+    this.props.sound ? this.props.sound.play() : this.sound.play();
   }
 
   pause() {
     this.setState({ play: false });
-    this.sound.pause();
+    this.props.sound ? this.props.sound.pause() : this.sound.pause();
   }
 
   goBack(){

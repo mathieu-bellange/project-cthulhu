@@ -11,7 +11,7 @@
     "start": "npm run webpack:dev",
     "start:prod": "npm run build:prod && npm run server:prod",
     "express:dev": "node server/server.js",
-    "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch",
+    "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --host 0.0.0.0",
     "server:prod": "http-server dist --cors -o -c-1 -p 3000"
   },
   "devDependencies": {

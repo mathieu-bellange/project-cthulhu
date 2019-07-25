@@ -14,8 +14,14 @@ class AppWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data
+      data,
+      sounds: {}
     };
+    this.onSaveSoundRef = this.onSaveSoundRef.bind(this);
+  }
+
+  onSaveSoundRef(sound) {
+    this.setState({ sounds: { ...this.state.sounds, ...sound}});
   }
 
   render() {
@@ -37,13 +43,21 @@ class AppWrapper extends React.Component {
           path="/place/:id"
           exact
           render={(props) =>
-            <Place card={this.state.data[props.match.params.id].card} />
+            <Place
+              card={this.state.data[props.match.params.id].card}
+              sound={this.state.sounds[props.match.params.id]}
+              saveSoundRef={this.onSaveSoundRef}
+              />
           }
         />
         <Route
           path="/place/:id/:otherId"
           render={(props) =>
-            <Place card={this.state.data[props.match.params.id].card.insidePlace[props.match.params.otherId].card} />
+            <Place
+              card={this.state.data[props.match.params.id].card.insidePlace[props.match.params.otherId].card}
+              sound={this.state.sounds[props.match.params.otherId]}
+              saveSoundRef={this.onSaveSoundRef}
+            />
           }
         />
       </Router>
