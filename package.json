@@ -11,7 +11,7 @@
     "start": "npm run webpack:dev",
     "start:prod": "npm run build:prod && npm run server:prod",
     "express:dev": "node server/server.js",
-    "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base client/",
+    "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch",
     "server:prod": "http-server dist --cors -o -c-1 -p 3000"
   },
   "devDependencies": {
@@ -40,6 +40,7 @@
     "postcss-loader": "3.0.0",
     "precss": "3.1.2",
     "raw-loader": "0.5.1",
+    "react-hot-loader": "^4.12.9",
     "resolve-url-loader": "2.1.0",
     "source-map-loader": "0.2.1",
     "style-loader": "0.23.0",
@@ -53,10 +54,16 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "howler": "^2.1.2",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
+    "react-transition-group": "^4.2.1",
     "rxjs": "^6.5.2"
   }
 }

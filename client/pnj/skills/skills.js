@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Skill from './skill';
 import './skills.sss';
 
-export default class Skills extends React.Component {
+export class Skills extends React.Component {
   static propTypes = {
     skills: PropTypes.array
   };

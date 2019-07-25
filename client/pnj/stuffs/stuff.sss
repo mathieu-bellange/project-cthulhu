@@ -1,0 +1,55 @@
+.stuff
+  display: flex
+  background-color: #1E1E1E
+  color: #9B9B9B
+  border-radius: 10px
+  padding: 0.75em
+  flex-direction: column
+  max-height: 10em
+  overflow: hidden
+  font-size: 0.95em
+  &:hover
+    cursor: pointer
+  &.lg
+    flex-basis: 100%
+    max-height: none
+    .spell-effect
+      font-size: 0.95em
+  img
+    padding: 0.25em
+    width: 1.5em
+    filter: invert(71%) sepia(27%) saturate(4458%) hue-rotate(125deg) brightness(96%) contrast(103%)
+  .stuff-overview
+    display: flex
+    justify-content: space-between
+    margin-bottom: 0.5em
+    .name
+      display: flex
+      align-items: center
+      font-weight: bold
+      color: #E1E1E1
+  .stuff-description
+    font-size: 0.80em
+    margin-bottom: 0.25em
+    &.hide
+      display: none
+  .other
+    display: flex
+    color: #BB86FC
+    font-style: italic
+    font-size: 0.9em
+    justify-content: space-between
+    &.hide
+      display: none
+    & > *
+      width: 50%
+    .stuff-effect
+      display: flex
+      align-items: flex-start
+      svg
+        color: #03DAC6
+        margin: 0.25em 1em
+      img
+        padding: 0
+        margin: 0.25em 1em
+        width: 1em
