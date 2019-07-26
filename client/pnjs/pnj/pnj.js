@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import './pnj.sss';
 
@@ -45,6 +46,7 @@ export class PnjComponent extends React.Component {
             </div>
           </div>
           <div className={`details ${this.props.isFullPage || this.state.maximize ? '' : 'minimize'}`}>
+            { this.props.pnj.id && !this.props.isFullPage  ? <Link to={`/pnj/${ this.props.pnj.id }`}><div className="full-page">Plus d info...</div></Link> : '' }
             { this.props.pnj.stats ? <BaseStats stats={this.props.pnj.stats} /> : ''}
             { this.props.pnj.skills ?<Skills skills={ this.props.pnj.skills }></Skills> : ''}
             { this.props.minimize || !this.props.pnj.weapons ? '' : <Weapons weapons={ this.props.pnj.weapons }></Weapons> }
