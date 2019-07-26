@@ -8,7 +8,7 @@ import './app.sss';
 import { NavPanel } from './nav-panel';
 import { Place } from './place';
 import { Dashboard } from './dashboard';
-import { Pnj } from './pnj';
+import { Pnj } from './pnjs';
 import * as store from './data';
 
 class AppWrapper extends React.Component {
@@ -37,7 +37,7 @@ class AppWrapper extends React.Component {
           exact
           render={(props) =>
             <NavPanel title={store.getPnjById(props.match.params.id).title} history={props.history}>
-              <Pnj card={store.getPnjById(props.match.params.id)} />
+              <Pnj isFullPage={true} pnj={store.getPnjById(props.match.params.id)} />
             </NavPanel>
           }
         />

@@ -36,5 +36,14 @@ const data = {
 
 export const getData = () => data;
 export const getPnjById = id => data[id] ? data[id].pnj : {};
-export const getPlaceById = id => data[id] ? data[id].place : {};
+export const getPlaceById = id => {
+  if (!data[id]) return {};
+  const basePlace = data[id].place;
+  const pnjs = [];
+  basePlace.pnjs.forEach(pnj => {
+    if (pnj instanceof Object) pnjs.push(pnj)
+    else pnjs.push(getPnjById(pnj))
+  });
+  return Object.assign({}, basePlace, { pnjs });
+};
 export const getNestedPlaceById = (idPlace, idNestedPlace) => getPlaceById(idPlace).insidePlace ? getPlaceById(idPlace).insidePlace[idNestedPlace].place : {};

@@ -2,6 +2,17 @@
   display: flex
   flex-direction: column
   font-size: 0.8em
+  &.maximize
+    flex-basis: 100%
+    margin-right: 0
+    .content
+      .overview.minimize
+        flex-basis: 35%
+        img
+          max-height: none
+      .details
+        padding-right: 0
+        padding-top: 0
   .content
     display: flex
     & > *
@@ -13,6 +24,13 @@
       flex-direction: column
       align-content: space-between
       flex-basis: 40%
+      &.minimize
+        flex-basis: 100%
+        padding: 0
+        img
+          max-height: 5em
+        &:hover
+          cursor: pointer
       .card-wrapper
         margin-bottom: 1em
     .details
@@ -21,6 +39,11 @@
       align-items: flex-start
       justify-content: flex-start
       flex-basis: 100%
+      &.minimize
+        display: none
+      &.maximize
+        padding-top: 0
+        padding-right: 0
       & > *
         width: 100%
         margin-bottom: 0.5em

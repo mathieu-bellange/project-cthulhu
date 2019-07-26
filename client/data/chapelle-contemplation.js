@@ -11,6 +11,26 @@ export const ChapelleContemplation = {
       naturelles.`,
     overview: "place-default.png",
     music: ["https://tabletopaudio.com/download.php?downld_file=177_Tavern_Music.mp3"],
+    pnjs: ['walter-corbitt', {
+      title: 'Son nom',
+      desc: `une petite description visuelle`,
+      overview: 'lovecraft.jpg',
+      clues: [
+        {
+          condition: {
+            title: 'Test',
+            type: 'see'
+          },
+          clue: `a voir`,
+          sideEffects: [`oups`]
+        }
+      ],
+      stats: {
+        str: 90,
+        dex: 35,
+        con: 110
+      }
+    }],
     clues: [
       {
         condition: {

@@ -9,6 +9,7 @@ import {Howl} from 'howler';
 import './place.sss';
 import { CardLink, Card } from '../card';
 import { Clue } from '../clues';
+import { Pnjs } from '../pnjs';
 
 class PlaceComponent extends React.Component {
   static propTypes = {
@@ -74,9 +75,12 @@ class PlaceComponent extends React.Component {
             </div>
           </div>
           <div className="details">
-            { this.props.card.clues.map((clue, index) =>
-              <Clue key={index} clue={ clue } />
-            )}
+            <Pnjs pnjs={this.props.card.pnjs} />
+            <div className="clues">
+              { this.props.card.clues.map((clue, index) =>
+                <Clue key={index} clue={ clue } />
+              )}
+            </div>
           </div>
         </div>
       </div>
