@@ -5,16 +5,16 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './app.sss';
 
+import { NavPanel } from './nav-panel';
 import { Place } from './place';
 import { Dashboard } from './dashboard';
 import { Pnj } from './pnj';
-import { data } from './data';
+import * as store from './data';
 
 class AppWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data,
       sounds: {}
     };
     this.onSaveSoundRef = this.onSaveSoundRef.bind(this);
@@ -30,34 +30,40 @@ class AppWrapper extends React.Component {
         <Route
           path="/"
           exact
-          render={() => <Dashboard cards={this.state.data} />}
+          render={() => <Dashboard cards={store.getData()} />}
         />
         <Route
           path="/pnj/:id"
           exact
           render={(props) =>
-            <Pnj card={this.state.data[props.match.params.id].card} />
+            <NavPanel title={store.getPnjById(props.match.params.id).title} history={props.history}>
+              <Pnj card={store.getPnjById(props.match.params.id)} />
+            </NavPanel>
           }
         />
         <Route
           path="/place/:id"
           exact
           render={(props) =>
-            <Place
-              card={this.state.data[props.match.params.id].card}
-              sound={this.state.sounds[props.match.params.id]}
-              saveSoundRef={this.onSaveSoundRef}
-              />
+            <NavPanel title={store.getPlaceById(props.match.params.id).title} history={props.history}>
+              <Place
+                card={store.getPlaceById(props.match.params.id)}
+                sound={this.state.sounds[props.match.params.id]}
+                saveSoundRef={this.onSaveSoundRef}
+                />
+            </NavPanel>
           }
         />
         <Route
           path="/place/:id/:otherId"
           render={(props) =>
-            <Place
-              card={this.state.data[props.match.params.id].card.insidePlace[props.match.params.otherId].card}
-              sound={this.state.sounds[props.match.params.otherId]}
-              saveSoundRef={this.onSaveSoundRef}
-            />
+            <NavPanel title={store.getNestedPlaceById(props.match.params.id, props.match.params.otherId).title} history={props.history}>
+              <Place
+                card={store.getNestedPlaceById(props.match.params.id, props.match.params.otherId)}
+                sound={this.state.sounds[props.match.params.otherId]}
+                saveSoundRef={this.onSaveSoundRef}
+              />
+            </NavPanel>
           }
         />
       </Router>

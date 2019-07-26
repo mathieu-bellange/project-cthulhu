@@ -1,6 +1,6 @@
 export const WalterCorbitt = {
   url: 'pnj/walter-corbitt',
-  card: {
+  pnj: {
     title: 'Walter Corbitt, mort vivant démoniaque',
     desc: `C'est une maigre créature humanoïde d'un
       mètre quatre-vingt, totalement nue, aux

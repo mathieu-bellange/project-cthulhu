@@ -19,7 +19,7 @@ class CardLinkComponent extends React.Component {
         pathname: this.props.match.url + this.props.cardLink.url,
         state: { card: this.props.cardLink.card }
       }} className="card-link">
-        <Card limitImgHeight={true} showTitle={true} showDesc={this.props.showDesc} card={ this.props.cardLink.card }></Card>
+        <Card limitImgHeight={true} showTitle={true} showDesc={this.props.showDesc} card={ this.props.cardLink.place || this.props.cardLink.pnj }></Card>
       </Link>
     );
   }

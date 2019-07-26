@@ -1,6 +1,6 @@
 export const APlace = {
   url: '',
-  card: {
+  place: {
     title: '',
     desc: ``,
     overview: '.png',

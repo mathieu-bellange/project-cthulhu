@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from "react-router";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import './pnj.sss';
 
@@ -16,30 +14,16 @@ import { Clue } from '../clues';
 
 export class PnjComponent extends React.Component {
   static propTypes = {
-    history: PropTypes.object.isRequired,
     card: PropTypes.object.isRequired
   };
 
   constructor(props){
      super(props);
-     this.goBack = this.goBack.bind(this);
-  }
-
-  goBack(){
-      this.props.history.goBack();
   }
 
   render() {
     return (
       <div className="pnj">
-        <div className="header">
-          <div className="back-nav">
-            <FontAwesomeIcon icon={faArrowLeft} size="lg" onClick={this.goBack}/>
-          </div>
-          <div className="title">
-            <h1>{this.props.card.title}</h1>
-          </div>
-        </div>
         <div className="content">
           <div className="overview">
             <div className="card-wrapper">

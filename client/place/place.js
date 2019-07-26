@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
 import { map } from 'lodash';
 import {Howl} from 'howler';
 
@@ -13,7 +13,6 @@ import { Clue } from '../clues';
 class PlaceComponent extends React.Component {
   static propTypes = {
     card: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired,
     sound: PropTypes.object,
     saveSoundRef: PropTypes.func.isRequired
@@ -24,7 +23,6 @@ class PlaceComponent extends React.Component {
      this.state = {
        play: props.sound ? props.sound.playing() : false
      };
-     this.goBack = this.goBack.bind(this);
      this.play = this.play.bind(this);
      this.pause = this.pause.bind(this);
   }
@@ -52,21 +50,9 @@ class PlaceComponent extends React.Component {
     this.props.sound ? this.props.sound.pause() : this.sound.pause();
   }
 
-  goBack(){
-      this.props.history.goBack();
-  }
-
   render() {
     return (
       <div className="place">
-        <div className="header">
-          <div className="back-nav">
-            <FontAwesomeIcon icon={faArrowLeft} size="lg" onClick={this.goBack}/>
-          </div>
-          <div className="title">
-            <h1>{this.props.card.title}</h1>
-          </div>
-        </div>
         <div className="content">
           <div className="overview">
             <div className="card-wrapper">

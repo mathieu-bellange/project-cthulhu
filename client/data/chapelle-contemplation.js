@@ -2,7 +2,7 @@ import { CaveContemplation } from './cave-contemplation';
 
 export const ChapelleContemplation = {
   url: 'place/contemplation',
-  card: {
+  place: {
     title: 'La Chapelle de la Contemplation',
     desc: `Ce qui reste de cet édifice se trouve à
       l’extrémité d’une ruelle insalubre, tellement

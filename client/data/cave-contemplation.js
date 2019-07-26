@@ -1,6 +1,6 @@
 export const CaveContemplation = {
   url: '/cave',
-  card: {
+  place: {
     title: 'Cave de la chapelle de la contemplation',
     desc: `La cave qu’ils découvrent était
       indépendante du reste du sous-sol et on y
