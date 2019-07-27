@@ -4,6 +4,7 @@ export const APlace = {
     title: '',
     desc: ``,
     overview: '.png',
+    pnjs: ['', { }],
     clues: [
       {
         condition: {

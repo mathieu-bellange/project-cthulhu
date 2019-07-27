@@ -75,7 +75,7 @@ class PlaceComponent extends React.Component {
             </div>
           </div>
           <div className="details">
-            <Pnjs pnjs={this.props.card.pnjs} />
+            { this.props.card. pnjs ? <Pnjs pnjs={this.props.card.pnjs} /> : '' }
             <div className="clues">
               { this.props.card.clues.map((clue, index) =>
                 <Clue key={index} clue={ clue } />
