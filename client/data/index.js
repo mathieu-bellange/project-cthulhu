@@ -1,7 +1,15 @@
 import { ChapelleContemplation } from './chapelle-contemplation';
+import { SanatoriumRoxbury } from './sanatorium-roxbury';
+import { BureauLigget } from './bureau-ligget';
+import { BostonGlobe } from './boston-globe';
+import { Library } from './library';
 import { WalterCorbitt } from './walter-corbitt';
 
 const data = {
+  'bureau-ligget': BureauLigget,
+  sanatorium: SanatoriumRoxbury,
+  'boston-globe': BostonGlobe,
+  library: Library,
   contemplation: ChapelleContemplation,
   'walter-corbitt': WalterCorbitt,
   test1: {
@@ -40,10 +48,12 @@ export const getPlaceById = id => {
   if (!data[id]) return {};
   const basePlace = data[id].place;
   const pnjs = [];
-  basePlace.pnjs.forEach(pnj => {
-    if (pnj instanceof Object) pnjs.push(pnj)
-    else pnjs.push(getPnjById(pnj))
-  });
+  if (basePlace.pnjs) {
+    basePlace.pnjs.forEach(pnj => {
+      if (pnj instanceof Object) pnjs.push(pnj)
+      else pnjs.push(getPnjById(pnj))
+    });
+  }
   return Object.assign({}, basePlace, { pnjs });
 };
 export const getNestedPlaceById = (idPlace, idNestedPlace) => getPlaceById(idPlace).insidePlace ? getPlaceById(idPlace).insidePlace[idNestedPlace].place : {};

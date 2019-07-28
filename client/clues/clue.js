@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faWalking, faSearch, faEye, faFistRaised } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faWalking, faSearch, faEye, faFistRaised, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
 import './clue.sss';
 
@@ -13,14 +13,16 @@ function ConditionIcon(state) {
         place: <FontAwesomeIcon icon={faWalking} />,
         search: <FontAwesomeIcon icon={faSearch} />,
         see: <FontAwesomeIcon icon={faEye} />,
-        fight: <FontAwesomeIcon icon={faFistRaised} />
+        fight: <FontAwesomeIcon icon={faFistRaised} />,
+        chat: <img src="/images/chat.png" />,
+        roll: <FontAwesomeIcon icon={faDiceD20} />
       }[state]}
     </div>
   );
 }
 
 ConditionIcon.propTypes = {
-   state: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight'])
+   state: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll'])
 }
 
 export class Clue extends React.Component {
@@ -51,7 +53,7 @@ export class Clue extends React.Component {
           { this.props.clue.clue }
         </p>
         {
-          this.state.enlarge ?  this.props.clue.sideEffects.map((sideEffect, index) =>
+          this.props.clue.sideEffects && this.state.enlarge ?  this.props.clue.sideEffects.map((sideEffect, index) =>
             <p key={index} className="side-effect">{ sideEffect }</p>) : ''
         }
       </div>
