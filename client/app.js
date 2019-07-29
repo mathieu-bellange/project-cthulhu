@@ -56,11 +56,24 @@ class AppWrapper extends React.Component {
         />
         <Route
           path="/place/:id/:otherId"
+          exact
           render={(props) =>
-            <NavPanel title={store.getNestedPlaceById(props.match.params.id, props.match.params.otherId).title} history={props.history}>
+            <NavPanel title={store.getPlaceById(props.match.params.otherId).title} history={props.history}>
               <Place
-                card={store.getNestedPlaceById(props.match.params.id, props.match.params.otherId)}
+                card={store.getPlaceById(props.match.params.otherId)}
                 sound={this.state.sounds[props.match.params.otherId]}
+                saveSoundRef={this.onSaveSoundRef}
+              />
+            </NavPanel>
+          }
+        />
+        <Route
+          path="/place/:id/:otherId/:nextId"
+          render={(props) =>
+            <NavPanel title={store.getPlaceById(props.match.params.nextId).title} history={props.history}>
+              <Place
+                card={store.getPlaceById(props.match.params.nextId)}
+                sound={this.state.sounds[props.match.params.nextId]}
                 saveSoundRef={this.onSaveSoundRef}
               />
             </NavPanel>

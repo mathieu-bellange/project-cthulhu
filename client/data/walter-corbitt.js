@@ -7,7 +7,7 @@ export const WalterCorbitt = {
       mètre quatre-vingt, totalement nue, aux
       traits tirés et au nez aquilin. Sa peau
       desséchée a l'aspect du bois.`,
-    overview: "lovecraft.jpg",
+    overview: 'haunting-house/walter-corbitt.jpg',
     clues: [
       {
         condition: {

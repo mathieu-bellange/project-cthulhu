@@ -9,28 +9,8 @@ export const ChapelleContemplation = {
       mal entretenue et envahie par la végétation
       que les ruines ressemblent à des concrétions
       naturelles.`,
-    overview: "place-default.png",
-    music: ["https://tabletopaudio.com/download.php?downld_file=177_Tavern_Music.mp3"],
-    pnjs: ['walter-corbitt', {
-      title: 'Son nom',
-      desc: `une petite description visuelle`,
-      overview: 'lovecraft.jpg',
-      clues: [
-        {
-          condition: {
-            title: 'Test',
-            type: 'see'
-          },
-          clue: `a voir`,
-          sideEffects: [`oups`]
-        }
-      ],
-      stats: {
-        str: 90,
-        dex: 35,
-        con: 110
-      }
-    }],
+    overview: 'haunting-house/chapelle-contemplation.jpg',
+    music: ['https://tabletopaudio.com/download.php?downld_file=113_Astral_Plane.mp3'],
     clues: [
       {
         condition: {

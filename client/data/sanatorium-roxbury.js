@@ -9,6 +9,7 @@ export const SanatoriumRoxbury = {
       Ce sont principalement des bâtiments en brique de caractère néo-colonial
       mais une partie de l'hôpital est encore en cours de construction.`,
     overview: 'haunting-house/sanatorium-roxbury.jpg',
+    music: ['https://tabletopaudio.com/download.php?downld_file=86_Dark_City.mp3'],
     pnjs: [{
       title: 'Gabriela Macario',
       desc: `Une jeune femme paraîssant 10 ans de plus, peu confuse dans ses propos,
