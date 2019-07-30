@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 
 import './app.sss';
 
+import { store } from './store';
 import { NavPanel } from './nav-panel';
 import { Place } from './place';
 import { Dashboard } from './dashboard';
 import { Pnj } from './pnjs';
-import * as store from './data';
+import * as data from './data';
 
 class AppWrapper extends React.Component {
   constructor(props) {
@@ -30,14 +32,14 @@ class AppWrapper extends React.Component {
         <Route
           path="/"
           exact
-          render={() => <Dashboard cards={store.getData()} />}
+          render={() => <Dashboard cards={data.getData()} />}
         />
         <Route
           path="/pnj/:id"
           exact
           render={(props) =>
-            <NavPanel title={store.getPnjById(props.match.params.id).title} history={props.history}>
-              <Pnj isFullPage={true} pnj={store.getPnjById(props.match.params.id)} />
+            <NavPanel title={data.getPnjById(props.match.params.id).title} history={props.history}>
+              <Pnj isFullPage={true} pnj={data.getPnjById(props.match.params.id)} />
             </NavPanel>
           }
         />
@@ -45,9 +47,9 @@ class AppWrapper extends React.Component {
           path="/place/:id"
           exact
           render={(props) =>
-            <NavPanel title={store.getPlaceById(props.match.params.id).title} history={props.history}>
+            <NavPanel title={data.getPlaceById(props.match.params.id).title} history={props.history}>
               <Place
-                card={store.getPlaceById(props.match.params.id)}
+                card={data.getPlaceById(props.match.params.id)}
                 sound={this.state.sounds[props.match.params.id]}
                 saveSoundRef={this.onSaveSoundRef}
                 />
@@ -58,9 +60,9 @@ class AppWrapper extends React.Component {
           path="/place/:id/:otherId"
           exact
           render={(props) =>
-            <NavPanel title={store.getPlaceById(props.match.params.otherId).title} history={props.history}>
+            <NavPanel title={data.getPlaceById(props.match.params.otherId).title} history={props.history}>
               <Place
-                card={store.getPlaceById(props.match.params.otherId)}
+                card={data.getPlaceById(props.match.params.otherId)}
                 sound={this.state.sounds[props.match.params.otherId]}
                 saveSoundRef={this.onSaveSoundRef}
               />
@@ -70,9 +72,9 @@ class AppWrapper extends React.Component {
         <Route
           path="/place/:id/:otherId/:nextId"
           render={(props) =>
-            <NavPanel title={store.getPlaceById(props.match.params.nextId).title} history={props.history}>
+            <NavPanel title={data.getPlaceById(props.match.params.nextId).title} history={props.history}>
               <Place
-                card={store.getPlaceById(props.match.params.nextId)}
+                card={data.getPlaceById(props.match.params.nextId)}
                 sound={this.state.sounds[props.match.params.nextId]}
                 saveSoundRef={this.onSaveSoundRef}
               />
@@ -85,6 +87,8 @@ class AppWrapper extends React.Component {
 }
 
 ReactDOM.render(
-  <AppWrapper></AppWrapper>,
+  <Provider store={store}>
+    <AppWrapper></AppWrapper>
+  </Provider>,
   document.getElementById('app')
 );
