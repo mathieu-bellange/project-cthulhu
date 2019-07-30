@@ -49,7 +49,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-path
      */
-    path: helpers.root('dist'),
+    path: helpers.root('dist/public'),
 
     publicPath: '/',
 
@@ -79,6 +79,50 @@ module.exports = webpackMerge(commonConfig, {
 
   },
 
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          // beautify: true, //debug
+          // mangle: false, //debug
+          // dead_code: false, //debug
+          // unused: false, //debug
+          // deadCode: false, //debug
+          // compress: {
+          //   ie8: false,
+          //   keep_fnames: true,
+          //   drop_debugger: false,
+          //   dead_code: false,
+          //   unused: false
+          // }, // debug
+          // comments: true, //debug
+
+
+          beautify: false, // prod
+          output: {
+            comments: false
+          }, // prod
+          mangle: {
+            ie8: false
+          }, // prod
+          warnings: false,
+          compress: {
+            ie8: false,
+            conditionals: true,
+            unused: true,
+            comparisons: true,
+            sequences: true,
+            dead_code: true,
+            evaluate: true,
+            if_return: true,
+            join_vars: true,
+            negate_iife: false // we need this for lazy v8
+          }
+        }
+      })
+    ]
+  },
+
   /**
    * Add additional plugins to the compiler.
    *
@@ -87,7 +131,8 @@ module.exports = webpackMerge(commonConfig, {
   plugins: [
     new ModuleConcatenationPlugin(),
     new CopyWebpackPlugin([
-      { from: './public' }
+      { from: './public' },
+      { from: './server', to: '../'}
     ]),
     new HtmlWebpackPlugin({
       template: 'client/index.html',
@@ -109,54 +154,6 @@ module.exports = webpackMerge(commonConfig, {
      * See: https://www.npmjs.com/package/webpack-md5-hash
      */
     new WebpackMd5Hash(),
-
-    /**
-     * Plugin: UglifyJsPlugin
-     * Description: Minimize all JavaScript output of chunks.
-     * Loaders are switched into minimizing mode.
-     *
-     * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
-     */
-    // NOTE: To debug prod builds uncomment //debug lines and comment //prod lines
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        // beautify: true, //debug
-        // mangle: false, //debug
-        // dead_code: false, //debug
-        // unused: false, //debug
-        // deadCode: false, //debug
-        // compress: {
-        //   ie8: false,
-        //   keep_fnames: true,
-        //   drop_debugger: false,
-        //   dead_code: false,
-        //   unused: false
-        // }, // debug
-        // comments: true, //debug
-
-
-        beautify: false, // prod
-        output: {
-          comments: false
-        }, // prod
-        mangle: {
-          ie8: false
-        }, // prod
-        compress: {
-          ie8: false,
-          warnings: false,
-          conditionals: true,
-          unused: true,
-          comparisons: true,
-          sequences: true,
-          dead_code: true,
-          evaluate: true,
-          if_return: true,
-          join_vars: true,
-          negate_iife: false // we need this for lazy v8
-        }
-      }
-    }),
 
     /**
      * Plugin: CompressionPlugin
