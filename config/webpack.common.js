@@ -19,7 +19,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
 
   entry: {
-    main: './client/app'
+    main: './client'
   },
 
   resolve: {

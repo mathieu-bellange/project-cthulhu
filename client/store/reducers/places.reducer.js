@@ -5,7 +5,7 @@ import {
 } from '../actions';
 
 const initialState = {
-    whiskies: [],
+    places: {},
     isLoading: false,
     error: null
 };
@@ -19,12 +19,12 @@ export function placesReducer(state = initialState, action) {
             };
         case FETCH_PLACES_SUCCESS:
             return {
-                places: {...action.payload},
+                places: {...action.payload.Places},
                 error: null
             };
         case FETCH_PLACES_FAILURE:
             return {
-                whiskies: {},
+                places: {},
                 error: action.payload
             };
         default:

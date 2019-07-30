@@ -1,3 +1,5 @@
 import { combineEpics } from 'redux-observable';
 
-export const rootEpic = combineEpics();
+import { fetchPlacesEpic } from './places.epic';
+
+export const rootEpic = combineEpics(fetchPlacesEpic);

@@ -1,12 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { fetchPlaces } from './store';
 
 
 import './app.sss';
 
-import { store } from './store';
 import { NavPanel } from './nav-panel';
 import { Place } from './place';
 import { Dashboard } from './dashboard';
@@ -14,6 +16,11 @@ import { Pnj } from './pnjs';
 import * as data from './data';
 
 class AppWrapper extends React.Component {
+  static propTypes = {
+    fetchPlaces: PropTypes.func.isRequired,
+    places: PropTypes.object
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,13 +33,20 @@ class AppWrapper extends React.Component {
     this.setState({ sounds: { ...this.state.sounds, ...sound}});
   }
 
+  componentDidMount() {
+    this.props.fetchPlaces();
+  }
+
   render() {
+    const {
+      places
+    } = this.props;
     return (
       <Router>
         <Route
           path="/"
           exact
-          render={() => <Dashboard cards={data.getData()} />}
+          render={() => <Dashboard places={places} cards={data.getData()} />}
         />
         <Route
           path="/pnj/:id"
@@ -86,9 +100,13 @@ class AppWrapper extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Provider store={store}>
-    <AppWrapper></AppWrapper>
-  </Provider>,
-  document.getElementById('app')
-);
+const mapStateToProps = state => {
+  return {...state.placesReducer};
+};
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        fetchPlaces
+    }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppWrapper);

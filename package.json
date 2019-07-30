@@ -10,9 +10,9 @@
     "build:prod": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "start": "npm run webpack:dev",
     "start:prod": "npm run build:prod && npm run server:prod",
-    "express:dev": "node server/server.js",
+    "express:dev": "node server",
     "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --host 0.0.0.0",
-    "server:prod": "node ./dist"
+    "server:prod": "node dist"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
