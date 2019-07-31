@@ -1,5 +1,6 @@
 const BureauLigget = {
   url: 'place/bureau-ligget',
+  dashboard: true,
   place: {
     title: 'Bureau d\'Elias Ligget',
     desc: `Bureau moderne et chic au sein du quartier des affaires de Boston.
@@ -109,4 +110,4 @@ const BureauLigget = {
   }
 };
 
-module.exports = { BureauLigget };
+module.exports = BureauLigget;

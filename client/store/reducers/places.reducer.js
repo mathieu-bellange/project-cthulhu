@@ -19,12 +19,13 @@ export function placesReducer(state = initialState, action) {
             };
         case FETCH_PLACES_SUCCESS:
             return {
-                places: {...action.payload.Places},
+                ...state,
+                places: {...action.payload},
                 error: null
             };
         case FETCH_PLACES_FAILURE:
             return {
-                places: {},
+                ...state,
                 error: action.payload
             };
         default:

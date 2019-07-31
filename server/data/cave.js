@@ -1,5 +1,6 @@
 const Cave = {
   url: '/cave',
+  dashboard: false,
   place: {
     title: 'Cave',
     desc: `Petit escalier grinçant monte vers le premier étage.
@@ -120,4 +121,4 @@ const Cave = {
   }
 };
 
-module.exports = { Cave }
+module.exports = Cave;

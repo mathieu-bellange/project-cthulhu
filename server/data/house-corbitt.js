@@ -4,6 +4,7 @@ const Cave = require('./cave');
 
 const CorbittHouse = {
   url: 'place/house',
+  dashboard: true,
   place: {
     title: 'La maison Corbitt',
     desc: `cette bâtisse en briques est flanquée de deux grands immeubles de bureaux de
@@ -53,4 +54,4 @@ const CorbittHouse = {
   }
 };
 
-module.exports = { CorbittHouse };
+module.exports = CorbittHouse;

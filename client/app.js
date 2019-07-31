@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
-import { fetchPlaces } from './store';
 
 
 import './app.sss';
@@ -15,10 +11,10 @@ import { Dashboard } from './dashboard';
 import { Pnj } from './pnjs';
 import * as data from './data';
 
-class AppWrapper extends React.Component {
+export class AppWrapper extends React.Component {
   static propTypes = {
-    fetchPlaces: PropTypes.func.isRequired,
-    places: PropTypes.object
+    cards: PropTypes.array,
+    fetchPlaces: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -39,14 +35,14 @@ class AppWrapper extends React.Component {
 
   render() {
     const {
-      places
+      cards
     } = this.props;
     return (
       <Router>
         <Route
           path="/"
           exact
-          render={() => <Dashboard places={places} cards={data.getData()} />}
+          render={() => cards.length > 0 ? <Dashboard cards={cards} /> : ''}
         />
         <Route
           path="/pnj/:id"
@@ -99,14 +95,3 @@ class AppWrapper extends React.Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {...state.placesReducer};
-};
-
-const mapDispatchToProps = dispatch =>
-    bindActionCreators({
-        fetchPlaces
-    }, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppWrapper);

@@ -1,5 +1,6 @@
 const GroundFloor = {
   url: '/ground-floor',
+  dashboard: false,
   place: {
     title: 'Rez de chaussée',
     desc: `Long couloir déservant de nombreuses pièces
@@ -113,4 +114,4 @@ const GroundFloor = {
   }
 };
 
-module.exports = { GroundFloor };
+module.exports = GroundFloor;

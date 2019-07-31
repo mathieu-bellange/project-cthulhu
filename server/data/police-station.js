@@ -1,5 +1,6 @@
 const PoliceStation = {
   url: 'place/police-station',
+  dashboard: true,
   place: {
     title: 'Poste de Police Central',
     desc: `Situé au 360 Stuart Street, le batîment est très récent (livré au début de l'année 1923)
@@ -81,4 +82,4 @@ const PoliceStation = {
   }
 };
 
-module.exports = { PoliceStation };
+module.exports = PoliceStation;

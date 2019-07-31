@@ -1,5 +1,6 @@
 const FirstFloor = {
   url: '/first-floor',
+  dashboard: false,
   place: {
     title: '1er étage',
     desc: `Petit escalier grinçant monte vers le premier étage.
@@ -75,4 +76,4 @@ const FirstFloor = {
   }
 };
 
-module.exports = { FirstFloor };
+module.exports = FirstFloor;

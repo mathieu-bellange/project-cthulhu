@@ -1,5 +1,6 @@
 const BostonGlobe = {
   url: 'place/boston-globe',
+  dashboard: true,
   place: {
     title: 'Le Boston Globe',
     desc: `Se trouvant sur Washington Street, le Boston Globe jouit d'une bonne réputation.
@@ -67,4 +68,4 @@ const BostonGlobe = {
   }
 };
 
-module.exports = { BostonGlobe };
+module.exports = BostonGlobe;

@@ -1,5 +1,6 @@
 const Neighborhood = {
   url: 'place/neighborhood',
+  dashboard: true,
   place: {
     title: 'Le voisinage',
     desc: `Situé près de Merrimack Street, le quartier de la vieille Maison est en pleine mutation. Des
@@ -27,4 +28,4 @@ const Neighborhood = {
   }
 };
 
-module.exports = { Neighborhood };
+module.exports = Neighborhood;

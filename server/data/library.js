@@ -1,5 +1,6 @@
 const Library = {
   url: 'place/library',
+  dashboard: true,
   place: {
     title: 'Bibliothèque de Boston',
     desc: `Se trouvant au coin de Dartmouth Street et Boylston Street,
@@ -76,4 +77,4 @@ const Library = {
   }
 };
 
-module.exports = { Library };
+module.exports = Library;

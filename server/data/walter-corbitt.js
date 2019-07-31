@@ -103,4 +103,4 @@ const WalterCorbitt = {
   }
 };
 
-module.exports = { WalterCorbitt };
+module.exports = WalterCorbitt;

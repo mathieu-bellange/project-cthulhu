@@ -1,5 +1,6 @@
 const SanatoriumRoxbury = {
   url: 'place/sanatorium',
+  dashboard: true,
   place: {
     title: 'Le Sanatorium Roxbury',
     desc: `Un établissement situé
@@ -98,4 +99,4 @@ const SanatoriumRoxbury = {
   }
 };
 
-module.exports = { SanatoriumRoxbury };
+module.exports = SanatoriumRoxbury;

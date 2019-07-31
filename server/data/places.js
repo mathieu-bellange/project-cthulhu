@@ -26,4 +26,4 @@ const Places = {
   cave: Cave
 };
 
-module.exports = { Places };
+module.exports = Places;

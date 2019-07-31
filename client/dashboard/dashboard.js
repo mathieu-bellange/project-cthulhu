@@ -8,7 +8,7 @@ import { CardLink } from '../card';
 
 export class Dashboard extends React.Component {
   static propTypes = {
-    cards: PropTypes.object.isRequired
+    cards: PropTypes.array.isRequired
   };
 
   constructor(props) {
@@ -26,6 +26,7 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    const { cards } = this.props;
     return (
       <div className="dashboard">
         <div className="full-screen" onClick={() => document.body.requestFullscreen()}>
@@ -34,7 +35,7 @@ export class Dashboard extends React.Component {
           }
         </div>
         {
-          map(this.props.cards, (cardLink, index) =>
+          map(cards, (cardLink, index) =>
             <CardLink key={ index } cardLink={ cardLink } showDesc={true}></CardLink>)
         }
       </div>

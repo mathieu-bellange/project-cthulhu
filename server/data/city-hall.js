@@ -1,5 +1,6 @@
 const CityHall = {
   url: 'place/city-hall',
+  dashboard: true,
   place: {
     title: 'Hôtel de ville de Boston',
     desc: `Situé au 45 School Street, l'extérieur du bâtiment en granit est caractérisé par des colonnes ornées,
@@ -84,4 +85,4 @@ const CityHall = {
   }
 };
 
-module.exports = { CityHall };
+module.exports = CityHall;

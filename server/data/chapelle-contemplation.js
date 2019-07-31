@@ -2,6 +2,7 @@ const CaveContemplation = require('./cave-contemplation');
 
 const ChapelleContemplation = {
   url: 'place/contemplation',
+  dashboard: true,
   place: {
     title: 'La Chapelle de la Contemplation',
     desc: `Ce qui reste de cet édifice se trouve à
@@ -63,4 +64,4 @@ const ChapelleContemplation = {
   }
 };
 
-module.exports = { ChapelleContemplation };
+module.exports = ChapelleContemplation;

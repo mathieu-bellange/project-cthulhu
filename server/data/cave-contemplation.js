@@ -1,5 +1,6 @@
 const CaveContemplation = {
   url: '/cave',
+  dashboard: false,
   place: {
     title: 'Cave de la chapelle de la contemplation',
     desc: `La cave qu’ils découvrent était
@@ -40,4 +41,4 @@ const CaveContemplation = {
   }
 };
 
-module.exports = { CaveContemplation };
+module.exports = CaveContemplation;
