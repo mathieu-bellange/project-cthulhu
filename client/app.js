@@ -14,20 +14,10 @@ import * as data from './data';
 export class AppWrapper extends React.Component {
   static propTypes = {
     cards: PropTypes.array,
-    fetchPlaces: PropTypes.func.isRequired
+    fetchPlaces: PropTypes.func.isRequired,
+    sounds: PropTypes.object.isRequired,
+    addSound: PropTypes.func.isRequired
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      sounds: {}
-    };
-    this.onSaveSoundRef = this.onSaveSoundRef.bind(this);
-  }
-
-  onSaveSoundRef(sound) {
-    this.setState({ sounds: { ...this.state.sounds, ...sound}});
-  }
 
   componentDidMount() {
     this.props.fetchPlaces();
@@ -35,7 +25,9 @@ export class AppWrapper extends React.Component {
 
   render() {
     const {
-      cards
+      cards,
+      sounds,
+      addSound
     } = this.props;
     return (
       <Router>
@@ -60,8 +52,8 @@ export class AppWrapper extends React.Component {
             <NavPanel title={data.getPlaceById(props.match.params.id).title} history={props.history}>
               <Place
                 card={data.getPlaceById(props.match.params.id)}
-                sound={this.state.sounds[props.match.params.id]}
-                saveSoundRef={this.onSaveSoundRef}
+                sound={sounds.getSoundById(props.match.params.id)}
+                saveSoundRef={addSound}
                 />
             </NavPanel>
           }
@@ -73,8 +65,8 @@ export class AppWrapper extends React.Component {
             <NavPanel title={data.getPlaceById(props.match.params.otherId).title} history={props.history}>
               <Place
                 card={data.getPlaceById(props.match.params.otherId)}
-                sound={this.state.sounds[props.match.params.otherId]}
-                saveSoundRef={this.onSaveSoundRef}
+                sound={sounds.getSoundById(props.match.params.otherId)}
+                saveSoundRef={addSound}
               />
             </NavPanel>
           }
@@ -85,8 +77,8 @@ export class AppWrapper extends React.Component {
             <NavPanel title={data.getPlaceById(props.match.params.nextId).title} history={props.history}>
               <Place
                 card={data.getPlaceById(props.match.params.nextId)}
-                sound={this.state.sounds[props.match.params.nextId]}
-                saveSoundRef={this.onSaveSoundRef}
+                sound={sounds.getSoundById(props.match.params.nextId)}
+                saveSoundRef={addSound}
               />
             </NavPanel>
           }
