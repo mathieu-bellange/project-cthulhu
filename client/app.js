@@ -15,8 +15,16 @@ class AppWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sounds: {}
+      sounds: {},
+      smallScreen: !document.fullscreenElement
     };
+    document.addEventListener('fullscreenchange', () => {
+      if (document.fullscreenElement) {
+        this.setState({ smallScreen: false });
+      } else {
+        this.setState({ smallScreen: true });
+      }
+    });
     this.onSaveSoundRef = this.onSaveSoundRef.bind(this);
   }
 
@@ -27,6 +35,11 @@ class AppWrapper extends React.Component {
   render() {
     return (
       <Router>
+        <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
+          {
+            this.state.smallScreen ? <img src="/images/pixel-full-screen.png" /> : ''
+          }
+        </div>
         <Route
           path="/"
           exact
