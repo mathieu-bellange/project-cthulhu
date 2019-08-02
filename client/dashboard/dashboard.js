@@ -4,7 +4,7 @@ import { map } from 'lodash';
 
 import './dashboard.sss';
 
-import { CardLink } from '../card';
+import { CardLink } from '../cards';
 
 const Dashboard = ({ cards }) => {
   return (

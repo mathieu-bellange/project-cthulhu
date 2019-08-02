@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './pnj.sss';
 
-import { Card } from '../../card';
+import { Card } from '../../cards';
 import { BaseStats } from './stats';
 import { Skills } from './skills';
 import { Weapons } from './weapons';
@@ -41,7 +41,7 @@ export class PnjComponent extends React.Component {
                 card={this.props.pnj}
                 showTitle={this.props.minimize}
                 showDesc={true}
-                hideImg={this.props.minimize && !this.state.maximize}
+                showImg={this.state.maximize}
               />
             </div>
           </div>

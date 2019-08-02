@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './app.sss';
 
-import { NavPanel } from './nav-panel';
+import NavPanel from './nav-panel';
 import { Place } from './place';
 import Dashboard from './dashboard';
 import { Pnj } from './pnjs';

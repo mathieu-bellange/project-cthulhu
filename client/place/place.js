@@ -7,7 +7,7 @@ import { map } from 'lodash';
 import {Howl} from 'howler';
 
 import './place.sss';
-import { CardLink, Card } from '../card';
+import { CardLink, Card } from '../cards';
 import { Clue } from '../clues';
 import { Pnjs } from '../pnjs';
 
@@ -57,7 +57,7 @@ class PlaceComponent extends React.Component {
         <div className="content">
           <div className="overview">
             <div className="card-wrapper">
-              <Card card={this.props.card} showDesc={true}/>
+              <Card card={this.props.card} showDesc={true} showImg={true}/>
             {
 
               this.props.card.music && this.props.card.music.length > 0 ? <div className="play-pause-wrapper">
