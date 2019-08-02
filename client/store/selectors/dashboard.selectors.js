@@ -1,9 +1,14 @@
 import { createSelector } from 'reselect'
 import { filter } from 'lodash';
 
-const getPlaces = (state) => state.places
+export const getPlacesState = state => state.placesReducer;
+
+export const getPlaces = createSelector(
+  getPlacesState,
+  placesState => placesState.places
+);
 
 export const getDashboardCards = createSelector(
-  [ getPlaces ],
+  getPlaces,
   places => filter(places, place => place.dashboard)
 );

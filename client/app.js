@@ -7,34 +7,43 @@ import './app.sss';
 
 import { NavPanel } from './nav-panel';
 import { Place } from './place';
-import { Dashboard } from './dashboard';
+import Dashboard from './dashboard';
 import { Pnj } from './pnjs';
 import * as data from './data';
 
 export class AppWrapper extends React.Component {
   static propTypes = {
-    cards: PropTypes.array,
     fetchPlaces: PropTypes.func.isRequired,
     sounds: PropTypes.object.isRequired,
-    addSound: PropTypes.func.isRequired
+    addSound: PropTypes.func.isRequired,
+    isFullScreen: PropTypes.bool.isRequired,
+    defineFullScreen: PropTypes.func.isRequired
   };
 
   componentDidMount() {
     this.props.fetchPlaces();
+    this.props.defineFullScreen(document.fullscreenElement)
+    document.addEventListener('fullscreenchange',
+      () => this.props.defineFullScreen(document.fullscreenElement));
   }
 
   render() {
     const {
-      cards,
       sounds,
-      addSound
+      addSound,
+      isFullScreen
     } = this.props;
     return (
       <Router>
+        <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
+          {
+            isFullScreen ? '' : <img src="/images/pixel-full-screen.png" />
+          }
+        </div>
         <Route
           path="/"
           exact
-          render={() => cards.length > 0 ? <Dashboard cards={cards} /> : ''}
+          component={Dashboard}
         />
         <Route
           path="/pnj/:id"
