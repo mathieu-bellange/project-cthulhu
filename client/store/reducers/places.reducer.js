@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     places: {},
-    isLoading: false,
+    placesLoaded: false,
     error: null
 };
 
@@ -15,17 +15,20 @@ export function placesReducer(state = initialState, action) {
         case FETCH_PLACES:
             return {
                 ...state,
+                placesLoaded: false,
                 error: null
             };
         case FETCH_PLACES_SUCCESS:
             return {
                 ...state,
                 places: {...action.payload},
+                placesLoaded: true,
                 error: null
             };
         case FETCH_PLACES_FAILURE:
             return {
                 ...state,
+                placesLoaded: false,
                 error: action.payload
             };
         default:

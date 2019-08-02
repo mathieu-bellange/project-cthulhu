@@ -11,58 +11,62 @@ import { CardLink, Card } from '../cards';
 import { Clue } from '../clues';
 import { Pnjs } from '../pnjs';
 
-class PlaceComponent extends React.Component {
+class Place extends React.Component {
   static propTypes = {
-    card: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
+    place: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired,
     sound: PropTypes.object,
-    saveSoundRef: PropTypes.func.isRequired
+    addSound: PropTypes.func.isRequired,
+    playSound: PropTypes.func.isRequired,
+    pauseSound: PropTypes.func.isRequired,
+    isSoundPlaying: PropTypes.bool
   };
 
-  constructor(props){
+  constructor(props) {
      super(props);
-     this.state = {
-       play: props.sound ? props.sound.playing() : false
-     };
      this.play = this.play.bind(this);
      this.pause = this.pause.bind(this);
   }
 
   componentDidMount() {
-    if (!this.props.sound && this.props.card.music) {
+    if (!this.props.sound && this.props.place.music) {
       this.sound = new Howl({
-        src: this.props.card.music,
+        src: this.props.place.music,
         html5: true,
         autoplay: true,
         loop: true,
         volume: 0.5
       });
-      this.props.saveSoundRef({ [this.props.match.params.otherId ? this.props.match.params.otherId : this.props.match.params.id]: this.sound});
+      this.props.addSound(
+        { id: this.props.id, howlRef: this.sound }
+      );
     }
   }
 
   play() {
-    this.setState({ play: true });
+    this.props.playSound();
     this.props.sound ? this.props.sound.play() : this.sound.play();
   }
 
   pause() {
-    this.setState({ play: false });
+    this.props.pauseSound();
     this.props.sound ? this.props.sound.pause() : this.sound.pause();
   }
 
   render() {
+    const { place, isSoundPlaying } = this.props;
     return (
       <div className="place">
         <div className="content">
           <div className="overview">
             <div className="card-wrapper">
-              <Card card={this.props.card} showDesc={true} showImg={true}/>
+              <Card card={place} showDesc={true} showImg={true}/>
             {
 
-              this.props.card.music && this.props.card.music.length > 0 ? <div className="play-pause-wrapper">
+              this.props.place.music && this.props.place.music.length > 0 ? <div className="play-pause-wrapper">
                 {
-                  this.state.play ? <FontAwesomeIcon icon={faPauseCircle} size="7x" onClick={this.pause}/> :
+                  isSoundPlaying ? <FontAwesomeIcon icon={faPauseCircle} size="7x" onClick={this.pause}/> :
                     <FontAwesomeIcon icon={faPlayCircle} size="7x" onClick={this.play}/>
                 }
               </div> : ''
@@ -70,14 +74,14 @@ class PlaceComponent extends React.Component {
             </div>
             <div className="inside-places">
               {
-                map(this.props.card.insidePlace, (place, index) => <CardLink key={ index } cardLink={ place }></CardLink>)
+                map(place.insidePlace, (place, index) => <CardLink key={ index } cardLink={ place }></CardLink>)
               }
             </div>
           </div>
           <div className="details">
-            { this.props.card.pnjs ? <Pnjs pnjs={this.props.card.pnjs} /> : '' }
+            { place.pnjs ? <Pnjs pnjs={place.pnjs} /> : '' }
             <div className="clues">
-              { this.props.card.clues ? this.props.card.clues.map((clue, index) =>
+              { place.clues ? place.clues.map((clue, index) =>
                 <Clue key={index} clue={ clue } />
               ) : '' }
             </div>
@@ -88,4 +92,4 @@ class PlaceComponent extends React.Component {
   }
 }
 
-export const Place = withRouter(PlaceComponent);
+export default withRouter(Place);

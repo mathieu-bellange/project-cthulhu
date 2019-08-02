@@ -1,3 +1,18 @@
-export const getSoundsState = state => state.soundsReducer;
+import { createSelector } from 'reselect';
 
-export const getSoundById = (state, id) => getSoundsState(state)[id];
+const selectSoundsState = state => state.soundsReducer;
+const selectSoundId = (state, soundId) => soundId;
+
+const selectSoundById = createSelector(
+  selectSoundsState,
+  selectSoundId,
+  (state, id) => state[id]
+);
+
+export const getSoundHowlRef = createSelector(
+  selectSoundById,
+  sound => sound ? sound.howlRef : null
+);
+
+export const isSoundPlaying = (state, id) =>
+  selectSoundsState(state)[id] ? selectSoundsState(state)[id].playing : false;
