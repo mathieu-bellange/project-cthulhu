@@ -14,6 +14,7 @@ export const APlace = {
         clue: ``,
         sideEffects: [``]
       }
-    ]
+    ],
+    insidePlaces: ['']
   }
 };

@@ -46,7 +46,7 @@ const CorbittHouse = {
         clue: `deux accès possible, une sur le devant et une sur le côté.`
       }
     ],
-    insidePlace: {
+    insidePlaces: {
       'ground-floor': GroundFloor,
       'first-floor': FirstFloor,
       cave: Cave

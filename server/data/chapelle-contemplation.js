@@ -58,7 +58,7 @@ const ChapelleContemplation = {
         ]
       }
     ],
-    insidePlace: {
+    insidePlaces: {
       cave: CaveContemplation
     }
   }
