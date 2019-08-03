@@ -1,29 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faWalking, faSearch, faEye, faFistRaised, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
 import './clue.sss';
 
-function ConditionIcon(state) {
-  return (
-    <div>
-      {{
-        clock: <FontAwesomeIcon icon={faClock} />,
-        place: <FontAwesomeIcon icon={faWalking} />,
-        search: <FontAwesomeIcon icon={faSearch} />,
-        see: <FontAwesomeIcon icon={faEye} />,
-        fight: <FontAwesomeIcon icon={faFistRaised} />,
-        chat: <img src="/images/chat.png" />,
-        roll: <FontAwesomeIcon icon={faDiceD20} />
-      }[state]}
-    </div>
-  );
-}
-
-ConditionIcon.propTypes = {
-   state: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll'])
-}
+import ClueCondition from './clue-condition';
+import ClueSideEffects from './clue-side-effects';
 
 export class Clue extends React.Component {
   static propTypes = {
@@ -45,16 +26,13 @@ export class Clue extends React.Component {
   render() {
     return (
       <div className={`clue-card ${this.state.enlarge ? 'lg': ''}`} onClick={this.enlarge}>
-        <div className="condition">
-          { ConditionIcon(this.props.clue.condition.type) }
-          { this.props.clue.condition.title }
-        </div>
+        <ClueCondition condition={this.props.clue.condition} />
         <p>
           { this.props.clue.clue }
         </p>
         {
-          this.props.clue.sideEffects && this.state.enlarge ?  this.props.clue.sideEffects.map((sideEffect, index) =>
-            <p key={index} className="side-effect">{ sideEffect }</p>) : ''
+          this.props.clue.sideEffects && this.state.enlarge ?
+            <ClueSideEffects sideEffects={this.props.clue.sideEffects} /> : ''
         }
       </div>
     );
