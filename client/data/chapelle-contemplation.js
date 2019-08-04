@@ -58,7 +58,7 @@ export const ChapelleContemplation = {
       }
     ],
     insidePlace: {
-      cave: CaveContemplation
+      'cave-contemplation': CaveContemplation
     }
   }
 };

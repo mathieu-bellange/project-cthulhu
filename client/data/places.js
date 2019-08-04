@@ -1,4 +1,5 @@
 import { ChapelleContemplation } from './chapelle-contemplation';
+import { CaveContemplation } from './cave-contemplation';
 import { SanatoriumRoxbury } from './sanatorium-roxbury';
 import { BureauLigget } from './bureau-ligget';
 import { BostonGlobe } from './boston-globe';
@@ -20,6 +21,7 @@ export const Places = {
   'police-station': PoliceStation,
   neighborhood: Neighborhood,
   contemplation: ChapelleContemplation,
+  'cave-contemplation': CaveContemplation,
   house: CorbittHouse,
   'ground-floor': GroundFloor,
   'first-floor': FirstFloor,

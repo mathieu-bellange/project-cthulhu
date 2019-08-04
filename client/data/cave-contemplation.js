@@ -1,5 +1,5 @@
 export const CaveContemplation = {
-  url: '/cave',
+  url: '/cave-contemplation',
   place: {
     title: 'Cave de la chapelle de la contemplation',
     desc: `La cave qu’ils découvrent était
