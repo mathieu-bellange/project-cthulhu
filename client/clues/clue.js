@@ -6,35 +6,26 @@ import './clue.sss';
 import ClueCondition from './clue-condition';
 import ClueSideEffects from './clue-side-effects';
 
-export class Clue extends React.Component {
-  static propTypes = {
-    clue: PropTypes.object.isRequired
-  };
-
-  constructor(props){
-     super(props);
-     this.state = {
-       enlarge: false
-     };
-     this.enlarge = this.enlarge.bind(this);
-  }
-
-  enlarge(){
-      this.setState({ enlarge: !this.state.enlarge });
-  }
-
-  render() {
-    return (
-      <div className={`clue-card ${this.state.enlarge ? 'lg': ''}`} onClick={this.enlarge}>
-        <ClueCondition condition={this.props.clue.condition} />
-        <p>
-          { this.props.clue.clue }
-        </p>
-        {
-          this.props.clue.sideEffects && this.state.enlarge ?
-            <ClueSideEffects sideEffects={this.props.clue.sideEffects} /> : ''
-        }
-      </div>
-    );
-  }
+const Clue = ({ clue, shrunkClue, enlargeClue, isEnlarged }) => {
+  return (
+    <div className={`clue-card ${isEnlarged ? 'lg': ''}`} onClick={() => isEnlarged ? shrunkClue() : enlargeClue()}>
+      <ClueCondition condition={clue.condition} />
+      <p>
+        { clue.clue }
+      </p>
+      {
+        clue.sideEffects && isEnlarged ?
+          <ClueSideEffects sideEffects={clue.sideEffects} /> : ''
+      }
+    </div>
+  );
 }
+
+Clue.propTypes = {
+  clue: PropTypes.object.isRequired,
+  enlargeClue: PropTypes.func.isRequired,
+  shrunkClue: PropTypes.func.isRequired,
+  isEnlarged: PropTypes.bool
+};
+
+export default Clue;

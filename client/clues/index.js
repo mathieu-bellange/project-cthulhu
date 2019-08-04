@@ -1,5 +1,4 @@
-import Clues from './clues';
+import Clues from './clues.container';
+import Clue from './clue';
 
-export * from './clue';
-
-export { Clues };
+export { Clues, Clue };

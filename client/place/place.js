@@ -5,7 +5,7 @@ import './place.sss';
 import PlaceOverview from './place-overview';
 import PlaceDetails from './place-details';
 
-const Place = ({ place, isPlaying, play, pause }) => {
+const Place = ({ id, place, isPlaying, play, pause }) => {
   return (
     <div className="place">
       <PlaceOverview
@@ -15,6 +15,7 @@ const Place = ({ place, isPlaying, play, pause }) => {
         isPlaying={isPlaying} play={play} pause={pause}
       />
       <PlaceDetails
+        id={id}
         pnjs={place.pnjs}
         clues={place.clues}
       />
@@ -23,6 +24,7 @@ const Place = ({ place, isPlaying, play, pause }) => {
 }
 
 Place.propTypes = {
+  id: PropTypes.string.isRequired,
   place: PropTypes.object.isRequired,
   play: PropTypes.func.isRequired,
   pause: PropTypes.func.isRequired,
