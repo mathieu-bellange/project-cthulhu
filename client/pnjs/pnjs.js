@@ -3,22 +3,26 @@ import PropTypes from 'prop-types';
 
 import './pnjs.sss';
 
-import { Pnj } from './pnj';
+import Pnj from './pnj';
 
-export class Pnjs extends React.Component {
-  static propTypes = {
-    pnjs: PropTypes.array
-  };
-
-  render() {
-    return (
-      <div className="pnjs">
-        {
-          this.props.pnjs.map((pnj, index) =>
-            <Pnj key={index} pnj={pnj} minimize={true}/>
-          )
-        }
-      </div>
-    );
-  }
+const Pnjs = ({ pnjIds, enlargePnj, shrunkPnj, isEnlarged }) => {
+  return (
+    <div className="pnjs">
+      {
+        pnjIds.map((pnjId, index) =>
+          <Pnj key={index} id={pnjId} minimize={true} isEnlarged={isEnlarged(index)}
+            shrunkPnj={() => shrunkPnj(index)} enlargePnj={() => enlargePnj(index)}/>
+        )
+      }
+    </div>
+  );
 }
+
+Pnjs.propTypes = {
+  pnjIds: PropTypes.array,
+  isEnlarged: PropTypes.func.isRequired,
+  enlargePnj: PropTypes.func.isRequired,
+  shrunkPnj: PropTypes.func.isRequired
+};
+
+export default Pnjs;

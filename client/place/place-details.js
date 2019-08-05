@@ -8,7 +8,7 @@ import { Pnjs } from '../pnjs';
 const PlaceDetails = ({ id, pnjs, clues }) => {
   return (
     <div className="place-details">
-      { pnjs ? <Pnjs pnjs={pnjs} /> : '' }
+      { pnjs ? <Pnjs id={id} pnjIds={pnjs} /> : '' }
       { clues ? <Clues id={id} clues={clues} /> : ''}
     </div>
   );

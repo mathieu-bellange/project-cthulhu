@@ -9,7 +9,7 @@ import CardDescription from './card-description';
 const Card = ({ card, showImg, showTitle, showDesc, limitImgHeight }) => {
   return (
     <div className="card">
-      <CardImg limitImgHeight={limitImgHeight} showImg={showImg} img={card.overview} />
+      { card.overview ? <CardImg limitImgHeight={limitImgHeight} showImg={showImg} img={card.overview} /> : '' }
       <CardDescription
         title={card.title}
         desc={card.desc}
