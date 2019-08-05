@@ -3,6 +3,7 @@ const app = express();
 const path = require ('path');
 
 const places = require('./data/places');
+const pnjs = require('./data/pnjs');
 
 app.use(express.static(path.join(__dirname, './public')));
 
@@ -14,6 +15,10 @@ app.use((req, res, next) => {
 
 app.get('/api/places', (req, res) => {
   res.send(places);
+});
+
+app.get('/api/pnjs', (req, res) => {
+  res.send(pnjs);
 });
 
 app.listen(3001, () => {

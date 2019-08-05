@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import {
-  fetchPlaces,
+  fetchPlaces, fetchPnjs,
   getFullScreen, defineFullScreen, isPlacesLoaded
 } from './store';
 import { AppWrapper } from './app';
@@ -16,6 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
+        fetchPnjs,
         fetchPlaces,
         defineFullScreen
     }, dispatch);

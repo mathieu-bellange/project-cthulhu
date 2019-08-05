@@ -14,6 +14,7 @@ import * as data from './data';
 export class AppWrapper extends React.Component {
   static propTypes = {
     fetchPlaces: PropTypes.func.isRequired,
+    fetchPnjs: PropTypes.func.isRequired,
     isFullScreen: PropTypes.bool.isRequired,
     placesLoaded: PropTypes.bool.isRequired,
     defineFullScreen: PropTypes.func.isRequired
@@ -21,6 +22,7 @@ export class AppWrapper extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaces();
+    this.props.fetchPnjs();
     this.props.defineFullScreen(document.fullscreenElement)
     document.addEventListener('fullscreenchange',
       () => this.props.defineFullScreen(document.fullscreenElement));
