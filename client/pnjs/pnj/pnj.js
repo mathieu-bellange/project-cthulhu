@@ -10,10 +10,11 @@ import { Skills } from './skills';
 import { Weapons } from './weapons';
 import { Stuffs } from './stuffs';
 import { Spells } from './spells';
-import { Clue } from '../../clues';
+import { Clues } from '../../clues';
 
 export class Pnj extends React.Component {
   static propTypes = {
+    id: PropTypes.string.isRequired,
     pnj: PropTypes.object.isRequired,
     minimize: PropTypes.bool,
     isFullPage: PropTypes.bool,
@@ -56,6 +57,7 @@ export class Pnj extends React.Component {
             { this.props.minimize || !this.props.pnj.weapons ? '' : <Weapons weapons={ this.props.pnj.weapons }></Weapons> }
             { this.props.minimize || !this.props.pnj.stuffs ? '' : <Stuffs stuffs={ this.props.pnj.stuffs }></Stuffs> }
             { this.props.minimize || !this.props.pnj.spells ? '' : <Spells spells={ this.props.pnj.spells }></Spells> }
+            { this.props.pnj.clues ? <Clues id={this.props.id} clues={this.props.pnj.clues} /> : ''}
           </div>
         </div>
       </div>

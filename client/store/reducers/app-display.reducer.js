@@ -1,6 +1,6 @@
 import {
     FETCH_PLACES_SUCCESS, ENLARGE_CLUE, SHRUNK_CLUE,
-    ENLARGE_PNJ, SHRUNK_PNJ
+    FETCH_PNJS_SUCCESS, ENLARGE_PNJ, SHRUNK_PNJ
 } from '../actions';
 
 const initialState = {};
@@ -36,6 +36,24 @@ export function appDisplayReducer(state = initialState, action) {
         case SHRUNK_PNJ: {
             const newState = { ...state };
             newState[action.payload.id].pnjs[action.payload.index].enlarge = false;
+            return newState;
+          }
+        case FETCH_PNJS_SUCCESS: {
+            const newState = { ...state };
+            Object.keys(action.payload).forEach(key => {
+              newState[key] = { clues: [], skills: [], weapons: [], stuffs: [], spells: [] };
+              if (action.payload[key].pnj.clues)
+                action.payload[key].pnj.clues.forEach(() => newState[key].clues.push({ enlarge: false }));
+              if (action.payload[key].pnj.skills)
+                action.payload[key].pnj.skills.forEach(() => newState[key].skills.push({ enlarge: false }));
+              if (action.payload[key].pnj.weapons)
+                action.payload[key].pnj.weapons.forEach(() => newState[key].weapons.push({ enlarge: false }));
+              if (action.payload[key].pnj.stuffs)
+                action.payload[key].pnj.stuffs.forEach(() => newState[key].stuffs.push({ enlarge: false }));
+              if (action.payload[key].pnj.spells)
+                action.payload[key].pnj.spells.forEach(() => newState[key].spells.push({ enlarge: false }));
+            });
+            console.log(newState);
             return newState;
           }
         default:
