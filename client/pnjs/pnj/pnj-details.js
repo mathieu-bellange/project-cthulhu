@@ -6,7 +6,7 @@ import './pnj-details.sss';
 
 import { BaseStats } from './stats';
 import { Skills } from './skills';
-import { Weapons } from './weapons';
+import Weapons from './weapons';
 import { Stuffs } from './stuffs';
 import { Spells } from './spells';
 import { Clues } from '../../clues';
