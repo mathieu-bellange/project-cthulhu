@@ -5,12 +5,12 @@ import './pnjs.sss';
 
 import Pnj from './pnj';
 
-const Pnjs = ({ pnjIds, enlargePnj, shrunkPnj, isEnlarged }) => {
+const Pnjs = ({ pnjIds, enlargePnj, shrunkPnj, isPnjEnlarged }) => {
   return (
     <div className="pnjs">
       {
         pnjIds.map((pnjId, index) =>
-          <Pnj key={index} id={pnjId} minimize={true} isEnlarged={isEnlarged(index)}
+          <Pnj key={index} id={pnjId} minimize={true} isEnlarged={isPnjEnlarged(index)}
             shrunkPnj={() => shrunkPnj(index)} enlargePnj={() => enlargePnj(index)}/>
         )
       }
@@ -20,7 +20,7 @@ const Pnjs = ({ pnjIds, enlargePnj, shrunkPnj, isEnlarged }) => {
 
 Pnjs.propTypes = {
   pnjIds: PropTypes.array,
-  isEnlarged: PropTypes.func.isRequired,
+  isPnjEnlarged: PropTypes.func.isRequired,
   enlargePnj: PropTypes.func.isRequired,
   shrunkPnj: PropTypes.func.isRequired
 };

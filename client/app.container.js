@@ -3,14 +3,15 @@ import { bindActionCreators } from 'redux';
 
 import {
   fetchPlaces, fetchPnjs,
-  getFullScreen, defineFullScreen, isPlacesLoaded
+  getFullScreen, defineFullScreen, isPlacesLoaded, isPnjsLoaded
 } from './store';
 import { AppWrapper } from './app';
 
 const mapStateToProps = state => {
   return {
     isFullScreen: getFullScreen(state),
-    placesLoaded: isPlacesLoaded(state)
+    placesLoaded: isPlacesLoaded(state),
+    pnjsLoaded: isPnjsLoaded(state)
   };
 };
 

@@ -13,3 +13,8 @@ export const selectPnjById = createSelector(
   selectPnjId,
   (pnjs, id) => pnjs[id] ? pnjs[id].pnj : {}
 );
+
+export const isPnjsLoaded = createSelector(
+  selectPnjsState,
+  (pnjsState) => pnjsState.pnjsLoaded
+);

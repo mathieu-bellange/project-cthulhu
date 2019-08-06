@@ -1,65 +1,17 @@
 .pnj
   display: flex
-  flex-direction: column
   font-size: 0.8em
+  & > *
+    padding: 0.5em
+    &:first-child
+      padding-right: 0
   &.maximize
     flex-basis: 100%
     margin-right: 0
-    .content
-      .overview.minimize
-        flex-basis: 35%
-        img
-          max-height: none
-      .details
-        padding-right: 0
-        padding-top: 0
-  .content
-    display: flex
-    & > *
-      padding: 0.5em
-      &:first-child
-        padding-right: 0
-    .overview
-      display: flex
-      flex-direction: column
-      align-content: space-between
-      flex-basis: 40%
-      &.minimize
-        flex-basis: 100%
-        padding: 0
-        img
-          max-height: 5em
-        &:hover
-          cursor: pointer
-      .card-wrapper
-        margin-bottom: 1em
+    .pnj-overview.minimize
+      flex-basis: 35%
+      img
+        max-height: none
     .details
-      display: flex
-      flex-direction: column
-      align-items: flex-start
-      justify-content: flex-start
-      flex-basis: 100%
-      &.minimize
-        display: none
-      &.maximize
-        padding-top: 0
-        padding-right: 0
-      & > *
-        width: 100%
-        margin-bottom: 0.5em
-        &:last-child
-          margin-bottom: 0
-      a .full-page
-        display: flex
-        background-color: #1E1E1E
-        color: #9B9B9B
-        border-radius: 10px
-        justify-content: space-between
-        align-items: center
-        padding: 0.5em
-        width: auto
-      .more-desc
-        display: flex
-        flex-flow: row wrap
-        justify-content: space-between
-        align-content: flex-start
+      padding-right: 0
+      padding-top: 0

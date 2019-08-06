@@ -5,8 +5,10 @@ import { bindActionCreators } from 'redux';
 import {Howl} from 'howler';
 
 import {
+  shrunkClue, enlargeClue, isClueEnlarged,
   pauseSound, playSound, isSoundPlaying,
-  addSound, getSoundHowlRef, getPlaceById
+  addSound, getSoundHowlRef, getPlaceById,
+  isPnjEnlarged, enlargePnj, shrunkPnj
 } from '../store';
 import Place from './place';
 
@@ -56,6 +58,8 @@ class PlaceContainer extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
+    isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),
+    isPnjEnlarged: (index) => isPnjEnlarged(state, props.id, index),
     sound: getSoundHowlRef(state, props.id),
     place: getPlaceById(state, props.id),
     isPlaying: isSoundPlaying(state, props.id)
@@ -64,6 +68,10 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) =>
     bindActionCreators({
+      enlargeClue: (index) => enlargeClue(props.id, index),
+      shrunkClue: (index) => shrunkClue(props.id, index),
+      enlargePnj: (index) => enlargePnj(props.id, index),
+      shrunkPnj: (index) => shrunkPnj(props.id, index),
       addSound: (sound) => addSound({ id: props.id, howlRef: sound }),
       pauseSound: () => pauseSound(props.id),
       playSound: () => playSound(props.id)

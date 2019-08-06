@@ -17,6 +17,7 @@ export class AppWrapper extends React.Component {
     fetchPnjs: PropTypes.func.isRequired,
     isFullScreen: PropTypes.bool.isRequired,
     placesLoaded: PropTypes.bool.isRequired,
+    pnjsLoaded: PropTypes.bool.isRequired,
     defineFullScreen: PropTypes.func.isRequired
   };
 
@@ -31,7 +32,8 @@ export class AppWrapper extends React.Component {
   render() {
     const {
       isFullScreen,
-      placesLoaded
+      placesLoaded,
+      pnjsLoaded
     } = this.props;
     return (
       <Router>
@@ -45,15 +47,16 @@ export class AppWrapper extends React.Component {
           exact
           component={Dashboard}
         />
-        <Route
+        { pnjsLoaded ?<Route
           path="/pnj/:id"
           exact
           render={(props) =>
             <NavPanel title={data.getPnjById(props.match.params.id).title} history={props.history}>
-              <Pnj isFullPage={true} pnj={data.getPnjById(props.match.params.id)} />
+              <Pnj id={props.match.params.id} />
             </NavPanel>
           }
-        />
+        /> : ''
+      }
       { placesLoaded ? <Route
           path="/place/:id"
           exact
