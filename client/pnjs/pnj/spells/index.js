@@ -1,1 +1,3 @@
-export * from './spells';
+import Spells from './spells';
+
+export default Spells;

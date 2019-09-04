@@ -22,7 +22,10 @@ export class Pnj extends React.Component {
     shrunkWeapon: PropTypes.func.isRequired,
     isStuffEnlarged: PropTypes.func.isRequired,
     enlargeStuff: PropTypes.func.isRequired,
-    shrunkStuff: PropTypes.func.isRequired
+    shrunkStuff: PropTypes.func.isRequired,
+    isSpellEnlarged: PropTypes.func.isRequired,
+    enlargeSpell: PropTypes.func.isRequired,
+    shrunkSpell: PropTypes.func.isRequired
   };
 
   render() {
@@ -49,6 +52,9 @@ export class Pnj extends React.Component {
           isStuffEnlarged={this.props.isStuffEnlarged}
           enlargeStuff={this.props.enlargeStuff}
           shrunkStuff={this.props.shrunkStuff}
+          isSpellEnlarged={this.props.isSpellEnlarged}
+          enlargeSpell={this.props.enlargeSpell}
+          shrunkSpell={this.props.shrunkSpell}
         />
       </div>
     );

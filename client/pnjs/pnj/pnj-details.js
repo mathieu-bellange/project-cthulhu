@@ -8,13 +8,14 @@ import { BaseStats } from './stats';
 import { Skills } from './skills';
 import Weapons from './weapons';
 import Stuffs from './stuffs';
-import { Spells } from './spells';
+import Spells from './spells';
 import { Clues } from '../../clues';
 
 const PnjDetails = ( { id, pnj, minimize, isEnlarged,
   isClueEnlarged, enlargeClue, shrunkClue,
   isWeaponEnlarged, enlargeWeapon, shrunkWeapon,
-  isStuffEnlarged, enlargeStuff, shrunkStuff } ) => {
+  isStuffEnlarged, enlargeStuff, shrunkStuff,
+  isSpellEnlarged, enlargeSpell, shrunkSpell} ) => {
   return (
     <div className={`pnj-details ${!minimize || isEnlarged ? '' : 'minimize'}`}>
       { id && minimize  ? <Link to={`/pnj/${ id }`}><div className="full-page">Plus d info...</div></Link> : '' }
@@ -32,7 +33,12 @@ const PnjDetails = ( { id, pnj, minimize, isEnlarged,
           enlargeStuff={enlargeStuff}
           shrunkStuff={shrunkStuff}>
         </Stuffs> }
-      { minimize || !pnj.spells ? '' : <Spells spells={ pnj.spells }></Spells> }
+      { minimize || !pnj.spells ? '' :
+        <Spells spells={ pnj.spells }
+          isSpellEnlarged={isSpellEnlarged}
+          enlargeSpell={enlargeSpell}
+          shrunkSpell={shrunkSpell}>
+        </Spells> }
       { pnj.clues ? <Clues
         clues={pnj.clues}
         isClueEnlarged={isClueEnlarged}
@@ -56,7 +62,10 @@ PnjDetails.propTypes = {
     shrunkWeapon: PropTypes.func.isRequired,
     isStuffEnlarged: PropTypes.func.isRequired,
     enlargeStuff: PropTypes.func.isRequired,
-    shrunkStuff: PropTypes.func.isRequired
+    shrunkStuff: PropTypes.func.isRequired,
+    isSpellEnlarged: PropTypes.func.isRequired,
+    enlargeSpell: PropTypes.func.isRequired,
+    shrunkSpell: PropTypes.func.isRequired
   };
 
 export default PnjDetails;
