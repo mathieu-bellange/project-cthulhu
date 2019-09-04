@@ -9,7 +9,7 @@ import {
   isSkillEnlarged, enlargeSkill, shrunkSkill,
   isStatEnlarged, enlargeStat, shrunkStat
 } from '../../store';
-import { Pnj } from './pnj';
+import Pnj from './pnj';
 
 const mapStateToProps = (state, props) => {
   return {
