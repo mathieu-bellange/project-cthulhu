@@ -16,7 +16,10 @@ export class Pnj extends React.Component {
     shrunkPnj: PropTypes.func,
     isClueEnlarged: PropTypes.func.isRequired,
     enlargeClue: PropTypes.func.isRequired,
-    shrunkClue: PropTypes.func.isRequired
+    shrunkClue: PropTypes.func.isRequired,
+    isWeaponEnlarged: PropTypes.func.isRequired,
+    enlargeWeapon: PropTypes.func.isRequired,
+    shrunkWeapon: PropTypes.func.isRequired
   };
 
   render() {
@@ -37,6 +40,9 @@ export class Pnj extends React.Component {
           isClueEnlarged={this.props.isClueEnlarged}
           enlargeClue={this.props.enlargeClue}
           shrunkClue={this.props.shrunkClue}
+          isWeaponEnlarged={this.props.isWeaponEnlarged}
+          enlargeWeapon={this.props.enlargeWeapon}
+          shrunkWeapon={this.props.shrunkWeapon}
         />
       </div>
     );

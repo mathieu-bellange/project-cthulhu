@@ -8,26 +8,11 @@ import WeaponDetails from './weapon-details'
 
 export default class Weapon extends React.Component {
   static propTypes = {
-    weapon: PropTypes.object
+    weapon: PropTypes.object.isRequired,
+    isEnlarged: PropTypes.bool,
+    enlargeWeapon: PropTypes.func.isRequired,
+    shrunkWeapon: PropTypes.func.isRequired
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMastery: false,
-      showOther: false
-    };
-    this.showMastery = this.showMastery.bind(this);
-    this.showOther = this.showOther.bind(this);
-  }
-
-  showMastery() {
-    this.setState({ showMastery: !this.state.showMastery})
-  }
-
-  showOther() {
-    this.setState({ showOther: !this.state.showOther})
-  }
 
   render() {
     return (
@@ -35,15 +20,15 @@ export default class Weapon extends React.Component {
         <div className="name">{ this.props.weapon.name }</div>
         <WeaponMastery
           mastery={this.props.weapon.mastery}
-          isMasteryEnlarged={this.state.showMastery}
-          shrunkMastery={this.showMastery}
-          enlargeMastery={this.showMastery}
+          isMasteryEnlarged={this.props.isEnlarged}
+          shrunkMastery={this.props.shrunkWeapon}
+          enlargeMastery={this.props.enlargeWeapon}
         />
         <WeaponDetails
           weapon={this.props.weapon}
-          isDetailsEnlarged={this.state.showOther}
-          shrunkDetails={this.showOther}
-          enlargeDetails={this.showOther}
+          isDetailsEnlarged={this.props.isEnlarged}
+          shrunkDetails={this.props.shrunkWeapon}
+          enlargeDetails={this.props.enlargeWeapon}
         />
       </div>
     );
