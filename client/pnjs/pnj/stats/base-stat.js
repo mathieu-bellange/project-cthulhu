@@ -22,46 +22,36 @@ BaseStatIcon.propTypes = {
    state: PropTypes.oneOf(['str', 'dex', 'con', 'edu', 'int', 'tai', 'pou', 'app'])
 }
 
-export default class BaseStat extends React.Component {
-  static propTypes = {
-    stat: PropTypes.object.isRequired
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      hideOther: true
-    };
-    this.half = this.half.bind(this);
-    this.fifth = this.fifth.bind(this);
-    this.showOther = this.showOther.bind(this);
+const BaseStat = ({ stat, isEnlarged, enlargeStat, shrunkStat }) => {
+  const half = () => {
+    if (isNaN(Object.values(stat)[0])) return '-';
+    return Math.trunc(Object.values(stat)[0] / 2);
   }
 
-  showOther() {
-    this.setState({ hideOther: !this.state.hideOther})
+  const fifth = () => {
+    if (isNaN(Object.values(stat)[0])) return '-';
+    return Math.trunc(Object.values(stat)[0] / 5);
   }
-
-  half() {
-    return Math.trunc(Object.values(this.props.stat)[0] / 2);
-  }
-
-  fifth() {
-    return Math.trunc(Object.values(this.props.stat)[0] / 5);
-  }
-
-  render() {
-    return (
-      <div className="base-stat" onClick={this.showOther}>
-        { BaseStatIcon(Object.keys(this.props.stat)[0]) }
-        <div className="roll-info">
-          <div className="ordinary">{ Object.values(this.props.stat)[0] }</div>
-          <div className={`other ${this.state.hideOther ? 'hide': ''}`}>
-            <div className="major">{ this.half() }</div>
-            -
-            <div className="extreme">{ this.fifth() }</div>
-          </div>
+  return (
+    <div className="base-stat" onClick={() => isEnlarged ? shrunkStat() : enlargeStat()}>
+      { BaseStatIcon(Object.keys(stat)[0]) }
+      <div className="roll-info">
+        <div className="ordinary">{ Object.values(stat)[0] }</div>
+        <div className={`stat-calcul ${isEnlarged ? '': 'hide'}`}>
+          <div className="major">{ half() }</div>
+          -
+          <div className="extreme">{ fifth() }</div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+BaseStat.propTypes = {
+  stat: PropTypes.object.isRequired,
+  isEnlarged: PropTypes.bool,
+  enlargeStat: PropTypes.func.isRequired,
+  shrunkStat: PropTypes.func.isRequired
+};
+
+export default BaseStat;

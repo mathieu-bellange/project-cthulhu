@@ -2,7 +2,8 @@ import {
     FETCH_PLACES_SUCCESS, ENLARGE_CLUE, SHRUNK_CLUE,
     FETCH_PNJS_SUCCESS, ENLARGE_PNJ, SHRUNK_PNJ,
     ENLARGE_WEAPON, SHRUNK_WEAPON, ENLARGE_STUFF, SHRUNK_STUFF,
-    ENLARGE_SPELL, SHRUNK_SPELL, ENLARGE_SKILL, SHRUNK_SKILL
+    ENLARGE_SPELL, SHRUNK_SPELL, ENLARGE_SKILL, SHRUNK_SKILL,
+    ENLARGE_STAT, SHRUNK_STAT
 } from '../actions';
 
 const initialState = {};
@@ -70,6 +71,18 @@ export function appDisplayReducer(state = initialState, action) {
             newState[action.payload.id].skills[action.payload.index].enlarge = false;
             return newState;
           }
+        case ENLARGE_STAT: {
+            const newState = { ...state };
+            newState[action.payload.id].stats[action.payload.key].enlarge = true;
+            console.log(newState);
+            return newState;
+          }
+        case SHRUNK_STAT: {
+            const newState = { ...state };
+            newState[action.payload.id].stats[action.payload.key].enlarge = false;
+            console.log(newState);
+            return newState;
+          }
         case ENLARGE_PNJ: {
             const newState = { ...state };
             newState[action.payload.id].pnjs[action.payload.index].enlarge = true;
@@ -83,7 +96,7 @@ export function appDisplayReducer(state = initialState, action) {
         case FETCH_PNJS_SUCCESS: {
             const newState = { ...state };
             Object.keys(action.payload).forEach(key => {
-              newState[key] = { clues: [], skills: [], weapons: [], stuffs: [], spells: [] };
+              newState[key] = { clues: [], skills: [], weapons: [], stuffs: [], spells: [], stats: {} };
               if (action.payload[key].pnj.clues)
                 action.payload[key].pnj.clues.forEach(() => newState[key].clues.push({ enlarge: false }));
               if (action.payload[key].pnj.skills)
@@ -94,6 +107,10 @@ export function appDisplayReducer(state = initialState, action) {
                 action.payload[key].pnj.stuffs.forEach(() => newState[key].stuffs.push({ enlarge: false }));
               if (action.payload[key].pnj.spells)
                 action.payload[key].pnj.spells.forEach(() => newState[key].spells.push({ enlarge: false }));
+              if (action.payload[key].pnj.stats)
+                for (const variable in action.payload[key].pnj.stats) {
+                  newState[key].stats[variable] = { enlarge: false };
+                }
             });
             console.log(newState);
             return newState;

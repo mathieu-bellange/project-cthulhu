@@ -17,6 +17,9 @@ const selectAppDisplaySpells = (state, id) =>
 const selectAppDisplaySkills = (state, id) =>
   selectAppDisplayId(state, id) ? selectAppDisplayId(state, id).skills : [];
 
+const selectAppDisplayStats = (state, id) =>
+  selectAppDisplayId(state, id) ? selectAppDisplayId(state, id).stats : {};
+
 const selectAppDisplayPnjs = (state, id) =>
   selectAppDisplayId(state, id) ? selectAppDisplayId(state, id).pnjs : [];
 
@@ -35,6 +38,9 @@ const selectAppDisplaySpell = (state, id, index) =>
 const selectAppDisplaySkill = (state, id, index) =>
   selectAppDisplaySkills(state, id).length > index ? selectAppDisplaySkills(state, id)[index] : {};
 
+const selectAppDisplayStat = (state, id, key) =>
+  selectAppDisplayStats(state, id)[key] ? selectAppDisplayStats(state, id)[key] : {};
+
 const selectAppDisplayPnj = (state, id, index) =>
   selectAppDisplayPnjs(state, id).length > index ? selectAppDisplayPnjs(state, id)[index] : {};
 
@@ -44,3 +50,4 @@ export const isWeaponEnlarged = (state, id, index) => selectAppDisplayWeapon(sta
 export const isStuffEnlarged = (state, id, index) => selectAppDisplayStuff(state, id, index).enlarge;
 export const isSpellEnlarged = (state, id, index) => selectAppDisplaySpell(state, id, index).enlarge;
 export const isSkillEnlarged = (state, id, index) => selectAppDisplaySkill(state, id, index).enlarge;
+export const isStatEnlarged = (state, id, key) => selectAppDisplayStat(state, id, key).enlarge;

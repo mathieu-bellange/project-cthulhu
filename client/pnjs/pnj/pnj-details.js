@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './pnj-details.sss';
 
-import { BaseStats } from './stats';
+import BaseStats from './stats';
 import Skills from './skills';
 import Weapons from './weapons';
 import Stuffs from './stuffs';
@@ -16,11 +16,16 @@ const PnjDetails = ( { id, pnj, minimize, isEnlarged,
   isWeaponEnlarged, enlargeWeapon, shrunkWeapon,
   isStuffEnlarged, enlargeStuff, shrunkStuff,
   isSpellEnlarged, enlargeSpell, shrunkSpell,
-  isSkillEnlarged, enlargeSkill, shrunkSkill} ) => {
+  isSkillEnlarged, enlargeSkill, shrunkSkill,
+  isStatEnlarged, enlargeStat, shrunkStat} ) => {
   return (
     <div className={`pnj-details ${!minimize || isEnlarged ? '' : 'minimize'}`}>
       { id && minimize  ? <Link to={`/pnj/${ id }`}><div className="full-page">Plus d info...</div></Link> : '' }
-      { pnj.stats ? <BaseStats stats={pnj.stats} /> : ''}
+      { pnj.stats ?
+        <BaseStats stats={pnj.stats}
+          isStatEnlarged={isStatEnlarged}
+          enlargeStat={enlargeStat}
+          shrunkStat={shrunkStat} /> : ''}
       { pnj.skills ?
         <Skills skills={ pnj.skills }
           isSkillEnlarged={isSkillEnlarged}
@@ -74,7 +79,10 @@ PnjDetails.propTypes = {
     shrunkSpell: PropTypes.func.isRequired,
     isSkillEnlarged: PropTypes.func.isRequired,
     enlargeSkill: PropTypes.func.isRequired,
-    shrunkSkill: PropTypes.func.isRequired
+    shrunkSkill: PropTypes.func.isRequired,
+    isStatEnlarged: PropTypes.func.isRequired,
+    enlargeStat: PropTypes.func.isRequired,
+    shrunkStat: PropTypes.func.isRequired
   };
 
 export default PnjDetails;

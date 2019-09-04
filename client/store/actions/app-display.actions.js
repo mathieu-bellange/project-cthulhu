@@ -10,6 +10,8 @@ export const ENLARGE_SPELL = 'ENLARGE_SPELL';
 export const SHRUNK_SPELL = 'SHRUNK_SPELL';
 export const ENLARGE_SKILL = 'ENLARGE_SKILL';
 export const SHRUNK_SKILL = 'SHRUNK_SKILL';
+export const ENLARGE_STAT = 'ENLARGE_STAT';
+export const SHRUNK_STAT = 'SHRUNK_STAT';
 
 export const enlargeClue = (id, index) => ({
     type: ENLARGE_CLUE,
@@ -69,4 +71,14 @@ export const enlargeSkill = (id, index) => ({
 export const shrunkSkill = (id, index) => ({
     type: SHRUNK_SKILL,
     payload: { id, index }
+});
+
+export const enlargeStat = (id, key) => ({
+    type: ENLARGE_STAT,
+    payload: { id, key }
+});
+
+export const shrunkStat = (id, key) => ({
+    type: SHRUNK_STAT,
+    payload: { id, key }
 });

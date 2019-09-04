@@ -28,7 +28,10 @@ export class Pnj extends React.Component {
     shrunkSpell: PropTypes.func.isRequired,
     isSkillEnlarged: PropTypes.func.isRequired,
     enlargeSkill: PropTypes.func.isRequired,
-    shrunkSkill: PropTypes.func.isRequired
+    shrunkSkill: PropTypes.func.isRequired,
+    isStatEnlarged: PropTypes.func.isRequired,
+    enlargeStat: PropTypes.func.isRequired,
+    shrunkStat: PropTypes.func.isRequired
   };
 
   render() {
@@ -61,6 +64,9 @@ export class Pnj extends React.Component {
           isSkillEnlarged={this.props.isSkillEnlarged}
           enlargeSkill={this.props.enlargeSkill}
           shrunkSkill={this.props.shrunkSkill}
+          isStatEnlarged={this.props.isStatEnlarged}
+          enlargeStat={this.props.enlargeStat}
+          shrunkStat={this.props.shrunkStat}
         />
       </div>
     );
