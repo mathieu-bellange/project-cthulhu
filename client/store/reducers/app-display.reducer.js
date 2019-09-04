@@ -1,7 +1,7 @@
 import {
     FETCH_PLACES_SUCCESS, ENLARGE_CLUE, SHRUNK_CLUE,
     FETCH_PNJS_SUCCESS, ENLARGE_PNJ, SHRUNK_PNJ,
-    ENLARGE_WEAPON, SHRUNK_WEAPON
+    ENLARGE_WEAPON, SHRUNK_WEAPON, ENLARGE_STUFF, SHRUNK_STUFF
 } from '../actions';
 
 const initialState = {};
@@ -37,6 +37,16 @@ export function appDisplayReducer(state = initialState, action) {
         case SHRUNK_WEAPON: {
             const newState = { ...state };
             newState[action.payload.id].weapons[action.payload.index].enlarge = false;
+            return newState;
+          }
+        case ENLARGE_STUFF: {
+            const newState = { ...state };
+            newState[action.payload.id].stuffs[action.payload.index].enlarge = true;
+            return newState;
+          }
+        case SHRUNK_STUFF: {
+            const newState = { ...state };
+            newState[action.payload.id].stuffs[action.payload.index].enlarge = false;
             return newState;
           }
         case ENLARGE_PNJ: {

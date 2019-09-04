@@ -1,1 +1,3 @@
-export * from './stuffs';
+import Stuffs from './stuffs';
+
+export default Stuffs;

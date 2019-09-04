@@ -20,42 +20,30 @@ StuffIcon.propTypes = {
    state: PropTypes.oneOf(['object', 'weapon'])
 }
 
-export class Stuff extends React.Component {
-  static propTypes = {
-    stuff: PropTypes.object.isRequired
-  };
-
-  constructor(props){
-     super(props);
-     this.state = {
-       enlarge: false
-     };
-     this.enlarge = this.enlarge.bind(this);
-  }
-
-  enlarge(){
-      this.setState({ enlarge: !this.state.enlarge });
-  }
-
-  render() {
-    return (
-      <div className={`stuff ${this.state.enlarge ? 'lg' : ''}`} onClick={this.enlarge}>
-        <div className="stuff-overview">
-          <div className="name">
-            { StuffIcon(this.props.stuff.type) }
-            { this.props.stuff.name}
-          </div>
-        </div>
-        <div className={`stuff-description ${this.state.enlarge ? '' : 'hide'}`}>
-          { this.props.stuff.description }
-        </div>
-        <div className={`other ${this.state.enlarge ? '' : 'hide'}`}>
-          <div className="stuff-effect">
-            <FontAwesomeIcon icon={faEye} />
-            { this.props.stuff.effect }
-          </div>
-        </div>
+const Stuff = ({ stuff, isEnlarged, enlargeStuff, shrunkStuff }) => {
+  return (
+    <div className={`stuff ${isEnlarged ? 'lg' : ''}`}
+      onClick={() => isEnlarged ? shrunkStuff() : enlargeStuff()}>
+      <div className="stuff-overview">
+        { StuffIcon(stuff.type) }
+        { stuff.name}
       </div>
-    );
-  }
-}
+      <div className={`stuff-description ${isEnlarged ? '' : 'hide'}`}>
+        { stuff.description }
+      </div>
+      <div className={`stuff-effect ${isEnlarged ? '' : 'hide'}`}>
+        <FontAwesomeIcon icon={faEye} />
+        { stuff.effect }
+      </div>
+    </div>
+  );
+};
+
+Stuff.propTypes = {
+  stuff: PropTypes.object.isRequired,
+  isEnlarged: PropTypes.bool,
+  enlargeStuff: PropTypes.func.isRequired,
+  shrunkStuff: PropTypes.func.isRequired
+};
+
+export default Stuff;
