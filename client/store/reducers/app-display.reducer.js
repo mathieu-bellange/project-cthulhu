@@ -2,7 +2,7 @@ import {
     FETCH_PLACES_SUCCESS, ENLARGE_CLUE, SHRUNK_CLUE,
     FETCH_PNJS_SUCCESS, ENLARGE_PNJ, SHRUNK_PNJ,
     ENLARGE_WEAPON, SHRUNK_WEAPON, ENLARGE_STUFF, SHRUNK_STUFF,
-    ENLARGE_SPELL, SHRUNK_SPELL
+    ENLARGE_SPELL, SHRUNK_SPELL, ENLARGE_SKILL, SHRUNK_SKILL
 } from '../actions';
 
 const initialState = {};
@@ -58,6 +58,16 @@ export function appDisplayReducer(state = initialState, action) {
         case SHRUNK_SPELL: {
             const newState = { ...state };
             newState[action.payload.id].spells[action.payload.index].enlarge = false;
+            return newState;
+          }
+        case ENLARGE_SKILL: {
+            const newState = { ...state };
+            newState[action.payload.id].skills[action.payload.index].enlarge = true;
+            return newState;
+          }
+        case SHRUNK_SKILL: {
+            const newState = { ...state };
+            newState[action.payload.id].skills[action.payload.index].enlarge = false;
             return newState;
           }
         case ENLARGE_PNJ: {

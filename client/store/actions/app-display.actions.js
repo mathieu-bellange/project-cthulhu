@@ -8,6 +8,8 @@ export const ENLARGE_STUFF = 'ENLARGE_STUFF';
 export const SHRUNK_STUFF = 'SHRUNK_STUFF';
 export const ENLARGE_SPELL = 'ENLARGE_SPELL';
 export const SHRUNK_SPELL = 'SHRUNK_SPELL';
+export const ENLARGE_SKILL = 'ENLARGE_SKILL';
+export const SHRUNK_SKILL = 'SHRUNK_SKILL';
 
 export const enlargeClue = (id, index) => ({
     type: ENLARGE_CLUE,
@@ -56,5 +58,15 @@ export const enlargeSpell = (id, index) => ({
 
 export const shrunkSpell = (id, index) => ({
     type: SHRUNK_SPELL,
+    payload: { id, index }
+});
+
+export const enlargeSkill = (id, index) => ({
+    type: ENLARGE_SKILL,
+    payload: { id, index }
+});
+
+export const shrunkSkill = (id, index) => ({
+    type: SHRUNK_SKILL,
     payload: { id, index }
 });

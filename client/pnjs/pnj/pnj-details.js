@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './pnj-details.sss';
 
 import { BaseStats } from './stats';
-import { Skills } from './skills';
+import Skills from './skills';
 import Weapons from './weapons';
 import Stuffs from './stuffs';
 import Spells from './spells';
@@ -15,12 +15,18 @@ const PnjDetails = ( { id, pnj, minimize, isEnlarged,
   isClueEnlarged, enlargeClue, shrunkClue,
   isWeaponEnlarged, enlargeWeapon, shrunkWeapon,
   isStuffEnlarged, enlargeStuff, shrunkStuff,
-  isSpellEnlarged, enlargeSpell, shrunkSpell} ) => {
+  isSpellEnlarged, enlargeSpell, shrunkSpell,
+  isSkillEnlarged, enlargeSkill, shrunkSkill} ) => {
   return (
     <div className={`pnj-details ${!minimize || isEnlarged ? '' : 'minimize'}`}>
       { id && minimize  ? <Link to={`/pnj/${ id }`}><div className="full-page">Plus d info...</div></Link> : '' }
       { pnj.stats ? <BaseStats stats={pnj.stats} /> : ''}
-      { pnj.skills ?<Skills skills={ pnj.skills }></Skills> : ''}
+      { pnj.skills ?
+        <Skills skills={ pnj.skills }
+          isSkillEnlarged={isSkillEnlarged}
+          enlargeSkill={enlargeSkill}
+          shrunkSkill={shrunkSkill}>
+        </Skills> : ''}
       { minimize || !pnj.weapons ? '' :
         <Weapons weapons={ pnj.weapons }
           isWeaponEnlarged={isWeaponEnlarged}
@@ -65,7 +71,10 @@ PnjDetails.propTypes = {
     shrunkStuff: PropTypes.func.isRequired,
     isSpellEnlarged: PropTypes.func.isRequired,
     enlargeSpell: PropTypes.func.isRequired,
-    shrunkSpell: PropTypes.func.isRequired
+    shrunkSpell: PropTypes.func.isRequired,
+    isSkillEnlarged: PropTypes.func.isRequired,
+    enlargeSkill: PropTypes.func.isRequired,
+    shrunkSkill: PropTypes.func.isRequired
   };
 
 export default PnjDetails;

@@ -5,7 +5,8 @@ import {
   selectPnjById, isClueEnlarged, enlargeClue, shrunkClue,
   isWeaponEnlarged, enlargeWeapon, shrunkWeapon,
   isStuffEnlarged, enlargeStuff, shrunkStuff,
-  isSpellEnlarged, enlargeSpell, shrunkSpell
+  isSpellEnlarged, enlargeSpell, shrunkSpell,
+  isSkillEnlarged, enlargeSkill, shrunkSkill
 } from '../../store';
 import { Pnj } from './pnj';
 
@@ -15,7 +16,8 @@ const mapStateToProps = (state, props) => {
     isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),
     isWeaponEnlarged: (index) => isWeaponEnlarged(state, props.id, index),
     isStuffEnlarged: (index) => isStuffEnlarged(state, props.id, index),
-    isSpellEnlarged: (index) => isSpellEnlarged(state, props.id, index)
+    isSpellEnlarged: (index) => isSpellEnlarged(state, props.id, index),
+    isSkillEnlarged: (index) => isSkillEnlarged(state, props.id, index)
   };
 };
 
@@ -28,7 +30,9 @@ const mapDispatchToProps = (dispatch, props) =>
       enlargeStuff: (index) => enlargeStuff(props.id, index),
       shrunkStuff: (index) => shrunkStuff(props.id, index),
       enlargeSpell: (index) => enlargeSpell(props.id, index),
-      shrunkSpell: (index) => shrunkSpell(props.id, index)
+      shrunkSpell: (index) => shrunkSpell(props.id, index),
+      enlargeSkill: (index) => enlargeSkill(props.id, index),
+      shrunkSkill: (index) => shrunkSkill(props.id, index)
     }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pnj);

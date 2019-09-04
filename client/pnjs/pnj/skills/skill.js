@@ -3,44 +3,36 @@ import PropTypes from 'prop-types';
 
 import './skill.sss';
 
-export default class Skill extends React.Component {
-  static propTypes = {
-    skill: PropTypes.object
-  };
+const Skill = ({ skill, isEnlarged, enlargeSkill, shrunkSkill }) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      hideOther: true
-    };
-    this.half = this.half.bind(this);
-    this.fifth = this.fifth.bind(this);
-    this.showOther = this.showOther.bind(this);
+  const half = () => {
+    if (isNaN(skill.mastery)) return '-';
+    return Math.trunc(skill.mastery / 2);
   }
 
-  showOther() {
-    this.setState({ hideOther: !this.state.hideOther})
+  const fifth = () => {
+    if (isNaN(skill.mastery)) return '-';
+    return Math.trunc(skill.mastery / 5);
   }
 
-  half() {
-    return Math.trunc(this.props.skill.mastery / 2);
-  }
-
-  fifth() {
-    return Math.trunc(this.props.skill.mastery / 5);
-  }
-
-  render() {
-    return (
-      <div className="skill" onClick={this.showOther}>
-        <div className="name">{ this.props.skill.name }</div>
-        <div className="percent">{ this.props.skill.mastery } %</div>
-        <div className={`other ${this.state.hideOther ? 'hide': ''}`}>
-          <div className="half">{ this.half() }</div>
-          <div>-</div>
-          <div className="fifth">{ this.fifth() }</div>
-        </div>
+  return (
+    <div className="skill" onClick={() => isEnlarged ? shrunkSkill() : enlargeSkill()}>
+      <div className="name">{ skill.name }</div>
+      <div className="percent">{ skill.mastery } %</div>
+      <div className={`mastery-calcul ${isEnlarged ? '': 'hide'}`}>
+        <div className="half">{ half() }</div>
+        <div>-</div>
+        <div className="fifth">{ fifth() }</div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+Skill.propTypes = {
+  skill: PropTypes.object,
+  isEnlarged: PropTypes.bool,
+  enlargeSkill: PropTypes.func.isRequired,
+  shrunkSkill: PropTypes.func.isRequired
+};
+
+export default Skill;
