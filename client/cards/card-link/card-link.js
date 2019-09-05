@@ -6,17 +6,17 @@ import { withRouter } from "react-router";
 import './card-link.sss';
 import Card from '../card';
 
-const CardLink = ({ cardLink, match, showDesc }) => {
-
+const CardLink = ({ cardLink, showDesc }) => {
+  const url = `/${cardLink.place ? 'place' : 'pnj'}/${cardLink.id}`;
   return (
     <Link to={{
-      pathname: match.url + cardLink.url,
+      pathname: url,
       state: { card: cardLink.card }
     }} className="card-link">
       <Card limitImgHeight={true}
       showTitle={true} showImg={true}
       showDesc={showDesc}
-      card={ cardLink.place || cardLink.pnj }></Card>
+      card={ cardLink }></Card>
     </Link>
   );
 };

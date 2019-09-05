@@ -14,10 +14,10 @@ export function appDisplayReducer(state = initialState, action) {
             const newState = { ...state };
             Object.keys(action.payload).forEach(key => {
               newState[key] = { clues: [], pnjs: []};
-              if (action.payload[key].place.pnjs)
-                action.payload[key].place.pnjs.forEach(() => newState[key].pnjs.push({ enlarge: false }));
-              if (action.payload[key].place.clues)
-                action.payload[key].place.clues.forEach(() => newState[key].clues.push({ enlarge: false }));
+              if (action.payload[key].pnjs)
+                action.payload[key].pnjs.forEach(() => newState[key].pnjs.push({ enlarge: false }));
+              if (action.payload[key].clues)
+                action.payload[key].clues.forEach(() => newState[key].clues.push({ enlarge: false }));
             });
             return newState;
           }
