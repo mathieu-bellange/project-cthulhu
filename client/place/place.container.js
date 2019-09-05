@@ -61,7 +61,7 @@ const mapStateToProps = (state, props) => {
     isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),
     isPnjEnlarged: (index) => isPnjEnlarged(state, props.id, index),
     sound: selectSoundHowlRef(state, props.id),
-    place: selectPlaceById(state, props.id),
+    place: selectPlaceById(state, props.scenarioId, props.id),
     isPlaying: isSoundPlaying(state, props.id)
   };
 };

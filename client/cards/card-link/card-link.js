@@ -6,8 +6,9 @@ import { withRouter } from "react-router";
 import './card-link.sss';
 import Card from '../card';
 
-const CardLink = ({ cardLink, showDesc }) => {
-  const url = `/${cardLink.place ? 'place' : 'pnj'}/${cardLink.id}`;
+const CardLink = ({ cardLink, showDesc, match }) => {
+  console.log(match);
+  const url = `${match.url}/${cardLink.place ? 'place' : 'pnj'}/${cardLink.id}`;
   return (
     <Link to={{
       pathname: url,

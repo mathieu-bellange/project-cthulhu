@@ -45,8 +45,8 @@ const mapStateToProps = state => {
   return {
     isFullScreen: isFullScreen(state),
     scenariosLoaded: isScenariosLoaded(state),
-    selectPnjTitle: (id) => selectPnjTitle(state, id),
-    selectPlaceTitle: (id) => selectPlaceTitle(state, id)
+    selectPnjTitle: (scenarioId,id) => selectPnjTitle(state, scenarioId, id),
+    selectPlaceTitle: (scenarioId, id) => selectPlaceTitle(state, scenarioId, id)
   };
 };
 

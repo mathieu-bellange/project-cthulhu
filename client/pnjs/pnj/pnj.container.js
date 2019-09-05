@@ -12,8 +12,9 @@ import {
 import Pnj from './pnj';
 
 const mapStateToProps = (state, props) => {
+  console.log(props);
   return {
-    pnj: selectPnjById(state, props.id),
+    pnj: selectPnjById(state, props.scenarioId, props.id),
     isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),
     isWeaponEnlarged: (index) => isWeaponEnlarged(state, props.id, index),
     isStuffEnlarged: (index) => isStuffEnlarged(state, props.id, index),

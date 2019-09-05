@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 import { selectScenarioById } from './scenarios.selectors';
 
-const selectPnjId = (state, pnjId) => pnjId;
+const selectPnjId = (state, scenarioId, pnjId) => pnjId;
 
 const selectPnjs = createSelector(
   selectScenarioById,

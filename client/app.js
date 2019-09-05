@@ -20,33 +20,36 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded,
           }
         </div>
         <Route
-          path="/"
+          path="/:scenarioId"
           exact
-          component={Dashboard}
+          render={({ match }) =>
+            <Dashboard id={match.params.scenarioId}>
+            </Dashboard>
+          }
         />
         { scenariosLoaded ? <Route
-          path="/pnj/:id"
+          path="/:scenarioId/pnj/:id"
           exact
           render={({ match, history }) =>
-            <NavPanel title={selectPnjTitle(match.params.id)} history={history}>
-              <Pnj id={match.params.id} />
+            <NavPanel title={selectPnjTitle(match.params.scenarioId, match.params.id)} history={history}>
+              <Pnj id={match.params.id} scenarioId={match.params.scenarioId}/>
             </NavPanel>
           }
         /> : '' }
         { scenariosLoaded ? <Route
-          path="/place/:id"
+          path="/:scenarioId/place/:id"
           exact
           render={({ match, history }) =>
-            <NavPanel title={selectPlaceTitle(match.params.id)} history={history}>
-              <Place id={match.params.id} />
+            <NavPanel title={selectPlaceTitle(match.params.scenarioId, match.params.id)} history={history}>
+              <Place id={match.params.id} scenarioId={match.params.scenarioId} />
             </NavPanel>
           }
         /> : ''}
         { scenariosLoaded ? <Route
-          path="/place/:id/:subPlaceId"
+          path="/:scenarioId/place/:id/:subPlaceId"
           exact
           render={({ match, history }) =>
-            <NavPanel title={selectPlaceTitle(match.params.subPlaceId)} history={history}>
+            <NavPanel title={selectPlaceTitle(match.params.scenarioId, match.params.subPlaceId)} history={history}>
               <Place id={match.params.subPlaceId} />
             </NavPanel>
           }

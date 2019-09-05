@@ -5,10 +5,11 @@ import './place-details.sss';
 import { Clues } from '../clues';
 import { Pnjs } from '../pnjs';
 
-const PlaceDetails = ({ pnjs, clues, isClueEnlarged, enlargeClue, shrunkClue, isPnjEnlarged, enlargePnj, shrunkPnj }) => {
+const PlaceDetails = ({ scenarioId, pnjs, clues, isClueEnlarged, enlargeClue, shrunkClue, isPnjEnlarged, enlargePnj, shrunkPnj }) => {
   return (
     <div className="place-details">
       { pnjs ? <Pnjs
+        scenarioId={scenarioId}
         pnjIds={pnjs}
         isPnjEnlarged={isPnjEnlarged}
         enlargePnj={enlargePnj}
@@ -25,6 +26,7 @@ const PlaceDetails = ({ pnjs, clues, isClueEnlarged, enlargeClue, shrunkClue, is
 }
 
 PlaceDetails.propTypes = {
+  scenarioId: PropTypes.string.isRequired,
   pnjs: PropTypes.array,
   clues: PropTypes.array,
   isClueEnlarged: PropTypes.func.isRequired,

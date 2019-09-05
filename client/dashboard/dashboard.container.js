@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import { selectDashboardCards} from '../store';
 import Dashboard from './dashboard';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   return {
-    cards: selectDashboardCards(state)
+    cards: selectDashboardCards(state, props.id)
   };
 };
 
