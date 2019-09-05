@@ -74,3 +74,5 @@ Pnj.propTypes = {
   enlargeStat: PropTypes.func.isRequired,
   shrunkStat: PropTypes.func.isRequired
 };
+
+export default Pnj;
