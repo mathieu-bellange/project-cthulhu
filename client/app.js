@@ -9,32 +9,9 @@ import NavPanel from './nav-panel';
 import Place from './place';
 import Dashboard from './dashboard';
 import { Pnj } from './pnjs';
-import * as data from './data';
 
-export class AppWrapper extends React.Component {
-  static propTypes = {
-    fetchPlaces: PropTypes.func.isRequired,
-    fetchPnjs: PropTypes.func.isRequired,
-    isFullScreen: PropTypes.bool.isRequired,
-    placesLoaded: PropTypes.bool.isRequired,
-    pnjsLoaded: PropTypes.bool.isRequired,
-    defineFullScreen: PropTypes.func.isRequired
-  };
-
-  componentDidMount() {
-    this.props.fetchPlaces();
-    this.props.fetchPnjs();
-    this.props.defineFullScreen(document.fullscreenElement)
-    document.addEventListener('fullscreenchange',
-      () => this.props.defineFullScreen(document.fullscreenElement));
-  }
-
-  render() {
-    const {
-      isFullScreen,
-      placesLoaded,
-      pnjsLoaded
-    } = this.props;
+const AppWrapper = ({ isFullScreen, placesLoaded, pnjsLoaded,
+  selectPnjTitle, selectPlaceTitle }) => {
     return (
       <Router>
         <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
@@ -47,39 +24,43 @@ export class AppWrapper extends React.Component {
           exact
           component={Dashboard}
         />
-        { pnjsLoaded ?<Route
+        { pnjsLoaded ? <Route
           path="/pnj/:id"
           exact
-          render={(props) =>
-            <NavPanel title={data.getPnjById(props.match.params.id).title} history={props.history}>
-              <Pnj id={props.match.params.id} />
+          render={({ match, history }) =>
+            <NavPanel title={selectPnjTitle(match.params.id)} history={history}>
+              <Pnj id={match.params.id} />
             </NavPanel>
           }
-        /> : ''
-      }
-      { placesLoaded ? <Route
+        /> : '' }
+        { placesLoaded ? <Route
           path="/place/:id"
           exact
-          render={(props) =>
-            <NavPanel title={data.getPlaceById(props.match.params.id).title} history={props.history}>
-              <Place
-                id={props.match.params.id}
-                />
+          render={({ match, history }) =>
+            <NavPanel title={selectPlaceTitle(match.params.id)} history={history}>
+              <Place id={match.params.id} />
             </NavPanel>
           }
         /> : ''}
-        <Route
-          path="/place/:id/:otherId"
+        { placesLoaded ? <Route
+          path="/place/:id/:subPlaceId"
           exact
-          render={(props) =>
-            <NavPanel title={data.getPlaceById(props.match.params.otherId).title} history={props.history}>
-              <Place
-                id={props.match.params.otherId}
-              />
+          render={({ match, history }) =>
+            <NavPanel title={selectPlaceTitle(match.params.subPlaceId)} history={history}>
+              <Place id={match.params.subPlaceId} />
             </NavPanel>
           }
-        />
+        /> : ''}
       </Router>
     );
-  }
-}
+};
+
+AppWrapper.propTypes = {
+  isFullScreen: PropTypes.bool.isRequired,
+  placesLoaded: PropTypes.bool.isRequired,
+  pnjsLoaded: PropTypes.bool.isRequired,
+  selectPnjTitle: PropTypes.func.isRequired,
+  selectPlaceTitle: PropTypes.func.isRequired
+};
+
+export default AppWrapper;

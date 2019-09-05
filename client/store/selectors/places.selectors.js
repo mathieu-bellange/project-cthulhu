@@ -27,5 +27,5 @@ export const isPlacesLoaded = createSelector(
 
 export const selectPlaceTitle = createSelector(
   selectPlaceById,
-  (places, id) => places[id] ? places[id].place.title : ''
+  place => place ? place.title : ''
 );
