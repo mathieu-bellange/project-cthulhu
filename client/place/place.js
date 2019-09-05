@@ -1,91 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from "react-router";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
-import { map } from 'lodash';
-import {Howl} from 'howler';
 
 import './place.sss';
-import { CardLink, Card } from '../card';
-import { Clue } from '../clues';
-import { Pnjs } from '../pnjs';
+import PlaceOverview from './place-overview';
+import PlaceDetails from './place-details';
 
-class PlaceComponent extends React.Component {
-  static propTypes = {
-    card: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired,
-    sound: PropTypes.object,
-    saveSoundRef: PropTypes.func.isRequired
-  };
-
-  constructor(props){
-     super(props);
-     this.state = {
-       play: props.sound ? props.sound.playing() : false
-     };
-     this.play = this.play.bind(this);
-     this.pause = this.pause.bind(this);
-  }
-
-  componentDidMount() {
-    if (!this.props.sound && this.props.card.music) {
-      this.sound = new Howl({
-        src: this.props.card.music,
-        html5: true,
-        autoplay: true,
-        loop: true,
-        volume: 0.5
-      });
-      this.props.saveSoundRef({ [this.props.match.params.otherId ? this.props.match.params.otherId : this.props.match.params.id]: this.sound});
-    }
-  }
-
-  play() {
-    this.setState({ play: true });
-    this.props.sound ? this.props.sound.play() : this.sound.play();
-  }
-
-  pause() {
-    this.setState({ play: false });
-    this.props.sound ? this.props.sound.pause() : this.sound.pause();
-  }
-
-  render() {
-    return (
-      <div className="place">
-        <div className="content">
-          <div className="overview">
-            <div className="card-wrapper">
-              <Card card={this.props.card} showDesc={true}/>
-            {
-
-              this.props.card.music && this.props.card.music.length > 0 ? <div className="play-pause-wrapper">
-                {
-                  this.state.play ? <FontAwesomeIcon icon={faPauseCircle} size="7x" onClick={this.pause}/> :
-                    <FontAwesomeIcon icon={faPlayCircle} size="7x" onClick={this.play}/>
-                }
-              </div> : ''
-            }
-            </div>
-            <div className="inside-places">
-              {
-                map(this.props.card.insidePlace, (place, index) => <CardLink key={ index } cardLink={ place }></CardLink>)
-              }
-            </div>
-          </div>
-          <div className="details">
-            { this.props.card.pnjs ? <Pnjs pnjs={this.props.card.pnjs} /> : '' }
-            <div className="clues">
-              { this.props.card.clues ? this.props.card.clues.map((clue, index) =>
-                <Clue key={index} clue={ clue } />
-              ) : '' }
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+const Place = ({ place, isPlaying, play, pause, isClueEnlarged, enlargeClue, shrunkClue, isPnjEnlarged, enlargePnj, shrunkPnj }) => {
+  return (
+    <div className="place">
+      <PlaceOverview
+        card={place}
+        insidePlaces={place.insidePlaces}
+        music={place.music}
+        isPlaying={isPlaying} play={play} pause={pause}
+      />
+      <PlaceDetails
+        pnjs={place.pnjs}
+        clues={place.clues}
+        isClueEnlarged={isClueEnlarged}
+        enlargeClue={enlargeClue}
+        shrunkClue={shrunkClue}
+        isPnjEnlarged={isPnjEnlarged}
+        enlargePnj={enlargePnj}
+        shrunkPnj={shrunkPnj}
+      />
+    </div>
+  );
 }
 
-export const Place = withRouter(PlaceComponent);
+Place.propTypes = {
+  isClueEnlarged: PropTypes.func.isRequired,
+  enlargeClue: PropTypes.func.isRequired,
+  shrunkClue: PropTypes.func.isRequired,
+  place: PropTypes.object.isRequired,
+  play: PropTypes.func.isRequired,
+  pause: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool,
+  isPnjEnlarged: PropTypes.func.isRequired,
+  enlargePnj: PropTypes.func.isRequired,
+  shrunkPnj: PropTypes.func.isRequired
+};
+
+export default Place;

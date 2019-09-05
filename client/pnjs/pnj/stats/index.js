@@ -1,1 +1,3 @@
-export * from './base-stats';
+import BaseStats from './base-stats';
+
+export default BaseStats;

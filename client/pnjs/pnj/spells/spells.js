@@ -3,22 +3,26 @@ import PropTypes from 'prop-types';
 
 import './spells.sss';
 
-import { Spell } from './spell';
+import Spell from './spell';
 
-export class Spells extends React.Component {
-  static propTypes = {
-    spells: PropTypes.array
-  };
-
-  render() {
-    return (
-      <div className="spells">
-        {
-          this.props.spells.map((spell, index) =>
-            <Spell key={index} spell={spell} />
-          )
-        }
-      </div>
-    );
-  }
+const Spells =({ spells, isSpellEnlarged, enlargeSpell, shrunkSpell }) => {
+  return (
+    <div className="spells">
+      {
+        spells.map((spell, index) =>
+          <Spell key={index} spell={spell} isEnlarged={isSpellEnlarged(index)}
+            shrunkSpell={() => shrunkSpell(index)} enlargeSpell={() => enlargeSpell(index)}/>
+        )
+      }
+    </div>
+  );
 }
+
+Spells.propTypes = {
+  spells: PropTypes.array,
+  isSpellEnlarged: PropTypes.func.isRequired,
+  enlargeSpell: PropTypes.func.isRequired,
+  shrunkSpell: PropTypes.func.isRequired
+};
+
+export default Spells;

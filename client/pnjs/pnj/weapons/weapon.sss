@@ -1,20 +1,7 @@
 .weapon
   display: flex
   padding: 0.25em
-  .weapon-item
-    margin-right: 0.5em
-  .name, .mastery, .dmg
-    display: flex
+  & > div
     flex-basis: 30%
-  .mastery, .dmg
-    cursor: pointer
-  .other
+  .name
     display: flex
-    font-size: 0.75em
-    font-style: italic
-    align-items: center
-    color: #BB86FC
-    &.hide
-      display: none
-    .half
-      padding-right: 0.15em

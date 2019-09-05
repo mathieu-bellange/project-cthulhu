@@ -4,21 +4,21 @@ import { map } from 'lodash';
 
 import './dashboard.sss';
 
-import { CardLink } from '../card';
+import { CardLink } from '../cards';
 
-export class Dashboard extends React.Component {
-  static propTypes = {
-    cards: PropTypes.object.isRequired
-  };
+const Dashboard = ({ cards }) => {
+  return (
+    <div className="dashboard">
+      {
+        map(cards, (cardLink, index) =>
+          <CardLink key={ index } cardLink={ cardLink } showDesc={true}></CardLink>)
+      }
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="dashboard">
-        {
-          map(this.props.cards, (cardLink, index) =>
-            <CardLink key={ index } cardLink={ cardLink } showDesc={true}></CardLink>)
-        }
-      </div>
-    );
-  }
-}
+Dashboard.propTypes = {
+  cards: PropTypes.array.isRequired
+};
+
+export default Dashboard;

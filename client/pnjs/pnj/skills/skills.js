@@ -1,22 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Skill from './skill';
 import './skills.sss';
 
-export class Skills extends React.Component {
-  static propTypes = {
-    skills: PropTypes.array
-  };
+import Skill from './skill';
 
-  render() {
-    return (
-      <div className="skills">
-        {
-          this.props.skills.map((skill, index) =>
-            <Skill key={ index } skill={ skill }></Skill>)
-        }
-      </div>
-    );
-  }
-}
+const Skills = ({ skills, isSkillEnlarged, enlargeSkill, shrunkSkill }) => {
+  return (
+    <div className="skills">
+      {
+        skills.map((skill, index) =>
+          <Skill key={ index } skill={ skill } isEnlarged={isSkillEnlarged(index)}
+            shrunkSkill={() => shrunkSkill(index)} enlargeSkill={() => enlargeSkill(index)}></Skill>)
+      }
+    </div>
+  );
+};
+
+Skills.propTypes = {
+  skills: PropTypes.array,
+  isSkillEnlarged: PropTypes.func.isRequired,
+  enlargeSkill: PropTypes.func.isRequired,
+  shrunkSkill: PropTypes.func.isRequired
+};
+
+export default Skills;

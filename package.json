@@ -10,9 +10,9 @@
     "build:prod": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "start": "npm run webpack:dev",
     "start:prod": "npm run build:prod && npm run server:prod",
-    "express:dev": "node server/server.js",
+    "express:dev": "node server",
     "webpack:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --host 0.0.0.0",
-    "server:prod": "node ./dist"
+    "server:prod": "node dist"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -63,8 +63,13 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-transition-group": "^4.2.1",
-    "rxjs": "^6.5.2"
+    "redux": "^4.0.4",
+    "redux-observable": "^1.1.0",
+    "reselect": "^4.0.0",
+    "rxjs": "^6.5.2",
+    "rxjs-compat": "^6.5.2"
   }
 }

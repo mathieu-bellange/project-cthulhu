@@ -1,1 +1,3 @@
-export * from './weapons';
+import Weapons from './weapons';
+
+export default Weapons;

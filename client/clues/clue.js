@@ -1,62 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faWalking, faSearch, faEye, faFistRaised, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
 import './clue.sss';
 
-function ConditionIcon(state) {
+import ClueCondition from './clue-condition';
+import ClueSideEffects from './clue-side-effects';
+
+const Clue = ({ clue, shrunkClue, enlargeClue, isEnlarged }) => {
   return (
-    <div>
-      {{
-        clock: <FontAwesomeIcon icon={faClock} />,
-        place: <FontAwesomeIcon icon={faWalking} />,
-        search: <FontAwesomeIcon icon={faSearch} />,
-        see: <FontAwesomeIcon icon={faEye} />,
-        fight: <FontAwesomeIcon icon={faFistRaised} />,
-        chat: <img src="/images/chat.png" />,
-        roll: <FontAwesomeIcon icon={faDiceD20} />
-      }[state]}
+    <div className={`clue-card ${isEnlarged ? 'lg': ''}`} onClick={() => isEnlarged ? shrunkClue() : enlargeClue()}>
+      <ClueCondition condition={clue.condition} />
+      <p>
+        { clue.clue }
+      </p>
+      {
+        clue.sideEffects && isEnlarged ?
+          <ClueSideEffects sideEffects={clue.sideEffects} /> : ''
+      }
     </div>
   );
 }
 
-ConditionIcon.propTypes = {
-   state: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll'])
-}
+Clue.propTypes = {
+  clue: PropTypes.object.isRequired,
+  enlargeClue: PropTypes.func.isRequired,
+  shrunkClue: PropTypes.func.isRequired,
+  isEnlarged: PropTypes.bool
+};
 
-export class Clue extends React.Component {
-  static propTypes = {
-    clue: PropTypes.object.isRequired
-  };
-
-  constructor(props){
-     super(props);
-     this.state = {
-       enlarge: false
-     };
-     this.enlarge = this.enlarge.bind(this);
-  }
-
-  enlarge(){
-      this.setState({ enlarge: !this.state.enlarge });
-  }
-
-  render() {
-    return (
-      <div className={`clue-card ${this.state.enlarge ? 'lg': ''}`} onClick={this.enlarge}>
-        <div className="condition">
-          { ConditionIcon(this.props.clue.condition.type) }
-          { this.props.clue.condition.title }
-        </div>
-        <p>
-          { this.props.clue.clue }
-        </p>
-        {
-          this.props.clue.sideEffects && this.state.enlarge ?  this.props.clue.sideEffects.map((sideEffect, index) =>
-            <p key={index} className="side-effect">{ sideEffect }</p>) : ''
-        }
-      </div>
-    );
-  }
-}
+export default Clue;

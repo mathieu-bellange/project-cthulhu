@@ -6,37 +6,29 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import './nav-panel.sss';
 
-class NavPanelComponent extends React.Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired,
-    children: PropTypes.object.isRequired
+const NavPanel = ({ history, title, children }) => {
+  const goBack = () => {
+    history.goBack();
   };
-
-  constructor(props){
-     super(props);
-     this.goBack = this.goBack.bind(this);
-  }
-
-  goBack(){
-      this.props.history.goBack();
-  }
-
-  render() {
-    return (
-      <div className="nav-panel">
-        <div className="header">
-          <div className="back-nav">
-            <FontAwesomeIcon icon={faArrowLeft} size="lg" onClick={this.goBack}/>
-          </div>
-          <div className="title">
-            <h1>{this.props.title}</h1>
-          </div>
+  return (
+    <div className="nav-panel">
+      <div className="header">
+        <div className="back-nav">
+          <FontAwesomeIcon icon={faArrowLeft} size="lg" onClick={goBack}/>
         </div>
-        { this.props.children }
+        <div className="title">
+          <h1>{title}</h1>
+        </div>
       </div>
-    );
-  }
+      { children }
+    </div>
+  );
 }
 
-export const NavPanel = withRouter(NavPanelComponent);
+NavPanel.propTypes = {
+  history: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired
+};
+
+export default withRouter(NavPanel);
