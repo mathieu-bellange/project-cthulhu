@@ -1,22 +1,18 @@
 import { createSelector } from 'reselect'
 
+import { selectScenarioById } from './scenarios.selectors';
+
 const selectPnjId = (state, pnjId) => pnjId;
-const selectPnjsState = state => state.pnjsReducer;
 
 const selectPnjs = createSelector(
-  selectPnjsState,
-  pnjsState => pnjsState.pnjs
+  selectScenarioById,
+  (scenario) => scenario.pnjs
 );
 
 export const selectPnjById = createSelector(
   selectPnjs,
   selectPnjId,
   (pnjs, id) => pnjs[id] ? pnjs[id] : {}
-);
-
-export const isPnjsLoaded = createSelector(
-  selectPnjsState,
-  (pnjsState) => pnjsState.pnjsLoaded
 );
 
 export const selectPnjTitle = createSelector(

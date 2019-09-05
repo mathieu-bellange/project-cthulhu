@@ -1,6 +1,6 @@
 import {
-    FETCH_PLACES_SUCCESS, ENLARGE_CLUE, SHRUNK_CLUE,
-    FETCH_PNJS_SUCCESS, ENLARGE_PNJ, SHRUNK_PNJ,
+    FETCH_SCENARIOS_SUCCESS, ENLARGE_CLUE, SHRUNK_CLUE,
+    ENLARGE_PNJ, SHRUNK_PNJ,
     ENLARGE_WEAPON, SHRUNK_WEAPON, ENLARGE_STUFF, SHRUNK_STUFF,
     ENLARGE_SPELL, SHRUNK_SPELL, ENLARGE_SKILL, SHRUNK_SKILL,
     ENLARGE_STAT, SHRUNK_STAT
@@ -10,14 +10,34 @@ const initialState = {};
 
 export function appDisplayReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_PLACES_SUCCESS: {
+        case FETCH_SCENARIOS_SUCCESS: {
             const newState = { ...state };
             Object.keys(action.payload).forEach(key => {
-              newState[key] = { clues: [], pnjs: []};
-              if (action.payload[key].pnjs)
-                action.payload[key].pnjs.forEach(() => newState[key].pnjs.push({ enlarge: false }));
-              if (action.payload[key].clues)
-                action.payload[key].clues.forEach(() => newState[key].clues.push({ enlarge: false }));
+              const scenario = action.payload[key];
+              Object.keys(scenario.places).forEach(key => {
+                newState[key] = { clues: [], pnjs: []};
+                if (scenario.places[key].pnjs)
+                  scenario.places[key].pnjs.forEach(() => newState[key].pnjs.push({ enlarge: false }));
+                if (scenario.places[key].clues)
+                  scenario.places[key].clues.forEach(() => newState[key].clues.push({ enlarge: false }));
+              });
+              Object.keys(scenario.pnjs).forEach(key => {
+                newState[key] = { clues: [], skills: [], weapons: [], stuffs: [], spells: [], stats: {} };
+                if (scenario.pnjs[key].clues)
+                  scenario.pnjs[key].clues.forEach(() => newState[key].clues.push({ enlarge: false }));
+                if (scenario.pnjs[key].skills)
+                  scenario.pnjs[key].skills.forEach(() => newState[key].skills.push({ enlarge: false }));
+                if (scenario.pnjs[key].weapons)
+                  scenario.pnjs[key].weapons.forEach(() => newState[key].weapons.push({ enlarge: false }));
+                if (scenario.pnjs[key].stuffs)
+                  scenario.pnjs[key].stuffs.forEach(() => newState[key].stuffs.push({ enlarge: false }));
+                if (scenario.pnjs[key].spells)
+                  scenario.pnjs[key].spells.forEach(() => newState[key].spells.push({ enlarge: false }));
+                if (scenario.pnjs[key].stats)
+                  for (const variable in scenario.pnjs[key].stats) {
+                    newState[key].stats[variable] = { enlarge: false };
+                  }
+              });
             });
             return newState;
           }
@@ -74,13 +94,11 @@ export function appDisplayReducer(state = initialState, action) {
         case ENLARGE_STAT: {
             const newState = { ...state };
             newState[action.payload.id].stats[action.payload.key].enlarge = true;
-            console.log(newState);
             return newState;
           }
         case SHRUNK_STAT: {
             const newState = { ...state };
             newState[action.payload.id].stats[action.payload.key].enlarge = false;
-            console.log(newState);
             return newState;
           }
         case ENLARGE_PNJ: {
@@ -91,27 +109,6 @@ export function appDisplayReducer(state = initialState, action) {
         case SHRUNK_PNJ: {
             const newState = { ...state };
             newState[action.payload.id].pnjs[action.payload.index].enlarge = false;
-            return newState;
-          }
-        case FETCH_PNJS_SUCCESS: {
-            const newState = { ...state };
-            Object.keys(action.payload).forEach(key => {
-              newState[key] = { clues: [], skills: [], weapons: [], stuffs: [], spells: [], stats: {} };
-              if (action.payload[key].clues)
-                action.payload[key].clues.forEach(() => newState[key].clues.push({ enlarge: false }));
-              if (action.payload[key].skills)
-                action.payload[key].skills.forEach(() => newState[key].skills.push({ enlarge: false }));
-              if (action.payload[key].weapons)
-                action.payload[key].weapons.forEach(() => newState[key].weapons.push({ enlarge: false }));
-              if (action.payload[key].stuffs)
-                action.payload[key].stuffs.forEach(() => newState[key].stuffs.push({ enlarge: false }));
-              if (action.payload[key].spells)
-                action.payload[key].spells.forEach(() => newState[key].spells.push({ enlarge: false }));
-              if (action.payload[key].stats)
-                for (const variable in action.payload[key].stats) {
-                  newState[key].stats[variable] = { enlarge: false };
-                }
-            });
             return newState;
           }
         default:

@@ -1,3 +1,4 @@
+export * from './scenarios.selectors';
 export * from './places.selectors';
 export * from './pnjs.selectors';
 export * from './sounds.selectors';

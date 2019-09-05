@@ -4,27 +4,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import {
-  fetchPlaces, fetchPnjs,
-  isFullScreen, defineFullScreen, isPlacesLoaded, isPnjsLoaded,
-  selectPnjTitle, selectPlaceTitle
+  isFullScreen, defineFullScreen,
+  selectPnjTitle, selectPlaceTitle, fetchScenarios, isScenariosLoaded
 } from './store';
 import AppWrapper from './app';
 
 class App extends React.Component {
   static propTypes = {
-    fetchPlaces: PropTypes.func.isRequired,
-    fetchPnjs: PropTypes.func.isRequired,
+    fetchScenarios: PropTypes.func.isRequired,
     isFullScreen: PropTypes.bool.isRequired,
-    placesLoaded: PropTypes.bool.isRequired,
-    pnjsLoaded: PropTypes.bool.isRequired,
+    scenariosLoaded: PropTypes.bool.isRequired,
     defineFullScreen: PropTypes.func.isRequired,
     selectPnjTitle: PropTypes.func.isRequired,
     selectPlaceTitle: PropTypes.func.isRequired
   };
 
   componentDidMount() {
-    this.props.fetchPlaces();
-    this.props.fetchPnjs();
+    this.props.fetchScenarios();
     this.props.defineFullScreen(document.fullscreenElement)
     document.addEventListener('fullscreenchange',
       () => this.props.defineFullScreen(document.fullscreenElement));
@@ -33,14 +29,13 @@ class App extends React.Component {
   render() {
     const {
       isFullScreen,
-      placesLoaded,
-      pnjsLoaded,
+      scenariosLoaded,
       selectPnjTitle,
       selectPlaceTitle
     } = this.props;
     return(
-      <AppWrapper isFullScreen={isFullScreen} placesLoaded={placesLoaded}
-        pnjsLoaded={pnjsLoaded} selectPnjTitle={selectPnjTitle} selectPlaceTitle={selectPlaceTitle}
+      <AppWrapper isFullScreen={isFullScreen} scenariosLoaded={scenariosLoaded}
+        selectPnjTitle={selectPnjTitle} selectPlaceTitle={selectPlaceTitle}
       />
     );
   }
@@ -49,8 +44,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     isFullScreen: isFullScreen(state),
-    placesLoaded: isPlacesLoaded(state),
-    pnjsLoaded: isPnjsLoaded(state),
+    scenariosLoaded: isScenariosLoaded(state),
     selectPnjTitle: (id) => selectPnjTitle(state, id),
     selectPlaceTitle: (id) => selectPlaceTitle(state, id)
   };
@@ -58,8 +52,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        fetchPnjs,
-        fetchPlaces,
+        fetchScenarios,
         defineFullScreen
     }, dispatch);
 

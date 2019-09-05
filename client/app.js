@@ -10,7 +10,7 @@ import Place from './place';
 import Dashboard from './dashboard';
 import { Pnj } from './pnjs';
 
-const AppWrapper = ({ isFullScreen, placesLoaded, pnjsLoaded,
+const AppWrapper = ({ isFullScreen, scenariosLoaded,
   selectPnjTitle, selectPlaceTitle }) => {
     return (
       <Router>
@@ -24,7 +24,7 @@ const AppWrapper = ({ isFullScreen, placesLoaded, pnjsLoaded,
           exact
           component={Dashboard}
         />
-        { pnjsLoaded ? <Route
+        { scenariosLoaded ? <Route
           path="/pnj/:id"
           exact
           render={({ match, history }) =>
@@ -33,7 +33,7 @@ const AppWrapper = ({ isFullScreen, placesLoaded, pnjsLoaded,
             </NavPanel>
           }
         /> : '' }
-        { placesLoaded ? <Route
+        { scenariosLoaded ? <Route
           path="/place/:id"
           exact
           render={({ match, history }) =>
@@ -42,7 +42,7 @@ const AppWrapper = ({ isFullScreen, placesLoaded, pnjsLoaded,
             </NavPanel>
           }
         /> : ''}
-        { placesLoaded ? <Route
+        { scenariosLoaded ? <Route
           path="/place/:id/:subPlaceId"
           exact
           render={({ match, history }) =>
@@ -57,8 +57,7 @@ const AppWrapper = ({ isFullScreen, placesLoaded, pnjsLoaded,
 
 AppWrapper.propTypes = {
   isFullScreen: PropTypes.bool.isRequired,
-  placesLoaded: PropTypes.bool.isRequired,
-  pnjsLoaded: PropTypes.bool.isRequired,
+  scenariosLoaded: PropTypes.bool.isRequired,
   selectPnjTitle: PropTypes.func.isRequired,
   selectPlaceTitle: PropTypes.func.isRequired
 };

@@ -1,12 +1,13 @@
 import { createSelector } from 'reselect'
 import { filter } from 'lodash';
 
+import { selectScenarioById } from './scenarios.selectors';
+
 const selectPlaceId = (state, placeId) => placeId;
-const selectPlacesState = state => state.placesReducer;
 
 const selectPlaces = createSelector(
-  selectPlacesState,
-  placesState => placesState.places
+  selectScenarioById,
+  (scenario) => scenario.places
 );
 
 export const selectDashboardCards = createSelector(
@@ -18,11 +19,6 @@ export const selectPlaceById = createSelector(
   selectPlaces,
   selectPlaceId,
   (places, id) => places[id] ? places[id] : {}
-);
-
-export const isPlacesLoaded = createSelector(
-  selectPlacesState,
-  (placesState) => placesState.placesLoaded
 );
 
 export const selectPlaceTitle = createSelector(
