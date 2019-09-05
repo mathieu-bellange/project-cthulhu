@@ -97,22 +97,21 @@ export function appDisplayReducer(state = initialState, action) {
             const newState = { ...state };
             Object.keys(action.payload).forEach(key => {
               newState[key] = { clues: [], skills: [], weapons: [], stuffs: [], spells: [], stats: {} };
-              if (action.payload[key].pnj.clues)
-                action.payload[key].pnj.clues.forEach(() => newState[key].clues.push({ enlarge: false }));
-              if (action.payload[key].pnj.skills)
-                action.payload[key].pnj.skills.forEach(() => newState[key].skills.push({ enlarge: false }));
-              if (action.payload[key].pnj.weapons)
-                action.payload[key].pnj.weapons.forEach(() => newState[key].weapons.push({ enlarge: false }));
-              if (action.payload[key].pnj.stuffs)
-                action.payload[key].pnj.stuffs.forEach(() => newState[key].stuffs.push({ enlarge: false }));
-              if (action.payload[key].pnj.spells)
-                action.payload[key].pnj.spells.forEach(() => newState[key].spells.push({ enlarge: false }));
-              if (action.payload[key].pnj.stats)
-                for (const variable in action.payload[key].pnj.stats) {
+              if (action.payload[key].clues)
+                action.payload[key].clues.forEach(() => newState[key].clues.push({ enlarge: false }));
+              if (action.payload[key].skills)
+                action.payload[key].skills.forEach(() => newState[key].skills.push({ enlarge: false }));
+              if (action.payload[key].weapons)
+                action.payload[key].weapons.forEach(() => newState[key].weapons.push({ enlarge: false }));
+              if (action.payload[key].stuffs)
+                action.payload[key].stuffs.forEach(() => newState[key].stuffs.push({ enlarge: false }));
+              if (action.payload[key].spells)
+                action.payload[key].spells.forEach(() => newState[key].spells.push({ enlarge: false }));
+              if (action.payload[key].stats)
+                for (const variable in action.payload[key].stats) {
                   newState[key].stats[variable] = { enlarge: false };
                 }
             });
-            console.log(newState);
             return newState;
           }
         default:
