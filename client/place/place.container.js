@@ -7,7 +7,7 @@ import {Howl} from 'howler';
 import {
   shrunkClue, enlargeClue, isClueEnlarged,
   pauseSound, playSound, isSoundPlaying,
-  addSound, getSoundHowlRef, getPlaceById,
+  addSound, selectSoundHowlRef, selectPlaceById,
   isPnjEnlarged, enlargePnj, shrunkPnj
 } from '../store';
 import Place from './place';
@@ -60,8 +60,8 @@ const mapStateToProps = (state, props) => {
   return {
     isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),
     isPnjEnlarged: (index) => isPnjEnlarged(state, props.id, index),
-    sound: getSoundHowlRef(state, props.id),
-    place: getPlaceById(state, props.id),
+    sound: selectSoundHowlRef(state, props.id),
+    place: selectPlaceById(state, props.id),
     isPlaying: isSoundPlaying(state, props.id)
   };
 };

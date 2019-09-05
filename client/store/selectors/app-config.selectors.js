@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect'
 
-export const getAppConfigState = state => state.appConfigReducer;
+const selectAppConfigState = state => state.appConfigReducer;
 
-export const getFullScreen = createSelector(
-  getAppConfigState,
+export const isFullScreen = createSelector(
+  selectAppConfigState,
   appConfigState => appConfigState.fullScreen
 );

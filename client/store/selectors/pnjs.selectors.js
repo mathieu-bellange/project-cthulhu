@@ -18,3 +18,8 @@ export const isPnjsLoaded = createSelector(
   selectPnjsState,
   (pnjsState) => pnjsState.pnjsLoaded
 );
+
+export const selectPnjTitle = createSelector(
+  selectPnjById,
+  (pnjs, id) => pnjs[id] ? pnjs[id].pnj.title : ''
+);

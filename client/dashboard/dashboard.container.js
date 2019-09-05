@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getDashboardCards} from '../store';
+import { selectDashboardCards} from '../store';
 import Dashboard from './dashboard';
 
 const mapStateToProps = state => {
   return {
-    cards: getDashboardCards(state)
+    cards: selectDashboardCards(state)
   };
 };
 

@@ -9,7 +9,7 @@ const selectSoundById = createSelector(
   (state, id) => state[id]
 );
 
-export const getSoundHowlRef = createSelector(
+export const selectSoundHowlRef = createSelector(
   selectSoundById,
   sound => sound ? sound.howlRef : null
 );

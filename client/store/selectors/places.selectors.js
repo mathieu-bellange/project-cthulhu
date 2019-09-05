@@ -2,25 +2,30 @@ import { createSelector } from 'reselect'
 import { filter } from 'lodash';
 
 const selectPlaceId = (state, placeId) => placeId;
-export const getPlacesState = state => state.placesReducer;
+const selectPlacesState = state => state.placesReducer;
 
-export const getPlaces = createSelector(
-  getPlacesState,
+const selectPlaces = createSelector(
+  selectPlacesState,
   placesState => placesState.places
 );
 
-export const getDashboardCards = createSelector(
-  getPlaces,
+export const selectDashboardCards = createSelector(
+  selectPlaces,
   places => filter(places, place => place.dashboard)
 );
 
-export const getPlaceById = createSelector(
-  getPlaces,
+export const selectPlaceById = createSelector(
+  selectPlaces,
   selectPlaceId,
   (places, id) => places[id] ? places[id].place : {}
 );
 
 export const isPlacesLoaded = createSelector(
-  getPlacesState,
+  selectPlacesState,
   (placesState) => placesState.placesLoaded
+);
+
+export const selectPlaceTitle = createSelector(
+  selectPlaceById,
+  (places, id) => places[id] ? places[id].place.title : ''
 );
