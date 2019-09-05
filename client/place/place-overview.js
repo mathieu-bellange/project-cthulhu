@@ -7,7 +7,7 @@ import { map } from 'lodash';
 import './place-overview.sss';
 import { CardLink, Card } from '../cards';
 
-const PlaceOverview = ({ card, insidePlaces, music, isPlaying, play, pause }) => {
+const PlaceOverview = ({ scenarioId, card, insidePlaces, music, isPlaying, play, pause }) => {
   return (
     <div className="place-overview">
       <div className="card-wrapper">
@@ -23,7 +23,7 @@ const PlaceOverview = ({ card, insidePlaces, music, isPlaying, play, pause }) =>
       </div>
       <div className="inside-places">
         {
-          map(insidePlaces, (place, index) => <CardLink key={ index } cardLink={ place }></CardLink>)
+          map(insidePlaces, (place, index) => <CardLink key={ index } scenarioId={scenarioId} cardLink={ place }></CardLink>)
         }
       </div>
     </div>
@@ -31,6 +31,7 @@ const PlaceOverview = ({ card, insidePlaces, music, isPlaying, play, pause }) =>
 }
 
 PlaceOverview.propTypes = {
+  scenarioId: PropTypes.string.isRequired,
   card: PropTypes.object.isRequired,
   insidePlaces: PropTypes.object,
   music: PropTypes.array,

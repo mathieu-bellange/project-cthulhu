@@ -6,7 +6,7 @@ import './pnj.sss';
 import PnjOverview from './pnj-overview';
 import PnjDetails from './pnj-details';
 
-const Pnj = ({ id, pnj, isEnlarged, enlargePnj, shrunkPnj, minimize,
+const Pnj = ({ scenarioId, id, pnj, isEnlarged, enlargePnj, shrunkPnj, minimize,
   isClueEnlarged, enlargeClue, shrunkClue, isWeaponEnlarged, enlargeWeapon, shrunkWeapon,
   isStuffEnlarged, enlargeStuff, shrunkStuff, isSpellEnlarged, enlargeSpell, shrunkSpell,
   isSkillEnlarged, enlargeSkill, shrunkSkill, isStatEnlarged, enlargeStat, shrunkStat}) => {
@@ -22,6 +22,7 @@ const Pnj = ({ id, pnj, isEnlarged, enlargePnj, shrunkPnj, minimize,
         />
       <PnjDetails
         id={id}
+        scenarioId={scenarioId}
         pnj={pnj}
         minimize={minimize}
         isEnlarged={isEnlarged}
@@ -50,6 +51,7 @@ const Pnj = ({ id, pnj, isEnlarged, enlargePnj, shrunkPnj, minimize,
 
 Pnj.propTypes = {
   id: PropTypes.string.isRequired,
+  scenarioId: PropTypes.string.isRequired,
   pnj: PropTypes.object.isRequired,
   minimize: PropTypes.bool,
   isEnlarged: PropTypes.bool,

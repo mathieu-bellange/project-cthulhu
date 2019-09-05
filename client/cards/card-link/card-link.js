@@ -6,9 +6,8 @@ import { withRouter } from "react-router";
 import './card-link.sss';
 import Card from '../card';
 
-const CardLink = ({ cardLink, showDesc, match }) => {
-  console.log(match);
-  const url = `${match.url}/${cardLink.place ? 'place' : 'pnj'}/${cardLink.id}`;
+const CardLink = ({ cardLink, showDesc, scenarioId }) => {
+  const url = `/${scenarioId}/${cardLink.place ? 'place' : 'pnj'}/${cardLink.id}`;
   return (
     <Link to={{
       pathname: url,
@@ -23,6 +22,7 @@ const CardLink = ({ cardLink, showDesc, match }) => {
 };
 
 CardLink.propTypes = {
+  scenarioId: PropTypes.string.isRequired,
   cardLink: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   showDesc: PropTypes.bool

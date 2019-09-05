@@ -11,7 +11,7 @@ import Stuffs from './stuffs';
 import Spells from './spells';
 import { Clues } from '../../clues';
 
-const PnjDetails = ( { id, pnj, minimize, isEnlarged,
+const PnjDetails = ( { scenarioId, id, pnj, minimize, isEnlarged,
   isClueEnlarged, enlargeClue, shrunkClue,
   isWeaponEnlarged, enlargeWeapon, shrunkWeapon,
   isStuffEnlarged, enlargeStuff, shrunkStuff,
@@ -20,7 +20,7 @@ const PnjDetails = ( { id, pnj, minimize, isEnlarged,
   isStatEnlarged, enlargeStat, shrunkStat} ) => {
   return (
     <div className={`pnj-details ${!minimize || isEnlarged ? '' : 'minimize'}`}>
-      { id && minimize  ? <Link to={`/pnj/${ id }`}><div className="full-page">Plus d info...</div></Link> : '' }
+      { id && minimize  ? <Link to={`/${scenarioId}/pnj/${ id }`}><div className="full-page">Plus d info...</div></Link> : '' }
       { pnj.stats ?
         <BaseStats stats={pnj.stats}
           isStatEnlarged={isStatEnlarged}
@@ -61,6 +61,7 @@ const PnjDetails = ( { id, pnj, minimize, isEnlarged,
 }
 
 PnjDetails.propTypes = {
+    scenarioId: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     pnj: PropTypes.object.isRequired,
     minimize: PropTypes.bool,

@@ -9,6 +9,7 @@ const Place = ({ scenarioId, place, isPlaying, play, pause, isClueEnlarged, enla
   return (
     <div className="place">
       <PlaceOverview
+        scenarioId={scenarioId}
         card={place}
         insidePlaces={place.insidePlaces}
         music={place.music}

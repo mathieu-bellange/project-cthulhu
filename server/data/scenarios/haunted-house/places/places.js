@@ -10,6 +10,7 @@ const CorbittHouse = require('./house-corbitt');
 const GroundFloor = require('./ground-floor');
 const FirstFloor = require('./first-floor');
 const Cave = require('./cave');
+const CaveContemplation = require('./cave-contemplation');
 
 const Places = {
   'bureau-ligget': BureauLigget,
@@ -23,7 +24,8 @@ const Places = {
   house: CorbittHouse,
   'ground-floor': GroundFloor,
   'first-floor': FirstFloor,
-  cave: Cave
+  cave: Cave,
+  'cave-contemplation': CaveContemplation
 };
 
 module.exports = Places;
