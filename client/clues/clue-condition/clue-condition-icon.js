@@ -15,6 +15,8 @@ const ClueConditionIcon = ({type}) => {
         see: <FontAwesomeIcon icon={faEye} />,
         fight: <FontAwesomeIcon icon={faFistRaised} />,
         chat: <img src="/images/chat.png" />,
+        ear: <img src="/images/ear.png" />,
+        description: <img src="/images/description.png" />,
         roll: <FontAwesomeIcon icon={faDiceD20} />
       }[type]}
     </div>
@@ -22,7 +24,7 @@ const ClueConditionIcon = ({type}) => {
 }
 
 ClueConditionIcon.propTypes = {
-   type: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll']).isRequired
+   type: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll', 'description', 'ear']).isRequired
 }
 
 export default ClueConditionIcon;

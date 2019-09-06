@@ -1,14 +1,14 @@
-export const APlace = {
+const APlace = {
   id: '',
-  title: '',
+  title: ``,
   dashboard: true,
-  desc: ``,
+  desc: [``],
   overview: '.png',
   pnjs: [''],
   clues: [
     {
       condition: {
-        title: '',
+        title: ``,
         type: ''
       },
       clue: ``,
@@ -17,3 +17,5 @@ export const APlace = {
   ],
   insidePlaces: ['']
 };
+
+module.exports = APlace;
