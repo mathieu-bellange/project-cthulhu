@@ -1,7 +1,6 @@
 const Neighborhood = {
   id: 'neighborhood',
   dashboard: true,
-  place: true,
   title: 'Le voisinage',
   desc: `Situé près de Merrimack Street, le quartier de la vieille Maison est en pleine mutation. Des
     immeubles de bureaux et des magasins ont remplacé les anciennes bâtisses datant du XIXème siècle.

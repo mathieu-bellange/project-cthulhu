@@ -1,7 +1,6 @@
 const PoliceStation = {
   id: 'police-station',
   dashboard: true,
-  place: true,
   title: 'Poste de Police Central',
   desc: `Situé au 360 Stuart Street, le batîment est très récent (livré au début de l'année 1923)
     et extrêmement imposant. La façade est constitué d'une multitude de fenêtre réparti sur une dizaine d'étage

@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import {
-  isFullScreen, defineFullScreen,
+  isFullScreen, defineFullScreen, selectScenarios,
   selectPnjTitle, selectPlaceTitle, fetchScenarios, isScenariosLoaded
 } from './store';
 import AppWrapper from './app';
 
 class App extends React.Component {
   static propTypes = {
+    scenarios: PropTypes.object,
     fetchScenarios: PropTypes.func.isRequired,
     isFullScreen: PropTypes.bool.isRequired,
     scenariosLoaded: PropTypes.bool.isRequired,
@@ -31,10 +32,11 @@ class App extends React.Component {
       isFullScreen,
       scenariosLoaded,
       selectPnjTitle,
-      selectPlaceTitle
+      selectPlaceTitle,
+      scenarios
     } = this.props;
     return(
-      <AppWrapper isFullScreen={isFullScreen} scenariosLoaded={scenariosLoaded}
+      <AppWrapper scenarios={scenarios} isFullScreen={isFullScreen} scenariosLoaded={scenariosLoaded}
         selectPnjTitle={selectPnjTitle} selectPlaceTitle={selectPlaceTitle}
       />
     );
@@ -43,6 +45,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    scenarios: selectScenarios(state),
     isFullScreen: isFullScreen(state),
     scenariosLoaded: isScenariosLoaded(state),
     selectPnjTitle: (scenarioId,id) => selectPnjTitle(state, scenarioId, id),

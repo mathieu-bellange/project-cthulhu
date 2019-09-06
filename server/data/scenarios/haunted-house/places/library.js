@@ -1,7 +1,6 @@
 const Library = {
   id: 'library',
   dashboard: true,
-  place: true,
   title: 'Bibliothèque de Boston',
   desc: `Se trouvant au coin de Dartmouth Street et Boylston Street,
     la bibliothèque de Boston est un énorme edifice de 1895 acceullant plus de 2 millions d'ouvrages.

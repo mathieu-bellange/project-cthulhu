@@ -1,7 +1,6 @@
 const SanatoriumRoxbury = {
     id: 'sanatorium',
     dashboard: true,
-    place: true,
     title: 'Le Sanatorium Roxbury',
     desc: `Un établissement situé
       à quelques kilomètres du centre de Boston,

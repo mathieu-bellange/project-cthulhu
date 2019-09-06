@@ -23,7 +23,8 @@ const PlaceOverview = ({ scenarioId, card, insidePlaces, music, isPlaying, play,
       </div>
       <div className="inside-places">
         {
-          map(insidePlaces, (place, index) => <CardLink key={ index } scenarioId={scenarioId} cardLink={ place }></CardLink>)
+          map(insidePlaces, (place, index) => <CardLink key={ index }
+            url={`/${scenarioId}/place/${place.id}`} cardLink={ place }></CardLink>)
         }
       </div>
     </div>

@@ -1,7 +1,6 @@
 const CaveContemplation = {
   id: 'cave-contemplation',
   dashboard: false,
-  place: true,
   title: 'Cave de la chapelle de la contemplation',
   desc: `La cave qu’ils découvrent était
     indépendante du reste du sous-sol et on y

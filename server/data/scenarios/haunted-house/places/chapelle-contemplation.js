@@ -3,7 +3,6 @@ const CaveContemplation = require('./cave-contemplation');
 const ChapelleContemplation = {
   id: 'contemplation',
   dashboard: true,
-  place: true,
   title: 'La Chapelle de la Contemplation',
   desc: `Ce qui reste de cet édifice se trouve à
     l’extrémité d’une ruelle insalubre, tellement

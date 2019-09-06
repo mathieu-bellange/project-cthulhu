@@ -8,10 +8,11 @@ import './app.sss';
 import NavPanel from './nav-panel';
 import Place from './place';
 import Dashboard from './dashboard';
+import Scenarios from './scenarios';
 import { Pnj } from './pnjs';
 
 const AppWrapper = ({ isFullScreen, scenariosLoaded,
-  selectPnjTitle, selectPlaceTitle }) => {
+  selectPnjTitle, selectPlaceTitle, scenarios }) => {
     return (
       <Router>
         <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
@@ -19,6 +20,13 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded,
             isFullScreen ? '' : <img src="/images/pixel-full-screen.png" />
           }
         </div>
+        <Route
+          path="/"
+          exact
+          render={() =>
+            <Scenarios scenarios={scenarios}/>
+          }
+        />
         <Route
           path="/:scenarioId"
           exact
@@ -59,6 +67,7 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded,
 };
 
 AppWrapper.propTypes = {
+  scenarios: PropTypes.object.isRequired,
   isFullScreen: PropTypes.bool.isRequired,
   scenariosLoaded: PropTypes.bool.isRequired,
   selectPnjTitle: PropTypes.func.isRequired,

@@ -11,7 +11,8 @@ const Dashboard = ({ cards, id }) => {
     <div className="dashboard">
       {
         map(cards, (cardLink, index) =>
-          <CardLink key={ index } scenarioId={id} cardLink={ cardLink } showDesc={true}></CardLink>)
+          <CardLink key={ index } url={`/${id}/place/${cardLink.id}`}
+            cardLink={ cardLink } showDesc={true}></CardLink>)
       }
     </div>
   );

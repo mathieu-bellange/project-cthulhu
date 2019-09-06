@@ -2,7 +2,6 @@ const Cave = {
   id: 'cave',
   title: 'Cave',
   dashboard: false,
-  place: true,
   desc: `Petit escalier grinçant monte vers le premier étage.
     Il dessert un couloir très étroit qui donne sur 4 chambres.`,
   overview: 'haunting-house/cave.jpg',

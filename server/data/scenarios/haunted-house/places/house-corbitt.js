@@ -5,7 +5,6 @@ const Cave = require('./cave');
 const CorbittHouse = {
   id: 'house',
   dashboard: true,
-  place: true,
   title: 'La maison Corbitt',
   desc: `cette bâtisse en briques est flanquée de deux grands immeubles de bureaux de
     construction récente. Sa façade donne directement sur la rue. De chaque côté de la

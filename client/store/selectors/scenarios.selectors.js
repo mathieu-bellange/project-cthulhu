@@ -3,7 +3,7 @@ import { createSelector } from 'reselect'
 const selectScenarioId = (state, scenarioId) => scenarioId;
 const selectScenariosState = state => state.scenariosReducer;
 
-const selectScenarios = createSelector(
+export const selectScenarios = createSelector(
   selectScenariosState,
   scenariosState => scenariosState.scenarios
 );

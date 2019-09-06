@@ -2,7 +2,6 @@ const BureauLigget = {
   id: 'bureau-ligget',
   title: 'Bureau d\'Elias Ligget',
   dashboard: true,
-  place: true,
   desc: `Bureau moderne et chic au sein du quartier des affaires de Boston.
     Le bureau montre un niveau de vie important de son propriétaire, Elias Ligget`,
   overview: 'haunting-house/bureau-ligget.jpg',

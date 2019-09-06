@@ -1,7 +1,6 @@
 const BostonGlobe = {
   id: 'boston-globe',
   dashboard: true,
-  place: true,
   title: 'Le Boston Globe',
   desc: `Se trouvant sur Washington Street, le Boston Globe jouit d'une bonne réputation.
     L'accès aux archives du Boston Globe est limité et demandera quelques négociations.`,

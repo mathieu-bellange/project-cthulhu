@@ -1,7 +1,6 @@
 const GroundFloor = {
   id: 'ground-floor',
   dashboard: false,
-  place: true,
   title: 'Rez de chaussée',
   desc: `Long couloir déservant de nombreuses pièces
     et un escalier à l'opposé de la porte principal. Il règne un bazard sans nom comme si
