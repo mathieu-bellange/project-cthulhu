@@ -2,11 +2,11 @@ const PoliceStation = {
   id: 'police-station',
   dashboard: true,
   title: 'Poste de Police Central',
-  desc: `Situé au 360 Stuart Street, le batîment est très récent (livré au début de l'année 1923)
+  desc: [`Situé au 360 Stuart Street, le batîment est très récent (livré au début de l'année 1923)
     et extrêmement imposant. La façade est constitué d'une multitude de fenêtre réparti sur une dizaine d'étage
     et la porte massive est surplombé par une grande arche. Le bâtiment posé au milieu de ce quartier en pleine
     métamorphose donne une impression de toute puissance de la police Bostonienne.
-    Les investigateurs sont accueillis par un agent de police dans le hall.`,
+    Les investigateurs sont accueillis par un agent de police dans le hall.`],
   overview: 'haunting-house/police-station.jpg',
   clues: [
     {

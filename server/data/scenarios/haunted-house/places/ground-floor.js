@@ -2,10 +2,10 @@ const GroundFloor = {
   id: 'ground-floor',
   dashboard: false,
   title: 'Rez de chaussée',
-  desc: `Long couloir déservant de nombreuses pièces
+  desc: [`Long couloir déservant de nombreuses pièces
     et un escalier à l'opposé de la porte principal. Il règne un bazard sans nom comme si
     les Macario étaient partis en laissant tout derrière eux.
-    Sans lumière, il est très difficile de se déplacer sans heurter quelque chose.`,
+    Sans lumière, il est très difficile de se déplacer sans heurter quelque chose.`],
   overview: 'haunting-house/ground-floor.jpg',
   clues: [
     {

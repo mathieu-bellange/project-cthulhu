@@ -2,8 +2,8 @@ const BostonGlobe = {
   id: 'boston-globe',
   dashboard: true,
   title: 'Le Boston Globe',
-  desc: `Se trouvant sur Washington Street, le Boston Globe jouit d'une bonne réputation.
-    L'accès aux archives du Boston Globe est limité et demandera quelques négociations.`,
+  desc: [`Se trouvant sur Washington Street, le Boston Globe jouit d'une bonne réputation.
+    L'accès aux archives du Boston Globe est limité et demandera quelques négociations.`],
   overview: 'haunting-house/boston-globe.jpg',
   clues: [
     {

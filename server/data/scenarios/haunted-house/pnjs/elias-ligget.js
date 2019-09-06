@@ -1,7 +1,7 @@
 const EliasLigget = {
   id: 'elias-ligget',
   title: 'Elias Ligget',
-  desc: `Jeune homme d'affaire d'une quarantaine d'année.`,
+  desc: [`Jeune homme d'affaire d'une quarantaine d'année.`],
   overview: 'haunting-house/elias-ligget.jpg',
   clues: [
     {

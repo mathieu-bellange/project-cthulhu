@@ -1,10 +1,10 @@
 const WalterCorbitt = {
   id: 'walter-corbitt',
   title: 'Walter Corbitt, mort vivant démoniaque',
-  desc: `C'est une maigre créature humanoïde d'un
+  desc: [`C'est une maigre créature humanoïde d'un
     mètre quatre-vingt, totalement nue, aux
     traits tirés et au nez aquilin. Sa peau
-    desséchée a l'aspect du bois.`,
+    desséchée a l'aspect du bois.`],
   overview: 'haunting-house/walter-corbitt.jpg',
   clues: [
     {

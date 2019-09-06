@@ -2,7 +2,7 @@ export const APlace = {
   id: '',
   title: '',
   dashboard: true,
-  desc: [``],
+  desc: ``,
   overview: '.png',
   pnjs: [''],
   clues: [

@@ -10,16 +10,16 @@ const CardDescription = ({ title, desc, showTitle, showDesc, showImg }) => {
         { showImg ? '' : <img src='/images/user.png'></img> }
         { showTitle ? title : '' }
       </div>
-      <p>
-        { showDesc ? desc : ''}
-      </p>
+        { showDesc && desc ? desc.map((description, index) =>
+          <p key={index}>{description}</p>
+        ) : ''}
     </div>
   );
 };
 
 CardDescription.propTypes = {
   title: PropTypes.string,
-  desc: PropTypes.string,
+  desc: PropTypes.array,
   showTitle: PropTypes.bool,
   showImg: PropTypes.bool,
   showDesc: PropTypes.bool

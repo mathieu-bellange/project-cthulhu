@@ -2,7 +2,7 @@ const CaveContemplation = {
   id: 'cave-contemplation',
   dashboard: false,
   title: 'Cave de la chapelle de la contemplation',
-  desc: `La cave qu’ils découvrent était
+  desc: [`La cave qu’ils découvrent était
     indépendante du reste du sous-sol et on y
     accédait en empruntant un escalier séparé,
     qui est aujourd’hui recouvert par des tonnes
@@ -10,7 +10,7 @@ const CaveContemplation = {
     squelettes vêtus de robe de soie en
     lambeaux ; sans doute des membres de la
     secte qui se sont cachés ici et ont péri au
-    cours de l’incendie.`,
+    cours de l’incendie.`],
   overview: 'place-default.png',
   clues: [
     {

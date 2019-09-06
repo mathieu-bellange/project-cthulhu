@@ -2,8 +2,8 @@ const Cave = {
   id: 'cave',
   title: 'Cave',
   dashboard: false,
-  desc: `Petit escalier grinçant monte vers le premier étage.
-    Il dessert un couloir très étroit qui donne sur 4 chambres.`,
+  desc: [`Petit escalier grinçant monte vers le premier étage.
+    Il dessert un couloir très étroit qui donne sur 4 chambres.`],
   overview: 'haunting-house/cave.jpg',
   music: ['https://tabletopaudio.com/download.php?downld_file=125_Existential_Dread.mp3'],
   pnjs: ['walter-corbitt'],

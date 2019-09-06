@@ -1,8 +1,8 @@
 const GabriellaMacario = {
   id: 'gabriella-macario',
   title: 'Gabriela Macario',
-  desc: `Une jeune femme paraîssant 10 ans de plus, peu confuse dans ses propos,
-    elle repart rapidement dans un délire paranoïaque sur le fait qu'on la surveille toujours (en montrant les soignant).`,
+  desc: [`Une jeune femme paraîssant 10 ans de plus, peu confuse dans ses propos,
+    elle repart rapidement dans un délire paranoïaque sur le fait qu'on la surveille toujours (en montrant les soignant).`],
   overview: 'haunting-house/gabriela-macario.jpg',
   clues: [
     {

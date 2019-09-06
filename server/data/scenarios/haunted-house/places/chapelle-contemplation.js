@@ -4,11 +4,11 @@ const ChapelleContemplation = {
   id: 'contemplation',
   dashboard: true,
   title: 'La Chapelle de la Contemplation',
-  desc: `Ce qui reste de cet édifice se trouve à
+  desc: [`Ce qui reste de cet édifice se trouve à
     l’extrémité d’une ruelle insalubre, tellement
     mal entretenue et envahie par la végétation
     que les ruines ressemblent à des concrétions
-    naturelles.`,
+    naturelles.`],
   overview: 'haunting-house/chapelle-contemplation.jpg',
   music: ['https://tabletopaudio.com/download.php?downld_file=113_Astral_Plane.mp3'],
   clues: [
