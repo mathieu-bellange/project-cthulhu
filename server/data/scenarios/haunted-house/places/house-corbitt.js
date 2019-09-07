@@ -1,7 +1,3 @@
-const GroundFloor = require('./ground-floor');
-const FirstFloor = require('./first-floor');
-const Cave = require('./cave');
-
 const CorbittHouse = {
   id: 'house',
   dashboard: true,
@@ -45,11 +41,11 @@ const CorbittHouse = {
       clue: `deux accès possible, une sur le devant et une sur le côté.`
     }
   ],
-  insidePlaces: {
-    'ground-floor': GroundFloor,
-    'first-floor': FirstFloor,
-    cave: Cave
-  }
+  insidePlaces: [
+    'ground-floor',
+    'first-floor',
+    'cave'
+  ]
 };
 
 module.exports = CorbittHouse;

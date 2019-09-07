@@ -1,5 +1,3 @@
-const CaveContemplation = require('./cave-contemplation');
-
 const ChapelleContemplation = {
   id: 'contemplation',
   dashboard: true,
@@ -57,9 +55,7 @@ const ChapelleContemplation = {
       ]
     }
   ],
-  insidePlaces: {
-    'cave-contemplation': CaveContemplation
-  }
+  insidePlaces: ['cave-contemplation']
 };
 
 module.exports = ChapelleContemplation;
