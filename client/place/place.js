@@ -5,13 +5,13 @@ import './place.sss';
 import PlaceOverview from './place-overview';
 import PlaceDetails from './place-details';
 
-const Place = ({ scenarioId, place, isPlaying, play, pause, isClueEnlarged, enlargeClue, shrunkClue, isPnjEnlarged, enlargePnj, shrunkPnj }) => {
+const Place = ({ scenarioId, insidePlaces, place, isPlaying, play, pause, isClueEnlarged, enlargeClue, shrunkClue, isPnjEnlarged, enlargePnj, shrunkPnj }) => {
   return (
     <div className="place">
       <PlaceOverview
         scenarioId={scenarioId}
         card={place}
-        insidePlaces={place.insidePlaces}
+        insidePlaces={insidePlaces}
         music={place.music}
         isPlaying={isPlaying} play={play} pause={pause}
       />
@@ -35,6 +35,7 @@ Place.propTypes = {
   enlargeClue: PropTypes.func.isRequired,
   shrunkClue: PropTypes.func.isRequired,
   place: PropTypes.object.isRequired,
+  insidePlaces: PropTypes.array,
   scenarioId: PropTypes.string.isRequired,
   play: PropTypes.func.isRequired,
   pause: PropTypes.func.isRequired,

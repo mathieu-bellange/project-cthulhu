@@ -56,7 +56,7 @@ const OrnithologistHouse = {
         Mats.`]
     }
   ],
-  insidePlaces: ['']
+  insidePlaces: ['pigeon-nest', 'gunnar-house']
 };
 
 module.exports = OrnithologistHouse;

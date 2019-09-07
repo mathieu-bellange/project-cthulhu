@@ -16,6 +16,7 @@ import Place from './place';
 class PlaceContainer extends React.Component {
   static propTypes = {
     place: PropTypes.object.isRequired,
+    insidePlaces: PropTypes.array,
     sound: PropTypes.object,
     addSound: PropTypes.func.isRequired,
     playSound: PropTypes.func.isRequired,
@@ -52,19 +53,22 @@ class PlaceContainer extends React.Component {
 
   render() {
     return (
-      <Place {...this.props} play={this.play} pause={this.pause} />
+      <Place {...this.props}
+        insidePlaces={this.props.insidePlaces}
+        play={this.play} pause={this.pause} />
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
   const place = selectPlaceById(state, props.scenarioId, props.id);
-  place.insidePlaces = map(place.insidePlaces, placeId => selectPlaceById(state, props.scenarioId, placeId));
   return {
     isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),
     isPnjEnlarged: (index) => isPnjEnlarged(state, props.id, index),
     sound: selectSoundHowlRef(state, props.id),
     place,
+    insidePlaces: place.insidePlaces ? map(place.insidePlaces, placeId =>
+      selectPlaceById(state, props.scenarioId, placeId)) : [],
     isPlaying: isSoundPlaying(state, props.id)
   };
 };
