@@ -7,14 +7,13 @@ const Mistery = {
   clues: [
     {
       condition: {
-        title: `Un ou plusieurs Enfants entendent des pigeons se
-          parler entre eux ou leur parler, avec des voix un peu
-          métalliques.`,
+        title: `Un ou plusieurs Enfants entendent des pigeons se parler.`,
         type: 'ear'
       },
       clue: `Ils discutent de nourriture, du vol de bijoux
         brillants pour décorer leur nid, des meilleurs lieux
-        de reproduction ou de leurs partenaires.`,
+        de reproduction ou de leurs partenaires avec des voix un peu
+        métalliques`,
       sideEffects: [`Les Enfants
         peuvent les entendre lorsqu’ils jouent dans le jardin,
         passent du temps dans leur Repaire ou se promènent

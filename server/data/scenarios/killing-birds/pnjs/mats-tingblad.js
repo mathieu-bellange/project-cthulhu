@@ -25,14 +25,14 @@ const MatsTingblad = {
   clues: [
     {
       condition: {
-        title: `Mats est angoissé par l’agressivité des oiseaux, il
-          ne voit pas de raison d’aider les Enfants. ils
-          parviennent à le convaincre, par exemple grâce à leur
-          charme.`,
+        title: `Parler avec Mats`,
         type: 'roll'
       },
-      clue: `il accepte de discuter avec eux`,
-      sideEffects: [`Un Enfant qui réussit un test d’E MPATHIE com-
+      clue: `Mats est angoissé par l’agressivité des oiseaux, il
+        ne voit pas de raison d’aider les Enfants. ils
+        parviennent à le convaincre, par exemple grâce à leur
+        charme.`,
+      sideEffects: [`Un Enfant qui réussit un test d’empathie com-
         prend que Mats s’inquiète de ce qui se passera si les
         oiseaux prolifèrent.`, `La façon la plus simple d’obtenir
         son aide est de le convaincre que les Enfants peuvent
@@ -42,11 +42,11 @@ const MatsTingblad = {
     },
     {
       condition: {
-        title: `Mats comprend que quelqu’un a modifié les oiseaux
-          pour les rendre violents et plus intelligents.`,
+        title: `Modification des oiseaux`,
         type: 'chat'
       },
-      clue: `il a remarqué que chez les pigeons, c'est le langage qui s'est
+      clue: `Mats comprend que quelqu’un a modifié les oiseaux
+        pour les rendre violents et plus intelligents. Il a remarqué que chez les pigeons, c'est le langage qui s'est
         développé plutôt que l'agressivité.`,
       sideEffects: [`Il les a comptés et a
         constaté que leur nombre augmente constamment. En
@@ -61,10 +61,10 @@ const MatsTingblad = {
     },
     {
       condition: {
-        title: `Mats a rencontré Gunnar Granat à plusieurs reprises`,
+        title: `Gunnar Granat`,
         type: 'chat'
       },
-      clue: `Il sait qu’il s’agit d’un spécialiste
+      clue: `Mats a rencontré Gunnar Granat à plusieurs reprises. Il sait qu’il s’agit d’un spécialiste
         de la neurologie aviaire.`,
       sideEffects: [`Il sait également que le scien-
         tifique a quitté récemment son domicile en périphérie
@@ -73,11 +73,11 @@ const MatsTingblad = {
     },
     {
       condition: {
-        title: `Mats a remarqué que beaucoup de pigeons se déplaçaient vers le nord.`,
+        title: `Déplacement des pigeons`,
         type: 'chat'
       },
-      clue: `Il a deviné qu’ils y ont construit
-        un grand nid.`,
+      clue: `Mats a remarqué que beaucoup de pigeons se déplaçaient vers le nord.
+        Il a deviné qu’ils y ont construit un grand nid.`,
       sideEffects: [`Il a aussi noté que plusieurs des oiseaux
         agressifs traversaient le lac, et en a déduit que leur
         nid est situé sur Munsö ou sur une des petites îles au

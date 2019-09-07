@@ -1,16 +1,16 @@
 const OrnithologistHouse = {
   id: 'ornithologist-house',
-  title: `Mats Tingblad vit seul dans un
-    chalet à l’est de Lunda.`,
+  title: `La maison de l'ornithologue`,
   dashboard: true,
-  desc: [`Une haute
+  desc: [`Mats Tingblad vit seul dans un
+    chalet à l’est de Lunda.`, `Une haute
     clôture métallique au portail verrouillé entoure un
     jardin à l’abandon, mais plein de nichoirs et de man-
     geoires.`, ` La maison possède un étage et penche de façon
     inquiétante. À l’étage se trouve un balcon, et sur le toit
-    sont fi xés de nombreux perchoirs à oiseaux. Tous les
+    sont fixés de nombreux perchoirs à oiseaux. Tous les
     volets des fenêtres sont fermés.`],
-  overview: 'default_tales.png',
+  overview: 'killing-birds/ornithologist-house.jpg',
   pnjs: ['mats-tingblad'],
   clues: [
     {
