@@ -1,10 +1,10 @@
 const DocteurHardstom = {
   id: 'docteur-hardstom',
   title: 'Docteur Hardstrom',
-  desc: `le docteur des
+  desc: [`le docteur des
     Macario a quitté la ville. Le médecin qui le
     remplace est le Docteur Hardstrom de
-    l’asile d’Arkham.`,
+    l’asile d’Arkham.`],
   overview: 'haunting-house/medecin-macario.jpg',
   clues: [
     {

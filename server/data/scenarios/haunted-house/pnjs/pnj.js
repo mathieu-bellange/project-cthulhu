@@ -1,7 +1,7 @@
 export const BasePnj = {
   id: '',
   title: 'Son nom',
-  desc: `une petite description visuelle`,
+  desc: [`une petite description visuelle`],
   overview: 'lovecraft.jpg',
   clues: [
     {

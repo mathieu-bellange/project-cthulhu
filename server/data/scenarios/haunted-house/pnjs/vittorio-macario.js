@@ -1,8 +1,8 @@
 const VittorioMacario = {
   id: 'vittorio-macario',
   title: 'Vittorio Macario',
-  desc: `Jeune homme paraîssant 20 ans de plus.
-    Bredouille des choses incompréhensibles et très confus.`,
+  desc: [`Jeune homme paraîssant 20 ans de plus.
+    Bredouille des choses incompréhensibles et très confus.`],
   overview: 'haunting-house/vittorio-macario.jpg',
   clues: [
     {

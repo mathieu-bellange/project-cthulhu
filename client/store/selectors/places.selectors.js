@@ -19,7 +19,7 @@ export const selectPlaceById = createSelector(
   selectPlaces,
   selectPlaceId,
   (places, id) => {
-    console.log(places, id);
+    console.log(places[id]);
     return places[id] ? places[id] : {}}
 );
 

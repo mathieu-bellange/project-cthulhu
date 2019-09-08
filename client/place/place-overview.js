@@ -34,7 +34,7 @@ const PlaceOverview = ({ scenarioId, card, insidePlaces, music, isPlaying, play,
 PlaceOverview.propTypes = {
   scenarioId: PropTypes.string.isRequired,
   card: PropTypes.object.isRequired,
-  insidePlaces: PropTypes.object,
+  insidePlaces: PropTypes.array,
   music: PropTypes.array,
   play: PropTypes.func.isRequired,
   pause: PropTypes.func.isRequired,

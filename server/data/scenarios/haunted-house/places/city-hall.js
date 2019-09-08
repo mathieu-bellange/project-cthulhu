@@ -2,13 +2,13 @@ const CityHall = {
   id: 'city-hall',
   dashboard: true,
   title: 'Hôtel de ville de Boston',
-  desc: `Situé au 45 School Street, l'extérieur du bâtiment en granit est caractérisé par des colonnes ornées,
+  desc: [`Situé au 45 School Street, l'extérieur du bâtiment en granit est caractérisé par des colonnes ornées,
     un toit en mansarde et une baie centrale en saillie.
     La portes d'entrée massive montre une inhabituelle utilisation de bois différents,
     ainsi que l'incrustation d'un cercle de marbre. Sur la plaque de marbre dans le hall d'entrée,
     on peut y lire la commémoration de la pose de la pierre angulaire en 1862 par le maire Joseph Wightman
     ainsi que la dédicace de l'immeuble en 1865 par le maire Frederic W. Lincoln, Jr.
-    Les archives des états civils est au premier étage. Un fonctionnaire avenant les acceuille.`,
+    Les archives des états civils est au premier étage. Un fonctionnaire avenant les acceuille.`],
   overview: 'haunting-house/city-hall.jpg',
   music: ['https://tabletopaudio.com/download.php?downld_file=94_Noir_Procedural.mp3'],
   clues: [

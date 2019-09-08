@@ -12,7 +12,6 @@ import {
 import Pnj from './pnj';
 
 const mapStateToProps = (state, props) => {
-  console.log(props);
   return {
     pnj: selectPnjById(state, props.scenarioId, props.id),
     isClueEnlarged: (index) => isClueEnlarged(state, props.id, index),

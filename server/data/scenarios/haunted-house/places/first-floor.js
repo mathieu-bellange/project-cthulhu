@@ -2,8 +2,8 @@ const FirstFloor = {
   id: 'first-floor',
   dashboard: false,
   title: '1er étage',
-  desc: `Petit escalier grinçant monte vers le premier étage.
-    Il dessert un couloir très étroit qui donne sur 4 chambres.`,
+  desc: [`Petit escalier grinçant monte vers le premier étage.
+    Il dessert un couloir très étroit qui donne sur 4 chambres.`],
   overview: 'haunting-house/first-floor.jpg',
   clues: [
     {
