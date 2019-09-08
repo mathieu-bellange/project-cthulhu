@@ -16,9 +16,7 @@ const PigeonNest = {
       },
       clue: `Ils discutent constamment de la qualité des
         matériaux de construction, et se querellent au sujet de
-        la nourriture et des partenaires. Leurs voix sont métal-
-        liques et ponctuées de pépiements.`,
-      sideEffects: [``]
+        la nourriture et des partenaires. Leurs voix sont métalliques et ponctuées de pépiements.`
     },
     {
       condition: {
@@ -28,8 +26,8 @@ const PigeonNest = {
       clue: `Les oiseaux tueurs essayent de prendre le
         contrôle des pigeons, qui coopèrent pour se protéger
         et défendre leur nid.`,
-      sideEffects: [`Si les Enfants commencent à étu-
-        dier les oiseaux tueurs, ceux-ci s’enfuient brusquement,
+      sideEffects: [`Si les Enfants commencent à étudier les oiseaux tueurs,
+        ceux-ci s’enfuient brusquement,
         comme s’ils obéissaient à un ordre, et disparaissent au
         loin.`]
     },
@@ -56,8 +54,8 @@ const PigeonNest = {
         type: 'roll'
       },
       clue: `Trouve une pièce estampillée du logo IEX-4Z32`,
-      sideEffects: [`Un nouveau test de compréhension ou d’analyse permettra de com-
-        prendre qu’il s’agit d’un numéro d’immatriculation de
+      sideEffects: [`Un nouveau test de compréhension ou d’analyse permettra
+        de comprendre qu’il s’agit d’un numéro d’immatriculation de
         vaisseau à magnétrine. À la bibliothèque, ils pourront
         trouver de quel vaisseau il s’agit et le localiser.`]
     },

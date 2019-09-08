@@ -8,14 +8,14 @@ const MatsTingblad = {
     du cou, et un carnet de notes à la main.`, `« Le pic-vert frappe le tronc avec son bec de huit à dix
     fois par seconde. Il peut trouer le ciment. Imaginez ce
     qui pourrait arriver s’il s’en prenait à votre crâne. »`, `Mats Tingblad aime les oiseaux depuis qu’il est enfant.
-    Il est devenu une fi gure célèbre des programmes natu-
-    ralistes de la télévision, jusqu’à cette fameuse morsure
+    Il est devenu une figure célèbre des programmes naturalistes de la télévision,
+    jusqu’à cette fameuse morsure
     de cygne. Personne ne sait s’il est devenu phobique à
     cause de la morsure, ou si une infection de la blessure
     l’a affecté, mais il est devenu introverti, paranoïaque,
-    et terrifi é par les oiseaux qu’il aimait tant.`, `Mats est pourtant toujours obsédé par ces ani-
-    maux, et vit entouré de cages, de disques de chants
-    d’oiseaux, d’affi ches et de livres spécialisés. Mais
+    et terrifié par les oiseaux qu’il aimait tant.`,
+    `Mats est pourtant toujours obsédé par ces animaux, et vit entouré de cages, de disques de chants
+    d’oiseaux, d’affiches et de livres spécialisés. Mais
     au lieu de les étudier avec tendresse, il les regarde
     avec horreur. Il est convaincu qu’un jour ou l’autre,
     les oiseaux joindront leurs forces pour s’en prendre à
@@ -66,8 +66,7 @@ const MatsTingblad = {
       },
       clue: `Mats a rencontré Gunnar Granat à plusieurs reprises. Il sait qu’il s’agit d’un spécialiste
         de la neurologie aviaire.`,
-      sideEffects: [`Il sait également que le scien-
-        tifique a quitté récemment son domicile en périphérie
+      sideEffects: [`Il sait également que le scientifique a quitté récemment son domicile en périphérie
         de Kungsberga et disparu. Il suspecte
         Gunnar d’être lié aux oiseaux tueurs.`]
     },

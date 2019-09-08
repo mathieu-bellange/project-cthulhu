@@ -17,8 +17,8 @@ const GunnarHouse = {
         qui ont pris l’initiative de surveiller l’endroit.`,
       sideEffects: [`Ils patrouillent à tour de rôle sur les sentiers et les pistes cyclables.`,
         `La porte d’entrée de la
-        maison est verrouillée, mais celle du patio n’est pas fer-
-        mée.`, ` Il est possible de franchir la clôture par l’arrière,
+        maison est verrouillée, mais celle du patio n’est pas fermée.`,
+        `Il est possible de franchir la clôture par l’arrière,
         en prenant soin d’éviter ceux qui pourraient regarder le
         jardin ou la maison.`]
     },
@@ -47,7 +47,7 @@ const GunnarHouse = {
         blonde, au regard fier, portant un pin’s symbolisant le Yin et le Yang sur sa
         blouse de laboratoire.`,
       sideEffects: [` Sur un magnétoscope repose une
-        cassette vidéo du fi lm Les Oiseaux d’Alfred Hitchcock.`]
+        cassette vidéo du film Les Oiseaux d’Alfred Hitchcock.`]
     },
     {
       condition: {
@@ -56,7 +56,7 @@ const GunnarHouse = {
       },
       clue: `Dans chaque pièce de la maison on trouve des photos
         de la femme de la photo avec un homme en arrière plan. La plupart du temps, il se trouve
-        à l’arrière-plan et sourit timidement en la regardant.`
+        à l’arrière plan et sourit timidement en la regardant.`
     },{
       condition: {
         title: `Découverte de Majsan`,

@@ -5,8 +5,8 @@ const OrnithologistHouse = {
   desc: [`Mats Tingblad vit seul dans un
     chalet à l’est de Lunda.`, `Une haute
     clôture métallique au portail verrouillé entoure un
-    jardin à l’abandon, mais plein de nichoirs et de man-
-    geoires.`, ` La maison possède un étage et penche de façon
+    jardin à l’abandon, mais plein de nichoirs et de mangeoires.`,
+    `La maison possède un étage et penche de façon
     inquiétante. À l’étage se trouve un balcon, et sur le toit
     sont fixés de nombreux perchoirs à oiseaux. Tous les
     volets des fenêtres sont fermés.`],
@@ -18,8 +18,8 @@ const OrnithologistHouse = {
         title: `Essayer d'entrer dans la propriété`,
         type: 'search'
       },
-      clue: `Pour entrer dans la maison, les Enfants doivent escala-
-        der la clôture ou ouvrir le portail verrouillé.`,
+      clue: `Pour entrer dans la maison, les Enfants doivent escalader la clôture
+        ou ouvrir le portail verrouillé.`,
       sideEffects: [`Mats est à
         l’intérieur mais n’ouvrira pas, même si on frappe à la
         porte.`, `Les Enfants peuvent voir par la fenêtre qu’il

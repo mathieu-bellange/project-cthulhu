@@ -36,8 +36,8 @@ const Mistery = {
         type: 'roll'
       },
       clue: `Les oiseaux agissent en
-        groupe, ce qui est tout à fait inhabituel pour ces ani-
-        maux. Ils s’entraident en portant des branches lourdes
+        groupe, ce qui est tout à fait inhabituel pour ces animaux.
+        Ils s’entraident en portant des branches lourdes
         et collaborent pour trouver de la nourriture.`,
       sideEffects: [`L'Enfant
         comprend aussi qu’un ornithologue ou une bonne
