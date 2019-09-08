@@ -9,7 +9,7 @@ import {
   shrunkClue, enlargeClue, isClueEnlarged,
   pauseSound, playSound, isSoundPlaying,
   addSound, selectSoundHowlRef, selectPlaceById,
-  isPnjEnlarged, enlargePnj, shrunkPnj
+  isPnjEnlarged, enlargePnj, shrunkPnj, selectScenario
 } from '../store';
 import Place from './place';
 
@@ -20,7 +20,9 @@ class PlaceContainer extends React.Component {
     sound: PropTypes.object,
     addSound: PropTypes.func.isRequired,
     playSound: PropTypes.func.isRequired,
-    pauseSound: PropTypes.func.isRequired
+    pauseSound: PropTypes.func.isRequired,
+    selectScenario: PropTypes.func.isRequired,
+    scenarioId: PropTypes.string.isRequired
   };
 
   constructor(props) {
@@ -49,6 +51,7 @@ class PlaceContainer extends React.Component {
       });
       this.props.addSound(sound);
     }
+    this.props.selectScenario(this.props.scenarioId);
   }
 
   render() {
@@ -81,7 +84,8 @@ const mapDispatchToProps = (dispatch, props) =>
       shrunkPnj: (index) => shrunkPnj(props.id, index),
       addSound: (sound) => addSound({ id: props.id, howlRef: sound }),
       pauseSound: () => pauseSound(props.id),
-      playSound: () => playSound(props.id)
+      playSound: () => playSound(props.id),
+      selectScenario
     }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaceContainer);

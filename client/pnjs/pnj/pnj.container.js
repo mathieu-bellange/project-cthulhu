@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -7,9 +9,26 @@ import {
   isStuffEnlarged, enlargeStuff, shrunkStuff,
   isSpellEnlarged, enlargeSpell, shrunkSpell,
   isSkillEnlarged, enlargeSkill, shrunkSkill,
-  isStatEnlarged, enlargeStat, shrunkStat
+  isStatEnlarged, enlargeStat, shrunkStat, selectScenario
 } from '../../store';
 import Pnj from './pnj';
+
+class PnjContainer extends React.Component {
+  static propTypes = {
+    selectScenario: PropTypes.func.isRequired,
+    scenarioId: PropTypes.string.isRequired
+  };
+
+  componentDidMount() {
+    this.props.selectScenario(this.props.scenarioId);
+  }
+
+  render() {
+    return (
+      <Pnj {...this.props} />
+    )
+  }
+}
 
 const mapStateToProps = (state, props) => {
   return {
@@ -36,7 +55,8 @@ const mapDispatchToProps = (dispatch, props) =>
       enlargeSkill: (index) => enlargeSkill(props.id, index),
       shrunkSkill: (index) => shrunkSkill(props.id, index),
       enlargeStat: (key) => enlargeStat(props.id, key),
-      shrunkStat: (key) => shrunkStat(props.id, key)
+      shrunkStat: (key) => shrunkStat(props.id, key),
+      selectScenario
     }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Pnj);
+export default connect(mapStateToProps, mapDispatchToProps)(PnjContainer);

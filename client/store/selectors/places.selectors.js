@@ -18,9 +18,7 @@ export const selectDashboardCards = createSelector(
 export const selectPlaceById = createSelector(
   selectPlaces,
   selectPlaceId,
-  (places, id) => {
-    console.log(places[id]);
-    return places[id] ? places[id] : {}}
+  (places, id) => places[id] ? places[id] : {}
 );
 
 export const selectPlaceTitle = createSelector(

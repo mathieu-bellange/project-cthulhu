@@ -3,7 +3,7 @@ import {
     ENLARGE_PNJ, SHRUNK_PNJ,
     ENLARGE_WEAPON, SHRUNK_WEAPON, ENLARGE_STUFF, SHRUNK_STUFF,
     ENLARGE_SPELL, SHRUNK_SPELL, ENLARGE_SKILL, SHRUNK_SKILL,
-    ENLARGE_STAT, SHRUNK_STAT, DISPLAY_MENU, HIDE_MENU
+    ENLARGE_STAT, SHRUNK_STAT, DISPLAY_MENU, HIDE_MENU, SELECT_SCENARIO
 } from '../actions';
 
 const initialState = {};
@@ -116,6 +116,9 @@ export function appDisplayReducer(state = initialState, action) {
           }
         case DISPLAY_MENU: {
             return { ...state, isMenuDisplaying: true };
+          }
+        case SELECT_SCENARIO: {
+            return { ...state, scenarioIdSelected: action.payload.id };
           }
         default:
             return state;

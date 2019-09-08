@@ -4,12 +4,13 @@ import { bindActionCreators } from 'redux';
 import Menu from './menu';
 
 import {
-  isMenuDisplaying, hideMenu, displayMenu
+  isMenuDisplaying, hideMenu, displayMenu, selectScenarioId
 } from '../store';
 
 const mapStateToProps = state => {
   return {
-    isDisplaying: isMenuDisplaying(state)
+    isDisplaying: isMenuDisplaying(state),
+    scenarioId: selectScenarioId(state)
   };
 };
 

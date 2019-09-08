@@ -52,3 +52,4 @@ export const isSpellEnlarged = (state, id, index) => selectAppDisplaySpell(state
 export const isSkillEnlarged = (state, id, index) => selectAppDisplaySkill(state, id, index).enlarge;
 export const isStatEnlarged = (state, id, key) => selectAppDisplayStat(state, id, key).enlarge;
 export const isMenuDisplaying = (state) => selectAppDisplayState(state).isMenuDisplaying;
+export const selectScenarioId = (state) => selectAppDisplayState(state).scenarioIdSelected;

@@ -11,9 +11,7 @@ export const selectScenarios = createSelector(
 export const selectScenarioById = createSelector(
   selectScenarios,
   selectScenarioId,
-  (scenarios, id) => {
-    console.log(scenarios, id);
-    return scenarios[id] ? scenarios[id] : {}}
+  (scenarios, id) => scenarios[id] ? scenarios[id] : {}
 );
 
 export const isScenariosLoaded = createSelector(

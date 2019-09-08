@@ -33,7 +33,7 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded,
           path="/:scenarioId"
           exact
           render={({ match }) =>
-            <Dashboard id={match.params.scenarioId}>
+            <Dashboard scenarioId={match.params.scenarioId}>
             </Dashboard>
           }
         />

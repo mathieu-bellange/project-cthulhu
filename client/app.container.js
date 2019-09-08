@@ -22,7 +22,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.fetchScenarios();
-    this.props.defineFullScreen(document.fullscreenElement)
+    this.props.defineFullScreen(document.fullscreenElement);
     document.addEventListener('fullscreenchange',
       () => this.props.defineFullScreen(document.fullscreenElement));
   }

@@ -14,6 +14,7 @@ export const ENLARGE_STAT = 'ENLARGE_STAT';
 export const SHRUNK_STAT = 'SHRUNK_STAT';
 export const DISPLAY_MENU = 'DISPLAY_MENU';
 export const HIDE_MENU = 'HIDE_MENU';
+export const SELECT_SCENARIO = 'SELECT_SCENARIO';
 
 export const enlargeClue = (id, index) => ({
     type: ENLARGE_CLUE,
@@ -83,6 +84,11 @@ export const enlargeStat = (id, key) => ({
 export const shrunkStat = (id, key) => ({
     type: SHRUNK_STAT,
     payload: { id, key }
+});
+
+export const selectScenario = (id) => ({
+    type: SELECT_SCENARIO,
+    payload: { id }
 });
 
 export const hideMenu = () => ({
