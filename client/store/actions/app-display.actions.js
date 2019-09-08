@@ -12,6 +12,8 @@ export const ENLARGE_SKILL = 'ENLARGE_SKILL';
 export const SHRUNK_SKILL = 'SHRUNK_SKILL';
 export const ENLARGE_STAT = 'ENLARGE_STAT';
 export const SHRUNK_STAT = 'SHRUNK_STAT';
+export const DISPLAY_MENU = 'DISPLAY_MENU';
+export const HIDE_MENU = 'HIDE_MENU';
 
 export const enlargeClue = (id, index) => ({
     type: ENLARGE_CLUE,
@@ -81,4 +83,12 @@ export const enlargeStat = (id, key) => ({
 export const shrunkStat = (id, key) => ({
     type: SHRUNK_STAT,
     payload: { id, key }
+});
+
+export const hideMenu = () => ({
+    type: HIDE_MENU
+});
+
+export const displayMenu = () => ({
+    type: DISPLAY_MENU
 });

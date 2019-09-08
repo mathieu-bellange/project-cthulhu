@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './app.sss';
 
+import Menu from './menu';
 import NavPanel from './nav-panel';
 import Place from './place';
 import Dashboard from './dashboard';
@@ -15,10 +16,11 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded,
   selectPnjTitle, selectPlaceTitle, scenarios }) => {
     return (
       <Router>
+        <Menu />
         <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
-          {
-            isFullScreen ? '' : <img src="/images/pixel-full-screen.png" />
-          }
+        {
+          isFullScreen ? '' : <img src="/images/pixel-full-screen.png" />
+        }
         </div>
         <Route
           path="/"
