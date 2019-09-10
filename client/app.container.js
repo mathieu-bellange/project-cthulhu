@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import './shared-doc';
+
 import {
   isFullScreen, defineFullScreen, selectScenarios,
   selectPnjTitle, selectPlaceTitle, fetchScenarios, isScenariosLoaded

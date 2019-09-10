@@ -70,6 +70,7 @@
     "redux-observable": "^1.1.0",
     "reselect": "^4.0.0",
     "rxjs": "^6.5.2",
-    "rxjs-compat": "^6.5.2"
+    "rxjs-compat": "^6.5.2",
+    "ws": "^7.1.2"
   }
 }
