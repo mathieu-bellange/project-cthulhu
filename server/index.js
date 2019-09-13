@@ -1,12 +1,13 @@
 const express = require('express')
-const app = express();
 const path = require ('path');
 const { createServer } = require('http');
 const WebSocket = require('ws');
 
 const scenarios = require('./data/scenarios');
 
+const app = express();
 app.use(express.static(path.join(__dirname, './public')));
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin');
@@ -16,6 +17,11 @@ app.use((req, res, next) => {
 
 app.get('/api/scenarios', (req, res) => {
   res.send(scenarios);
+});
+
+app.post('/api/help-document', (req, res) => {
+  console.log(req.body);
+  res.send('Ok');
 });
 
 const server = createServer(app);

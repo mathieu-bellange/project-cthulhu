@@ -1,5 +1,6 @@
 const places = require('./places');
 const pnjs = require('./pnjs');
+const helpDocs = require('./help-document');
 
 const KillingBirds = {
   id: 'killing-birds',
@@ -11,7 +12,8 @@ const KillingBirds = {
     impliqués dans une intrigue machiavélique.`,` Premier scénario de la campagne d'introduction de Tales from the loop`],
   overview: 'killing-birds/scenario.png',
   places: {...places},
-  pnjs: {...pnjs}
+  pnjs: {...pnjs},
+  helpDocs
 };
 
 module.exports = KillingBirds;

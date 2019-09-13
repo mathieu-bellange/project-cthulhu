@@ -9,14 +9,16 @@ import Menu from './menu';
 import NavPanel from './nav-panel';
 import Place from './place';
 import Dashboard from './dashboard';
+import SharedDoc from './shared-doc';
 import Scenarios from './scenarios';
 import { Pnj } from './pnjs';
 
-const AppWrapper = ({ isFullScreen, scenariosLoaded,
-  selectPnjTitle, selectPlaceTitle, scenarios }) => {
+const AppWrapper = ({ isFullScreen, scenariosLoaded, isHelpDocDisplayed,
+  selectPnjTitle, selectPlaceTitle, scenarios, displayHelpDoc }) => {
     return (
       <Router>
-        <Menu />
+        <Menu displayHelpDoc={displayHelpDoc}/>
+        { isHelpDocDisplayed ? <SharedDoc /> : ''}
         <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
         {
           isFullScreen ? '' : <img src="/images/pixel-full-screen.png" />
@@ -72,8 +74,10 @@ AppWrapper.propTypes = {
   scenarios: PropTypes.object.isRequired,
   isFullScreen: PropTypes.bool.isRequired,
   scenariosLoaded: PropTypes.bool.isRequired,
+  isHelpDocDisplayed: PropTypes.bool.isRequired,
   selectPnjTitle: PropTypes.func.isRequired,
-  selectPlaceTitle: PropTypes.func.isRequired
+  selectPlaceTitle: PropTypes.func.isRequired,
+  displayHelpDoc: PropTypes.func.isRequired
 };
 
 export default AppWrapper;
