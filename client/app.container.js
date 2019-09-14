@@ -25,11 +25,16 @@ class App extends React.Component {
     this.state = {
       isHelpDocDisplayed: false
     }
-    this.displayHelpDoc = this.displayHelpDoc.bind(this)
+    this.displayHelpDoc = this.displayHelpDoc.bind(this);
+    this.hideHelpDoc = this.hideHelpDoc.bind(this);
   }
 
   displayHelpDoc() {
     this.setState({ isHelpDocDisplayed: true });
+  }
+
+  hideHelpDoc() {
+    this.setState({ isHelpDocDisplayed: false });
   }
 
   componentDidMount() {
@@ -48,8 +53,15 @@ class App extends React.Component {
       scenarios
     } = this.props;
     return(
-      <AppWrapper scenarios={scenarios} isFullScreen={isFullScreen} scenariosLoaded={scenariosLoaded} displayHelpDoc={this.displayHelpDoc}
-        selectPnjTitle={selectPnjTitle} selectPlaceTitle={selectPlaceTitle} isHelpDocDisplayed={this.state.isHelpDocDisplayed}
+      <AppWrapper
+        scenarios={scenarios}
+        isFullScreen={isFullScreen}
+        scenariosLoaded={scenariosLoaded}
+        displayHelpDoc={this.displayHelpDoc}
+        hideHelpDoc={this.hideHelpDoc}
+        selectPnjTitle={selectPnjTitle}
+        selectPlaceTitle={selectPlaceTitle}
+        isHelpDocDisplayed={this.state.isHelpDocDisplayed}
       />
     );
   }

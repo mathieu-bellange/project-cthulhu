@@ -3,27 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { ajax } from 'rxjs/ajax';
 
 import './menu.sss';
 
 const Menu = ({ isDisplaying, hide, display, scenarioId, displayHelpDoc }) => {
-  const onClick = () => {
-    ajax({
-      url: '/api/help-document',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: {
-        helpDoc: 'Hello World!'
-      }
-    }).subscribe(() => {});
-  };
   return (
     <div className="menu-container">
       <div className={`menu${ isDisplaying ? '' : ' hide'}`}>
-      <div className="menu-link" onClick={displayHelpDoc}>Aide de jeu</div>
+      <div className="menu-link" onClick={() => { displayHelpDoc(); hide(); }}>Aide de jeu</div>
       <Link to={{
           pathname: `/${scenarioId}`
         }} className="menu-link">Retour au scénario</Link>

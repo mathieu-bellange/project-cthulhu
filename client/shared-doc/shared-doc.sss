@@ -1,0 +1,34 @@
+.shared-doc
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: rgba(0 0 0 / .8)
+  .card-doc-container
+    display: flex
+    padding: 2em
+    align-items: center
+    justify-content: space-evenly
+    flex-wrap: wrap
+    .card-doc
+      width: 25vw
+      position: relative
+      .card-doc-checkbox
+        position: absolute
+        top: 0
+        right: 0
+        padding: 0.35em 0.5em
+        cursor: pointer
+        svg
+          color: #03DAC6
+  .shared-doc-close
+    display: flex
+    justify-content: flex-end
+    padding: 0.5em 2em
+    &.hide
+      display: none
+    &:hover
+      cursor: pointer
+    svg
+      color: #03DAC6

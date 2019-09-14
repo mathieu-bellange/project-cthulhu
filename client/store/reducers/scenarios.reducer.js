@@ -1,7 +1,10 @@
+import { find } from 'lodash';
+
 import {
     FETCH_SCENARIOS,
     FETCH_SCENARIOS_FAILURE,
-    FETCH_SCENARIOS_SUCCESS
+    FETCH_SCENARIOS_SUCCESS,
+    SHARED_DOC_SUCCESS
 } from '../actions';
 
 const initialState = {
@@ -31,6 +34,14 @@ export function scenariosReducer(state = initialState, action) {
                 scenariosLoaded: false,
                 error: action.payload
             };
+        case SHARED_DOC_SUCCESS: {
+            const newState = { ...state };
+            find(
+              newState.scenarios[action.payload.scenarioId].helpDocs,
+              { overview: action.payload.sharedDoc.overview}
+            ).shared = action.payload.sharedDoc.shared;
+            return newState;
+          }
         default:
             return state;
     }

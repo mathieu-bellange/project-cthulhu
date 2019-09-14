@@ -21,7 +21,8 @@ app.get('/api/scenarios', (req, res) => {
 
 app.post('/api/help-document', (req, res) => {
   console.log(req.body);
-  res.send('Ok');
+  const sharedDoc = { shared: true, ...req.body.sharedDoc };
+  res.send({ scenarioId: req.body.scenarioId, sharedDoc });
 });
 
 const server = createServer(app);

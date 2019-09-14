@@ -6,3 +6,8 @@ export const selectSharedDocs = createSelector(
   selectScenarioById,
   (scenario) => scenario.helpDocs
 );
+
+export const isSharedDocActive = (state, id, index) => {
+    console.log(selectSharedDocs(state, id)[index]);
+    return selectSharedDocs(state, id)[index].shared
+}
