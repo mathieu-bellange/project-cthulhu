@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { selectSharedDocs, selectScenarioId, sharedHelpDoc, isSharedDocActive } from '../store';
+import { selectSharedDocs, selectScenarioId,
+  sharedHelpDoc, unSharedHelpDoc, isSharedDocActive } from '../store';
 import SharedDoc from './shared-doc';
 
 class SharedDocContainer extends React.Component {
@@ -24,6 +25,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
+      unSharedHelpDoc,
       sharedHelpDoc
     }, dispatch);
 

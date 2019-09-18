@@ -7,7 +7,7 @@ import { faSquare, faCheckSquare } from '@fortawesome/free-regular-svg-icons'
 import { Card } from '../cards';
 import './shared-doc.sss';
 
-const SharedDoc = ({ sharedDocs, scenarioId, hide, sharedHelpDoc, isSharedDocActive }) => {
+const SharedDoc = ({ sharedDocs, scenarioId, hide, sharedHelpDoc, unSharedHelpDoc, isSharedDocActive }) => {
   return (
     <div className="shared-doc">
       <div className="shared-doc-close" onClick={hide}>
@@ -17,7 +17,8 @@ const SharedDoc = ({ sharedDocs, scenarioId, hide, sharedHelpDoc, isSharedDocAct
       {
         sharedDocs.map((sharedDoc, index) =>
           <div key={index} className="card-doc">
-            <div className="card-doc-checkbox" onClick={() => sharedHelpDoc({ scenarioId, sharedDoc })}>
+            <div className="card-doc-checkbox"
+              onClick={() => isSharedDocActive(index) ? unSharedHelpDoc({ scenarioId, sharedDoc }) : sharedHelpDoc({ scenarioId, sharedDoc })}>
               <FontAwesomeIcon icon={isSharedDocActive(index) ? faCheckSquare : faSquare} size="lg" />
             </div>
             <Card showImg={true} showTitle={true} limitImgHeight={true} card={sharedDoc}/>
@@ -33,6 +34,7 @@ SharedDoc.propTypes = {
   scenarioId: PropTypes.string.isRequired,
   hide: PropTypes.func.isRequired,
   sharedHelpDoc: PropTypes.func.isRequired,
+  unSharedHelpDoc: PropTypes.func.isRequired,
   isSharedDocActive: PropTypes.func.isRequired
 };
 

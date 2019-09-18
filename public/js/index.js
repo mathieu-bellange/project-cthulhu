@@ -1,8 +1,4 @@
-import { webSocket } from 'rxjs/webSocket' // for RxJS 6, for v5 use Observable.webSocket
-
- let subject = webSocket('ws://localhost:3001');
- subject.subscribe(
-    (msg) => console.log('message received: ' + msg),
-    (err) => console.log(err),
-    () => console.log('complete')
-  );
+ let socket = new WebSocket('ws://localhost:3001');
+ socket.addEventListener('message', function(event) {
+    console.log('Message from server ', event.data);
+});

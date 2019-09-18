@@ -2,7 +2,7 @@ const express = require('express')
 const path = require ('path');
 const { createServer } = require('http');
 const WebSocket = require('ws');
-
+const { add, del, actionOnSharedDocs$, sharedDocs$ } = require('./shared-doc');
 const scenarios = require('./data/scenarios');
 
 const app = express();
@@ -20,28 +20,23 @@ app.get('/api/scenarios', (req, res) => {
 });
 
 app.post('/api/help-document', (req, res) => {
-  console.log(req.body);
-  const sharedDoc = { shared: true, ...req.body.sharedDoc };
-  res.send({ scenarioId: req.body.scenarioId, sharedDoc });
+  actionOnSharedDocs$.next({ sharedDoc: req.body.sharedDoc, func: add});
+  res.send({ scenarioId: req.body.scenarioId, sharedDoc: { ...req.body.sharedDoc, shared: true  } });
+});
+
+app.delete('/api/help-document', (req, res) => {
+  actionOnSharedDocs$.next({ sharedDoc: req.body.sharedDoc, func: del});
+  res.send({ scenarioId: req.body.scenarioId, sharedDoc: { ...req.body.sharedDoc, shared: false  } });
 });
 
 const server = createServer(app);
 const wss = new WebSocket.Server({ server });
 
-
 wss.on('connection', (ws) => {
-  const id = setInterval(function() {
-    ws.send(JSON.stringify(process.memoryUsage()), function() {
-      //
-      // Ignore errors.
-      //
-    });
-  }, 100);
-  console.log('started client interval');
+  const subscriber = sharedDocs$.subscribe((result) => ws.send(JSON.stringify(result)));
 
   ws.on('close', () => {
-    console.log('stopping client interval');
-    clearInterval(id);
+    subscriber.unsubscribe();
   });
 });
 
