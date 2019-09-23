@@ -17,10 +17,10 @@ const SharedDoc = ({ sharedDocs, scenarioId, hide, sharedHelpDoc, unSharedHelpDo
       {
         sharedDocs.map((sharedDoc, index) =>
           <div key={index} className="card-doc">
-            <div className="card-doc-checkbox"
+            { sharedDoc.toShare ? <div className="card-doc-checkbox"
               onClick={() => isSharedDocActive(index) ? unSharedHelpDoc({ scenarioId, sharedDoc }) : sharedHelpDoc({ scenarioId, sharedDoc })}>
               <FontAwesomeIcon icon={isSharedDocActive(index) ? faCheckSquare : faSquare} size="lg" />
-            </div>
+            </div> : ''}
             <Card showImg={true} showTitle={true} limitImgHeight={true} card={sharedDoc}/>
           </div>)
       }
