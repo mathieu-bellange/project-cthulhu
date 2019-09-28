@@ -9,7 +9,7 @@ import Menu from './menu';
 import NavPanel from './nav-panel';
 import Place from './place';
 import Dashboard from './dashboard';
-import SharedDoc from './shared-doc';
+import SharedDocs from './shared-docs';
 import Scenarios from './scenarios';
 import { Pnj } from './pnjs';
 
@@ -18,7 +18,7 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded, isHelpDocDisplayed,
     return (
       <Router>
         <Menu displayHelpDoc={displayHelpDoc}/>
-        { isHelpDocDisplayed ? <SharedDoc hide={hideHelpDoc}/> : ''}
+        { isHelpDocDisplayed ? <SharedDocs hide={hideHelpDoc}/> : ''}
         <div className="app-full-screen" onClick={() => document.body.requestFullscreen()}>
         {
           isFullScreen ? '' : <img src="/images/pixel-full-screen.png" />

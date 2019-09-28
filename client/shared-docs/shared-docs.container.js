@@ -4,13 +4,34 @@ import { bindActionCreators } from 'redux';
 
 import { selectSharedDocs, selectScenarioId,
   sharedHelpDoc, unSharedHelpDoc, isSharedDocActive } from '../store';
-import SharedDoc from './shared-doc';
+import { SharedDocs, openSharedDoc } from './shared-docs';
+import { SharedDoc, closeSharedDoc } from './shared-doc';
 
 class SharedDocContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      doc: null
+    };
+    closeSharedDoc.subscribe(() => {
+      this.setState({ doc: null});
+    });
+    openSharedDoc.subscribe(doc => {
+      console.log(doc);
+      this.setState({ doc })
+    });
+  }
 
   render() {
     return (
-      <SharedDoc {...this.props} />
+      <div>
+        {
+            this.state.doc ? '' : <SharedDocs {...this.props} />
+        }
+        {
+          this.state.doc ? <SharedDoc sharedDoc={this.state.doc}/> : ''
+        }
+      </div>
     )
   }
 }
