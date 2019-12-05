@@ -6,10 +6,11 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import './menu.sss';
 
-const Menu = ({ isDisplaying, hide, display, scenarioId}) => {
+const Menu = ({ isDisplaying, hide, display, scenarioId, displayHelpDoc }) => {
   return (
     <div className="menu-container">
       <div className={`menu${ isDisplaying ? '' : ' hide'}`}>
+      <div className="menu-link" onClick={() => { displayHelpDoc(); hide(); }}>Aide de jeu</div>
       <Link to={{
           pathname: `/${scenarioId}`
         }} className="menu-link">Retour au scénario</Link>
@@ -28,7 +29,8 @@ Menu.propTypes = {
   scenarioId: PropTypes.string,
   isDisplaying: PropTypes.bool,
   hide: PropTypes.func.isRequired,
-  display: PropTypes.func.isRequired
+  display: PropTypes.func.isRequired,
+  displayHelpDoc: PropTypes.func.isRequired
 };
 
 export default Menu;

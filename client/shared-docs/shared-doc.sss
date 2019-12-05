@@ -1,0 +1,26 @@
+.shared-doc
+  position: absolute
+  z-index: 2
+  width: 100%
+  top: 0
+  bottom: 0
+  background-color: black
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  img
+    max-height: 80%
+  .shared-doc-close
+    align-self: flex-end
+    position: absolute
+    top: 0
+    display: flex
+    justify-content: flex-end
+    padding: 0.5em 2em
+    &.hide
+      display: none
+    &:hover
+      cursor: pointer
+    svg
+      color: #03DAC6

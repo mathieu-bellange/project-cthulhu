@@ -2,7 +2,7 @@
   "parser": "sugarss",
   "plugins": {
     "precss": {},
-    "postcss-cssnext": {},
+    "postcss-preset-env": { browsers: 'last 2 versions' },
     "cssnano": {}
   }
 }
