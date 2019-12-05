@@ -19,6 +19,10 @@ app.get('/api/scenarios', (req, res) => {
   res.send(scenarios);
 });
 
+app.get('/api/music/:scenarioId/:name', (req, res) => {
+  res.sendFile(path.join(__dirname, './data/scenarios', `./${req.params.scenarioId}`, './music', `./${req.params.name}`));
+});
+
 app.post('/api/help-document', (req, res) => {
   actionOnSharedDocs$.next({ sharedDoc: req.body.sharedDoc, func: add});
   res.send({ scenarioId: req.body.scenarioId, sharedDoc: { ...req.body.sharedDoc, shared: true  } });
