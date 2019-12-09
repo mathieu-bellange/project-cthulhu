@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
 import { map } from 'lodash';
 
 import './place-overview.sss';
@@ -11,15 +9,9 @@ const PlaceOverview = ({ scenarioId, card, insidePlaces, music, isPlaying, play,
   return (
     <div className="place-overview">
       <div className="card-wrapper">
-        <Card card={card} showDesc={true} showImg={true}/>
-      {
-          music && music.length > 0 ? <div className="play-pause-wrapper">
-          {
-            isPlaying ? <FontAwesomeIcon icon={faPauseCircle} size="7x" onClick={pause}/> :
-              <FontAwesomeIcon icon={faPlayCircle} size="7x" onClick={play}/>
-          }
-        </div> : ''
-      }
+        <Card card={card} showDesc={true} showImg={true} scrollDesc={true}
+         music={music} isPlaying={isPlaying} pause={pause} play={play}
+        />
       </div>
       <div className="inside-places">
         {

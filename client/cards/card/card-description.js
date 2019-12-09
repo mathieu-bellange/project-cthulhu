@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './card-description.sss';
 
-const CardDescription = ({ title, desc, showTitle, showDesc, showImg }) => {
+const CardDescription = ({ title, desc, showTitle, showDesc, showImg, scrollDesc }) => {
   return (
-    <div className="card-description">
+    <div className={`card-description ${scrollDesc ? 'scroll' : ''}`}>
       <div className="card-title">
         { showImg ? '' : <img src='/images/user.png'></img> }
         { showTitle ? title : '' }
@@ -22,7 +22,8 @@ CardDescription.propTypes = {
   desc: PropTypes.array,
   showTitle: PropTypes.bool,
   showImg: PropTypes.bool,
-  showDesc: PropTypes.bool
+  showDesc: PropTypes.bool,
+  scrollDesc: PropTypes.bool
 };
 
 export default CardDescription;
