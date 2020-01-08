@@ -4,6 +4,8 @@ const { createServer } = require('http');
 const WebSocket = require('ws');
 const { add, del, actionOnSharedDocs$, sharedDocs$ } = require('./shared-doc');
 const scenarios = require('./data/scenarios');
+const { ScenarioService } = require('./create');
+const scenarioService = new ScenarioService();
 
 const app = express();
 app.use(express.static(path.join(__dirname, './public')));
@@ -17,6 +19,13 @@ app.use((req, res, next) => {
 
 app.get('/api/scenarios', (req, res) => {
   res.send(scenarios);
+});
+
+app.post('/api/scenarios', (req, res) => {
+  scenarioService.add(req.body).subscribe(scenario => {
+    console.log(scenario);
+    res.send(scenario);
+  });
 });
 
 app.get('/api/music/:scenarioId/:name', (req, res) => {

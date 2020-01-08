@@ -12,7 +12,7 @@
   "rules": {
     "space-before-function-paren": [2, "never"],
     "comma-dangle": ["error", "never"],
-    "class-methods-use-this": ["error", { "exceptMethods": ["render"] }]
+    "class-methods-use-this": ["off"]
   },
   "settings": {
       "react": {
