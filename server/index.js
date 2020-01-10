@@ -2,11 +2,23 @@ const express = require('express')
 const path = require ('path');
 const { createServer } = require('http');
 const WebSocket = require('ws');
+const multer  = require('multer')
 const { add, del, actionOnSharedDocs$, sharedDocs$ } = require('./shared-doc');
 const scenarios = require('./data/scenarios');
 const { ScenarioService } = require('./create');
+
 const scenarioService = new ScenarioService();
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, `public/images/${req.params.scenarioId}`)
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+})
+
+const upload = multer({ storage })
 const app = express();
 app.use(express.static(path.join(__dirname, './public')));
 app.use(express.json());
@@ -23,7 +35,6 @@ app.get('/api/scenarios', (req, res) => {
 
 app.post('/api/scenarios', (req, res) => {
   scenarioService.add(req.body).subscribe(scenario => {
-    console.log(scenario);
     res.send(scenario);
   });
 });
@@ -40,6 +51,10 @@ app.post('/api/help-document', (req, res) => {
 app.delete('/api/help-document', (req, res) => {
   actionOnSharedDocs$.next({ sharedDoc: req.body.sharedDoc, func: del});
   res.send({ scenarioId: req.body.scenarioId, sharedDoc: { ...req.body.sharedDoc, shared: false  } });
+});
+
+app.post('/api/images/:scenarioId', upload.single('img'), (req, res) => {
+  res.send();
 });
 
 const server = createServer(app);

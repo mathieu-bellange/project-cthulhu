@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 
 export class ScenarioService {
   url = '/api/scenarios';
-  onSubmit(scenario) {
+  onSubmit(scenario, file) {
     return ajax({
       url: this.url,
       method: 'POST',
@@ -12,7 +12,10 @@ export class ScenarioService {
         'Content-Type': 'application/json'
       },
       body: {
-        scenario
+        scenario : {
+            ...scenario,
+            overview: file ? file.name : ''
+        }
       }
     }).pipe(
         map(result => result.response),
@@ -21,5 +24,14 @@ export class ScenarioService {
           return of(error);
         })
     );
+  }
+  postImg(scenarioId, file) {
+    const formData = new FormData();
+    formData.append('img', file);
+    return ajax({
+      method: 'POST',
+      url: `/api/images/${scenarioId}`,
+      body: formData
+    });
   }
 }
