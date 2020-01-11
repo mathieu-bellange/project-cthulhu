@@ -5,7 +5,7 @@ const WebSocket = require('ws');
 const multer  = require('multer')
 const { add, del, actionOnSharedDocs$, sharedDocs$ } = require('./shared-doc');
 const scenarios = require('./data/scenarios');
-const { ScenarioService } = require('./create');
+const { ScenarioService } = require('./services');
 
 const scenarioService = new ScenarioService();
 
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/scenarios', (req, res) => {
-  res.send(scenarios);
+  scenarioService.getAll().subscribe(results => res.send(results));
 });
 
 app.post('/api/scenarios', (req, res) => {
