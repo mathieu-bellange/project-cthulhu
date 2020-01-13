@@ -6,6 +6,7 @@ import { ScenarioService } from '../services';
 import { DropFileComponent } from '../drop-file';
 
 import './scenario.component.sss';
+import './scenario.form.sss';
 
 export const ScenarioComponent = () => {
   const service = new ScenarioService();
@@ -16,22 +17,37 @@ export const ScenarioComponent = () => {
   };
 
   const handleSubmit = (event) => {
-    service.onSubmit(scenario, handleFile$.value).pipe(
-      withLatestFrom(handleFile$),
-      filter(([scenario, file ]) => !!file),
-      switchMap(([scenario, file ]) => service.postImg(scenario.id, file)),
-    ).subscribe();
+    if(scenario.id) {
+      service.onSubmit(scenario, handleFile$.value).pipe(
+        withLatestFrom(handleFile$),
+        filter(([scenario, file ]) => !!file),
+        switchMap(([scenario, file ]) => service.postImg(scenario.id, file)),
+      ).subscribe();
+    }
     event.preventDefault();
   }
   return (
-    <div className="dashboard">
-      <form onSubmit={handleSubmit}>
-        <input id="id" type="text" onChange={handleChange}/>
-        <input id="title" type="text" onChange={handleChange}/>
-        <textarea id="description" onChange={handleChange}/>
-        <DropFileComponent handleFile$={handleFile$}/>
-        <input type="submit" value="Sauver"/>
-      </form>
+    <div className="scenario-modification">
+      <div className="scenario-overview">
+        <form onSubmit={handleSubmit} className="mui-form">
+          <div className="form-control">
+            <input id="id" type="text" onChange={handleChange}/>
+            <label>Scénario id</label>
+          </div>
+          <div className="form-control">
+            <input id="title" type="text" onChange={handleChange}/>
+            <label>Titre</label>
+          </div>
+          <div className="form-control">
+            <textarea id="description" onChange={handleChange}/>
+            <label>Description</label>
+          </div>
+          <DropFileComponent handleFile$={handleFile$}/>
+          <button type="submit">Sauver</button>
+        </form>
+      </div>
+      <div className="places-pnjs-overview">
+      </div>
     </div>
   );
 };

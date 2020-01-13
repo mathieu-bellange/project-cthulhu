@@ -1,0 +1,81 @@
+form
+  display: flex
+  flex-direction: column
+  .form-control
+    display: block
+    padding-top: .9375rem
+    margin-bottom: 1.25rem
+    position: relative
+    input, textarea
+      color: #9B9B9B
+      box-sizing: border-box
+      display: block
+      background-color: transparent
+      border: none
+      border-bottom: 1px solid #03DAC6
+      outline: 0
+      width: 100%
+      height: 2rem
+      padding: 0
+      box-shadow: none
+      border-radius: 0
+      font-size: 1rem
+      font-family: inherit
+      line-height: inherit
+      &:focus
+        height: calc(2rem + 1px)
+        margin-bottom: -1px
+        border-color: #BB86FC
+        border-width: 2px
+        &~label
+          color: #BB86FC
+    textarea
+      min-height: 4rem
+    label
+      color: #03DAC6
+      position: absolute
+      top: 0
+      display: block
+      width: 100%
+      font-size: .75rem
+      font-weight: 400
+      line-height: .9375rem
+  button
+    text-shadow: 1px 1px 1px rgba(3,218,198,.004)
+    font-weight: 500
+    font-size: .875rem
+    line-height: 1.125rem
+    text-transform: uppercase
+    color: #03DAC6
+    background-color: #121212
+    transition: all .2s ease-in-out
+    display: inline-block
+    height: 2.25rem
+    padding: 0 1.625rem
+    margin: .375rem 0
+    border: none
+    border-top: 0.07rem solid #03DAC6
+    border-left: 0.07rem solid #03DAC6
+    border-radius: 2px
+    cursor: pointer
+    touch-action: manipulation
+    background-image: none
+    text-align: center
+    line-height: 2.25rem
+    vertical-align: middle
+    user-select: none
+    font-size: .875rem
+    font-family: inherit
+    letter-spacing: .03em
+    position: relative
+    overflow: hidden
+    box-shadow: 0 0 2px rgba(3,218,198,.12), 0 2px 2px rgba(3,218,198,.2)
+    &:active
+      box-shadow: 0 0 4px rgba(3,218,198,.12), 1px 3px 4px rgba(3,218,198,.2)
+      outline: 0
+      text-decoration: none
+      color: #03DAC6
+    &:focus
+      outline: 0
+    &[type=submit]
+      align-self: flex-end

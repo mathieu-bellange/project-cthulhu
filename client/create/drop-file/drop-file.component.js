@@ -1,9 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
 
-const DropFileComponent = ({ handleFile$ }) => {
+import './drop-file.component.sss';
 
-  const dropHandler = (ev) => {
+export default class DropFileComponent extends React.Component {
+  static propTypes = {
+    handleFile$: PropTypes.object.isRequired
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      fileName: null
+    }
+    this.dropHandler = this.dropHandler.bind(this);
+    this.dragOverHandler = this.dragOverHandler.bind(this);
+  }
+
+  dropHandler(ev) {
     console.log('File(s) dropped');
 
     // Prevent default behavior (Prevent file from being opened)
@@ -15,34 +31,33 @@ const DropFileComponent = ({ handleFile$ }) => {
         // If dropped items aren't files, reject them
         if (ev.dataTransfer.items[i].kind === 'file') {
           var file = ev.dataTransfer.items[i].getAsFile();
-          handleFile$.next(file);
+          this.props.handleFile$.next(file);
+          this.setState({ fileName : file.name });
           console.log('.. file[' + i + '].name = ' + file.name);
         }
       }
     } else {
       // Use DataTransfer interface to access the file(s)
       for (var j = 0; j < ev.dataTransfer.files.length; j++) {
-        handleFile$.next(ev.dataTransfer.files[j]);
+        this.props.handleFile$.next(ev.dataTransfer.files[j]);
+        this.setState({ fileName : ev.dataTransfer.files[j].name });
         console.log('... file[' + j + '].name = ' + ev.dataTransfer.files[j].name);
       }
     }
   }
-  const dragOverHandler = (ev) => {
+
+  dragOverHandler(ev) {
     console.log('File(s) in drop zone');
 
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
   }
 
-  return (
-    <div id="drop_zone" onDrop={dropHandler} onDragOver={dragOverHandler}>
-      <p>Drag one or more files to this Drop Zone ...</p>
-    </div>
-  );
-};
-
-DropFileComponent.propTypes = {
-  handleFile$: PropTypes.object.isRequired
-};
-
-export default DropFileComponent;
+  render() {
+    return (
+      <div id="drop_zone" onDrop={this.dropHandler} onDragOver={this.dragOverHandler}>
+        <FontAwesomeIcon icon={faCloudUploadAlt} />{ this.state.fileName ? this.state.fileName : 'Ajouter une photo' }
+      </div>
+    )
+  }
+}
