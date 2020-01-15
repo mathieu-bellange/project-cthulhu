@@ -26,6 +26,7 @@ export class ScenarioService {
     );
   }
   postImg(scenarioId, file) {
+    if(!file) return of(null);
     const formData = new FormData();
     formData.append('img', file);
     return ajax({

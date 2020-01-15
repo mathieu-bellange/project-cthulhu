@@ -28,7 +28,21 @@ class ScenarioService {
       map(dirs => dirs.filter(dir => dir.isDirectory())),
       map(dirs => dirs.reduce((acc, v) => {
         const scenarioJson = JSON.parse(fs.readFileSync(`server/data/scenarios/${v.name}/scenario.json`, 'utf8'));
-        return {...acc, [v.name]: {...scenarioJson, pnjs:[], places: [] } };
+        let places = {};
+        fs.readdirSync(`server/data/scenarios/${v.name}/places`).forEach(filename => {
+          if (filename.match(/^[a-z-]*.json$/)) {
+            const place = JSON.parse(fs.readFileSync(`server/data/scenarios/${v.name}/places/${filename}`, 'utf8'));
+            places = { ...places, [place.id]: place }
+          }
+        });
+        let pnjs = {};
+        fs.readdirSync(`server/data/scenarios/${v.name}/pnjs`).forEach(filename => {
+          if (filename.match(/^[a-z-]*.json$/)) {
+            const pnj = JSON.parse(fs.readFileSync(`server/data/scenarios/${v.name}/pnjs/${filename}`, 'utf8'));
+            pnjs = { ...pnjs, [pnj.id]: pnj }
+          }
+        });
+        return {...acc, [v.name]: {...scenarioJson, pnjs, places } };
       }, {})),
       tap(console.log),
     );
