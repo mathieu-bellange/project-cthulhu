@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faWalking, faSearch, faEye, faFistRaised, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faWalking, faSearch, faEye, faFistRaised, faDiceD20, faHistory } from '@fortawesome/free-solid-svg-icons'
 
 import './clue-condition-icon.sss'
 
@@ -17,7 +17,8 @@ const ClueConditionIcon = ({type}) => {
         chat: <img src="/images/chat.png" />,
         ear: <img src="/images/ear.png" />,
         description: <img src="/images/description.png" />,
-        roll: <FontAwesomeIcon icon={faDiceD20} />
+        roll: <FontAwesomeIcon icon={faDiceD20} />,
+        history: <FontAwesomeIcon icon={faHistory} />
       }[type]}
     </div>
   );

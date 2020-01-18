@@ -20,6 +20,7 @@ const PnjOverview = ({ card, minimize, isEnlarged, enlargePnj, shrunkPnj }) => {
           card={card}
           showTitle={minimize}
           showDesc={true}
+          scrollDesc={true}
           showImg={!minimize || isEnlarged}
         />
       </div>
