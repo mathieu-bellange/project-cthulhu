@@ -47,4 +47,5 @@ body {
 }
 
 #shared-container .shared-doc img {
+  max-height: 100vh
 }
