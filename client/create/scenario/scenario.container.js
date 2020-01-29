@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { switchMap, map, tap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 
 import { ScenarioService } from '../services';
 import {
   selectUpdatingScenario, saveScenarioUpdating
 } from '../../store';
 import { ScenarioComponent } from './scenario.component';
+import { PlacesComponent } from '../places';
 const service = new ScenarioService();
 
 class ScenarioContainer extends React.Component {
@@ -36,7 +37,10 @@ class ScenarioContainer extends React.Component {
       scenario
     } = this.props;
     return(
-      <ScenarioComponent scenario={scenario} submit={this.submit} />
+      <div className="scenario-modification">
+        <ScenarioComponent scenario={scenario} submit={this.submit} />
+        <PlacesComponent/>
+      </div>
     );
   }
 }

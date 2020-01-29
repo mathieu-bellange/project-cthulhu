@@ -22,7 +22,6 @@ export const ScenarioComponent = ({ scenario, submit }) => {
     event.preventDefault();
   }
   return (
-    <div className="scenario-modification">
       <div className="scenario-overview">
         {
           scenario ? <Card showTitle={true} showImg={true}
@@ -46,9 +45,6 @@ export const ScenarioComponent = ({ scenario, submit }) => {
           </form>
         }
       </div>
-      <div className="places-pnjs-overview">
-      </div>
-    </div>
   );
 };
 
