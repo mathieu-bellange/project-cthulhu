@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { PlacesComponent } from './places.component';
+import { selectUpdatingPlaces } from '../../store';
 
 class PlacesContainer extends React.Component {
   static propTypes = {
+    places: PropTypes.array
   };
 
   constructor(props){
@@ -15,15 +17,14 @@ class PlacesContainer extends React.Component {
 
   render() {
     return(
-      <PlacesComponent places={[{ "id": "hunt-cabin",
-      "title": "La cabane de chasse",
-      "overview": "cretaceous-creature/hunt-cabin.jpg"}]} />
+      <PlacesComponent {...this.props} />
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
+    places: selectUpdatingPlaces(state)
   };
 };
 

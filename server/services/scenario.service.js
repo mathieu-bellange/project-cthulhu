@@ -2,6 +2,7 @@ const { of } = require('rxjs');
 const { map, tap } = require('rxjs/operators');
 const fs = require('fs');
 const path = require('path');
+const helpDocs = require('../data/scenarios/cretaceous-creature/help-docs');
 
 class ScenarioService {
   add(scenario) {
@@ -42,7 +43,7 @@ class ScenarioService {
             pnjs = { ...pnjs, [pnj.id]: pnj }
           }
         });
-        return {...acc, [v.name]: {...scenarioJson, pnjs, places } };
+        return {...acc, [v.name]: {...scenarioJson, pnjs, places, helpDocs } };
       }, {})),
       tap(console.log),
     );

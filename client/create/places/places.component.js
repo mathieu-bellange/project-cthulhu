@@ -7,10 +7,10 @@ import './places.component.sss';
 
 import { Card } from '../../cards';
 
-export const PlacesComponent = ({ places }) => {
+export const PlacesComponent = ({ places, addPlace }) => {
   return (
     <div className="places-modification">
-      <div className="add-place">
+      <div className="add-place" onClick={ addPlace }>
         <FontAwesomeIcon icon={faPlusSquare} size="lg" />
       </div>
       {
@@ -23,5 +23,7 @@ export const PlacesComponent = ({ places }) => {
 };
 
 PlacesComponent.propTypes = {
-  places: PropTypes.array
+  places: PropTypes.array,
+  addPlace: PropTypes.func,
+  hide: PropTypes.bool
 };
