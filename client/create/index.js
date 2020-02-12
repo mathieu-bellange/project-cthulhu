@@ -1,1 +1,1 @@
-export * from './scenario';
+export { default as CreateComponent } from './create.container';

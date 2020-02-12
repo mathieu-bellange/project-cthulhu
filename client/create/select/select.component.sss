@@ -1,0 +1,31 @@
+.select
+  color: #9B9B9B
+  display: flex
+  margin: 2rem
+  flex-direction: column
+  position: relative
+  .selected-option
+    border: 1px solid #03DAC6
+    width: 200px
+    height: 20px
+    padding: 1rem 2rem
+    cursor: pointer
+    .title
+      display: flex
+      justify-content: space-between
+      align-items: center
+  ul
+    position: absolute
+    top: calc(20px + 2rem + 1px)
+    border: 1px solid #03DAC6
+    border-top: 0
+    width: 200px
+    padding: 0 2rem
+    background-color: #121212
+    list-style-type: none
+    z-index: 1
+    &.hide
+      display: none
+    li
+      margin: 1rem 0
+      cursor: pointer

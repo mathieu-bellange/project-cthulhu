@@ -12,7 +12,7 @@ import Dashboard from './dashboard';
 import SharedDocs from './shared-docs';
 import Scenarios from './scenarios';
 import { Pnj } from './pnjs';
-import { ScenarioComponent } from './create';
+import { CreateComponent } from './create';
 
 const AppWrapper = ({ isFullScreen, scenariosLoaded, isHelpDocDisplayed,
   selectPnjTitle, selectPlaceTitle, scenarios, displayHelpDoc, hideHelpDoc }) => {
@@ -36,7 +36,7 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded, isHelpDocDisplayed,
           path="/new"
           exact
           render={() =>
-            <ScenarioComponent/>
+            <CreateComponent />
           }
         />
         <Route
