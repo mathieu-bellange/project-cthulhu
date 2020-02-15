@@ -4,19 +4,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { switchMap, map } from 'rxjs/operators';
 
-import { ScenarioService } from '../services';
+import { ScenarioService, PlaceService } from '../services';
 import {
-  selectUpdatingScenario, saveScenarioUpdating, savePlace
+  selectUpdatingScenario, saveScenarioUpdating, savePlace, fetchScenarios
 } from '../../store';
 import { ScenarioComponent } from './scenario.component';
 import { PlacesComponent, CreatePlaceComponent } from '../places';
 const service = new ScenarioService();
+const placeService = new PlaceService();
 
 class ScenarioContainer extends React.Component {
   static propTypes = {
     scenario: PropTypes.object,
     saveScenarioUpdating: PropTypes.func,
-    savePlace: PropTypes.func
+    savePlace: PropTypes.func,
+    fetchScenarios: PropTypes.func
   };
 
   constructor(props){
@@ -35,13 +37,22 @@ class ScenarioContainer extends React.Component {
         (s) => service.postImg(scenario.id, file).pipe(
           map(() => s ))
         ),
-    ).subscribe(scenario => this.props.saveScenarioUpdating(scenario));
+    ).subscribe(scenario => {
+      this.props.fetchScenarios();
+      this.props.saveScenarioUpdating(scenario);
+    });
   }
 
   submitPlace(place, file) {
-    // TODO save on server
-    this.props.savePlace({ ...place, overview: 'cretaceous-creature/hunt-cabin.jpg' });
-    this.setState({ addPlace: false });
+    placeService.onSubmit(this.props.scenario.id, place, file).pipe(
+      switchMap(
+        (s) => service.postImg(this.props.scenario.id, file).pipe(
+          map(() => s ))
+        ),
+    ).subscribe(place => {
+      this.props.savePlace(place);
+      this.setState({ addPlace: false });
+    });
   }
 
   onAddPlace() {
@@ -58,7 +69,7 @@ class ScenarioContainer extends React.Component {
         {
           this.state.addPlace ?
             <CreatePlaceComponent submit={this.submitPlace}/> :
-            <PlacesComponent addPlace={this.onAddPlace} />
+            scenario && scenario.id ? <PlacesComponent addPlace={this.onAddPlace} /> : ''
         }
       </div>
     );
@@ -74,6 +85,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
       saveScenarioUpdating,
+      fetchScenarios,
       savePlace
     }, dispatch);
 

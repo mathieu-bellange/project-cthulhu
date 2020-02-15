@@ -3,9 +3,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  places: [{ "id": "hunt-cabin",
-  "title": "La cabane de chasse",
-  "overview": "cretaceous-creature/hunt-cabin.jpg"}]
+    places: {}
 };
 
 export function updatingScenarioReducer(state = initialState, action) {
@@ -13,12 +11,13 @@ export function updatingScenarioReducer(state = initialState, action) {
         case SAVE_SCENARIO_UPDATING:
             return {
                 ...state,
-                scenario: action.payload
+                scenario: action.payload,
+                places: action.payload ? action.payload.places || {} : {}
             };
         case SAVE_PLACE:
             return {
                 ...state,
-                places: [...state.places, action.payload]
+                places: {...state.places, [action.payload.id]: action.payload}
             };
         default:
             return state;

@@ -19,7 +19,8 @@ class CreateContainer extends React.Component {
   }
 
   onSelectOption(scenario) {
-    this.props.saveScenarioUpdating(scenario);
+    const updatingScenario = scenario.title === 'Nouveau scénario' ? null : scenario;
+    this.props.saveScenarioUpdating(updatingScenario);
   }
 
 
@@ -27,7 +28,7 @@ class CreateContainer extends React.Component {
     const { scenarios } = this.props;
     return(
       <div>
-        <SelectComponent options={map(scenarios, scenario => scenario)} onSelectOption={this.onSelectOption}/>
+        <SelectComponent options={ [{ title: 'Nouveau scénario' }, ...map(scenarios, scenario => scenario)] } onSelectOption={this.onSelectOption}/>
         <ScenarioComponent />
       </div>
     );

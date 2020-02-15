@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { map } from 'lodash';
 
 import './places.component.sss';
 
@@ -14,7 +15,7 @@ export const PlacesComponent = ({ places, addPlace }) => {
         <FontAwesomeIcon icon={faPlusSquare} size="lg" />
       </div>
       {
-        places.map((place, index) =>(
+        map(places, (place, index) => (
           <Card key={index} showTitle={true} showImg={true} card={ place }></Card>
         ))
       }
@@ -23,7 +24,7 @@ export const PlacesComponent = ({ places, addPlace }) => {
 };
 
 PlacesComponent.propTypes = {
-  places: PropTypes.array,
+  places: PropTypes.object,
   addPlace: PropTypes.func,
   hide: PropTypes.bool
 };

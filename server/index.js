@@ -4,10 +4,10 @@ const { createServer } = require('http');
 const WebSocket = require('ws');
 const multer  = require('multer')
 const { add, del, actionOnSharedDocs$, sharedDocs$ } = require('./shared-doc');
-const scenarios = require('./data/scenarios');
-const { ScenarioService } = require('./services');
+const { ScenarioService, PlaceService } = require('./services');
 
 const scenarioService = new ScenarioService();
+const placeService = new PlaceService();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -36,6 +36,12 @@ app.get('/api/scenarios', (req, res) => {
 app.post('/api/scenarios', (req, res) => {
   scenarioService.add(req.body).subscribe(scenario => {
     res.send(scenario);
+  });
+});
+
+app.post('/api/scenarios/:scenarioId/places', (req, res) => {
+  placeService.add(req.params.scenarioId, req.body).subscribe(place => {
+    res.send(place);
   });
 });
 

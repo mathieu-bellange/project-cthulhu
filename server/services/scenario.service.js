@@ -2,7 +2,6 @@ const { of } = require('rxjs');
 const { map, tap } = require('rxjs/operators');
 const fs = require('fs');
 const path = require('path');
-const helpDocs = require('../data/scenarios/cretaceous-creature/help-docs');
 
 class ScenarioService {
   add(scenario) {
@@ -12,7 +11,6 @@ class ScenarioService {
         desc: scenario.description.split('\n'),
         overview: scenario.overview === '' ? 'place-default.png' : `${scenario.id}/${scenario.overview}`,
         pnjs: [],
-        places: [],
         helpDocs: []
       })),
       tap(scenario => fs.mkdirSync(path.join('public/images', scenario.id))),
@@ -43,7 +41,7 @@ class ScenarioService {
             pnjs = { ...pnjs, [pnj.id]: pnj }
           }
         });
-        return {...acc, [v.name]: {...scenarioJson, pnjs, places, helpDocs } };
+        return {...acc, [v.name]: {...scenarioJson, pnjs, places } };
       }, {})),
       tap(console.log),
     );

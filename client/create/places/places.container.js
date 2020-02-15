@@ -7,7 +7,7 @@ import { selectUpdatingPlaces } from '../../store';
 
 class PlacesContainer extends React.Component {
   static propTypes = {
-    places: PropTypes.array
+    places: PropTypes.object
   };
 
   constructor(props){
