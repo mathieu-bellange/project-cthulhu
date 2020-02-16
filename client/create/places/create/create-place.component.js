@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { BehaviorSubject } from 'rxjs';
 
 import { DropFileComponent } from '../../drop-file';
+import { CheckComponent } from '../../checkbox';
 
 import './create-place.component.sss';
 
@@ -12,6 +13,9 @@ export const CreatePlaceComponent = ({ submit }) => {
   const handleChange = (event) => {
     formData = { ...formData, [event.target.getAttribute('id').slice(6)]: event.target.value };
   };
+  const handleCheckBox = (event, value) => {
+    formData = { ...formData, [event.target.getAttribute('id').slice(6)]: value };
+  }
 
   const handleSubmit = (event) => {
     if(formData.id) {
@@ -33,6 +37,10 @@ export const CreatePlaceComponent = ({ submit }) => {
         <div className="form-control">
           <textarea id="place-description" onChange={handleChange}/>
           <label>Description</label>
+        </div>
+        <div className="form-control">
+          <CheckComponent id="place-dashboard" onCheck={(value) => handleCheckBox(event, value)} />
+          <label>Afficher sur le dashboard</label>
         </div>
         <DropFileComponent handleFile$={handleFile$}/>
         <button type="submit">Sauver</button>

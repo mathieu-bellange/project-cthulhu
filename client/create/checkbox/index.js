@@ -1,0 +1,1 @@
+export { default as CheckComponent } from './checkbox.container';
