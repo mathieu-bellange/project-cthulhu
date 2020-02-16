@@ -56,7 +56,7 @@ export default class DropFileComponent extends React.Component {
   render() {
     return (
       <div id="drop_zone" onDrop={this.dropHandler} onDragOver={this.dragOverHandler}>
-        <FontAwesomeIcon icon={faCloudUploadAlt} />{ this.state.fileName ? this.state.fileName : 'Ajouter une photo' }
+        <FontAwesomeIcon icon={faCloudUploadAlt} size="lg" /><label>{ this.state.fileName ? this.state.fileName : 'Ajouter une photo' }</label>
       </div>
     )
   }
