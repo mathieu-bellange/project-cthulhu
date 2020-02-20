@@ -6,11 +6,12 @@ const { omit } = require('lodash');
 class PlaceService {
   add(scenarioId, place) {
     return of(place).pipe(
-      map(({ place }) => ({
-        ...omit(place, ['description']),
-        desc: place.description ? place.description.split('\n') : [],
-        overview: place.overview === '' ? 'place-default.png' : `scenarios/${scenarioId}/${place.overview}`
-      })),
+      map(({ place }) => {
+        const clues = place.clues.map(clue => ({ ...clue, sideEffects: clue.sideEffects ? clue.sideEffects.split('\n') : [] }));
+        const desc = place.description ? place.description.split('\n') : [];
+        const overview = place.overview === '' ? 'place-default.png' : `scenarios/${scenarioId}/${place.overview}`;
+        return ({ ...omit(place, ['description']), clues, desc, overview });
+      }),
       tap(place => fs.writeFileSync(`server/data/scenarios/${scenarioId}/places/${place.id}.json`, JSON.stringify(place), 'utf-8'))
     );
   }

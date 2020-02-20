@@ -4,17 +4,21 @@ import { BehaviorSubject } from 'rxjs';
 
 import { DropFileComponent } from '../../drop-file';
 import { CheckComponent } from '../../checkbox';
+import { CreateCluesComponent } from './clue';
 
 import './create-place.component.sss';
 
 export const CreatePlaceComponent = ({ submit }) => {
   const handleFile$ = new BehaviorSubject();
-  let formData = { id: '', title: '', description: '' };
+  let formData = { id: '', title: '', description: '', clues:[] };
   const handleChange = (event) => {
     formData = { ...formData, [event.target.getAttribute('id').slice(6)]: event.target.value };
   };
   const handleCheckBox = (event, value) => {
     formData = { ...formData, [event.target.getAttribute('id').slice(6)]: value };
+  }
+  const handleClue = (newClue) => {
+    formData.clues.push(newClue);
   }
 
   const handleSubmit = (event) => {
@@ -45,6 +49,9 @@ export const CreatePlaceComponent = ({ submit }) => {
         <DropFileComponent handleFile$={handleFile$}/>
         <button type="submit">Sauver</button>
       </form>
+      <div className="create-place-info">
+        <CreateCluesComponent submit={handleClue} />
+      </div>
     </div>
   );
 };
