@@ -10,11 +10,11 @@ class ScenarioService {
       map(({ scenario }) => ({
         ...omit(scenario, ['description']),
         desc: scenario.description.split('\n'),
-        overview: scenario.overview === '' ? 'place-default.png' : `${scenario.id}/${scenario.overview}`,
+        overview: scenario.overview === '' ? 'place-default.png' : `scenarios/${scenario.id}/${scenario.overview}`,
         pnjs: [],
         helpDocs: []
       })),
-      tap(scenario => fs.mkdirSync(path.join('public/images', scenario.id))),
+      tap(scenario => fs.mkdirSync(path.join('public/images/scenarios', scenario.id))),
       tap(scenario => fs.mkdirSync(path.join('server/data/scenarios', scenario.id))),
       tap(scenario => fs.mkdirSync(path.join(`server/data/scenarios/${scenario.id}`, 'places'))),
       tap(scenario => fs.mkdirSync(path.join(`server/data/scenarios/${scenario.id}`, 'pnjs'))),
@@ -44,7 +44,6 @@ class ScenarioService {
         });
         return {...acc, [v.name]: {...scenarioJson, pnjs, places } };
       }, {})),
-      tap(console.log),
     );
   }
 }

@@ -11,7 +11,7 @@ const placeService = new PlaceService();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, `public/images/${req.params.scenarioId}`)
+    cb(null, `public/images/scenarios/${req.params.scenarioId}`)
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
