@@ -9,7 +9,7 @@ import ClueSideEffects from './clue-side-effects';
 const Clue = ({ clue, shrunkClue, enlargeClue, isEnlarged }) => {
   return (
     <div className={`clue-card ${isEnlarged ? 'lg': ''}`} onClick={() => isEnlarged ? shrunkClue() : enlargeClue()}>
-      <ClueCondition condition={clue.condition} />
+      <ClueCondition condition={clue.condition} isEnlarged={isEnlarged} />
       <p>
         { clue.clue }
       </p>

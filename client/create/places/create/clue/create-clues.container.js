@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { map } from 'lodash';
 
+import './create-clues.container.sss';
+
 import { CreateClueComponent } from './create-clue.component';
 import { Clue } from '../../../../clues'
 
@@ -43,13 +45,13 @@ export default class CreateCluesContainer extends React.Component {
         {
           this.state.addClue ?
           <CreateClueComponent submit={this.handleClue} /> :
-          <div>
+          <div className="clues-list">
             <div className="add-clue" onClick={ this.addClue }>
               <FontAwesomeIcon icon={faPlusSquare} size="lg" />
             </div>
             {
               map(this.state.clues, (clue, index) => (
-                <Clue key={index} clue={ clue }></Clue>
+                <Clue key={index} clue={ clue } shrunkClue={() => {}} enlargeClue={() => {}}></Clue>
               ))
             }
           </div>

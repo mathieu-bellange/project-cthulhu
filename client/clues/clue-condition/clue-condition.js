@@ -6,9 +6,9 @@ import './clue-condition.sss'
 
 import ClueConditionIcon from './clue-condition-icon';
 
-const ClueCondition = ({ condition }) => {
+const ClueCondition = ({ condition, isEnlarged }) => {
   return (
-    <div className="clue-condition">
+    <div className={`clue-condition ${isEnlarged ? '' : 'collapse'}`}>
       <ClueConditionIcon type={condition.type}/>
       { condition.title }
     </div>
@@ -16,7 +16,8 @@ const ClueCondition = ({ condition }) => {
 }
 
 ClueCondition.propTypes = {
-   condition: PropTypes.object.isRequired
+   condition: PropTypes.object.isRequired,
+   isEnlarged: PropTypes.bool
 }
 
 export default ClueCondition;
