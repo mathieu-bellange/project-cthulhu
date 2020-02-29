@@ -1,3 +1,4 @@
 import ClueCondition from './clue-condition';
+import ClueConditionIcon from './clue-condition-icon';
 
-export default ClueCondition;
+export { ClueCondition, ClueConditionIcon };

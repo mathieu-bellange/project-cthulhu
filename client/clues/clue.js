@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './clue.sss';
 
-import ClueCondition from './clue-condition';
+import { ClueCondition } from './clue-condition';
 import ClueSideEffects from './clue-side-effects';
 
 const Clue = ({ clue, shrunkClue, enlargeClue, isEnlarged }) => {

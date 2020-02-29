@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { ClueConditionIcon } from '../../clues';
 
 import './select.component.sss';
 
@@ -17,7 +18,10 @@ export const SelectComponent = ({ options, selectedOption, selectOption, openOpt
         </div>
         <ul className={`${displayOptions ? '' : 'hide'}`}>
           {
-            options.map((option, index) => <li key={index} onClick={() => selectOption(option)}>{ option.title }</li>)
+            options.map((option, index) => <li key={index} onClick={() => selectOption(option)}>
+            { option.icon ? <ClueConditionIcon type={option.icon}/> : ''}
+            { option.title }
+            </li>)
           }
         </ul>
       </div>
