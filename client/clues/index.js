@@ -1,5 +1,5 @@
 import Clues from './clues';
 import Clue from './clue';
-import { ClueConditionIcon } from './clue-condition';
+export * from './clue-condition';
 
-export { Clues, Clue, ClueConditionIcon };
+export { Clues, Clue };

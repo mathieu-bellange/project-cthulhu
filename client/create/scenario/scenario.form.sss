@@ -7,6 +7,19 @@ form
     padding-top: .9375rem
     margin-bottom: 1.25rem
     position: relative
+    .select
+      margin-top: 1rem
+      width: 100%
+    input, textarea, .select
+      &~label
+        position: absolute
+        top: 0
+        line-height: .9375rem
+        font-size: .75rem
+        font-weight: 400
+      &:focus, &:hover
+        &~label
+          color: #BB86FC
     input, textarea
       color: #9B9B9B
       box-sizing: border-box
@@ -23,12 +36,6 @@ form
       font-size: 1rem
       font-family: inherit
       line-height: inherit
-      &~label
-        position: absolute
-        top: 0
-        line-height: .9375rem
-        font-size: .75rem
-        font-weight: 400
       &:focus, &:hover
         height: calc(2rem + 1px)
         margin-bottom: -1px

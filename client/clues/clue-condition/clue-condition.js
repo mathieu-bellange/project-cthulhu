@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './clue-condition.sss'
 
 
-import ClueConditionIcon from './clue-condition-icon';
+import { ClueConditionIcon } from './clue-condition-icon';
 
 const ClueCondition = ({ condition, isEnlarged }) => {
   return (

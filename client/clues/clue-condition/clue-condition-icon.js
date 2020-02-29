@@ -5,6 +5,8 @@ import { faClock, faWalking, faSearch, faEye, faFistRaised, faDiceD20, faHistory
 
 import './clue-condition-icon.sss'
 
+const CLUE_TYPES = ['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll', 'description', 'ear', 'history'];
+
 const ClueConditionIcon = ({type}) => {
   return (
     <div className="clue-condition-icon">
@@ -25,7 +27,7 @@ const ClueConditionIcon = ({type}) => {
 }
 
 ClueConditionIcon.propTypes = {
-   type: PropTypes.oneOf(['clock', 'place', 'see', 'search', 'fight', 'chat', 'roll', 'description', 'ear']).isRequired
+   type: PropTypes.oneOf(CLUE_TYPES).isRequired
 }
 
-export default ClueConditionIcon;
+export { ClueConditionIcon, CLUE_TYPES };

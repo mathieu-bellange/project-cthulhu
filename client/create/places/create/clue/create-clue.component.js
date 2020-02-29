@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CLUE_TYPES } from '../../../../clues';
+import { SelectComponent } from '../../../select';
 
 import './create-clue.component.sss';
 
@@ -7,6 +9,9 @@ export const CreateClueComponent = ({ submit }) => {
   let formData = { title: '', type: '', clue: '', sideEffects: '' };
   const handleChange = (event) => {
     formData = { ...formData, [event.target.getAttribute('id').slice(5)]: event.target.value };
+  };
+  const onSelectType = (option) => {
+    formData = { ...formData, type: option.icon };
   };
 
   const handleSubmit = (event) => {
@@ -24,7 +29,7 @@ export const CreateClueComponent = ({ submit }) => {
         <label>Indice</label>
       </div>
       <div className="form-control">
-        <input id="clue-type" type="text" onChange={handleChange}/>
+        <SelectComponent options={ CLUE_TYPES.map(type => ({ title: type, icon: type })) } onSelectOption={onSelectType}/>
         <label>Type de l indice</label>
       </div>
       <div className="form-control">

@@ -1,4 +1,4 @@
 import ClueCondition from './clue-condition';
-import ClueConditionIcon from './clue-condition-icon';
+import { ClueConditionIcon, CLUE_TYPES } from './clue-condition-icon';
 
-export { ClueCondition, ClueConditionIcon };
+export { ClueCondition, ClueConditionIcon, CLUE_TYPES };

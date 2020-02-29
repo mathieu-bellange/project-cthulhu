@@ -3,22 +3,30 @@
   display: flex
   flex-direction: column
   position: relative
+  width: 300px
+  &:hover .title
+    color: #BB86FC
+    svg
+      color: #BB86FC
+    img
+      filter: invert(74%) sepia(30%) saturate(7488%) hue-rotate(219deg) brightness(100%) contrast(98%)
   .selected-option
     border: 1px solid #03DAC6
-    width: 200px
     height: 20px
+    width: calc(100%-2px-4rem)
     padding: 1rem 2rem
     cursor: pointer
     .title
       display: flex
-      justify-content: space-between
       align-items: center
+      & > :last-child
+        margin-left: auto
   ul
     position: absolute
     top: calc(20px + 2rem + 1px)
     border: 1px solid #03DAC6
     border-top: 0
-    width: 200px
+    width: calc(100%-2px-4rem)
     padding: 0 2rem
     background-color: #121212
     list-style-type: none
@@ -26,6 +34,7 @@
     &.hide
       display: none
     li
+      color: #03DAC6
       margin: 1rem 0
       cursor: pointer
       display: flex
@@ -33,6 +42,9 @@
       & > div
         display: inline-block
         margin: 0
+        svg
+          padding: 0.25em
+          width: 1.5em
       &:hover
         color: #BB86FC
         svg

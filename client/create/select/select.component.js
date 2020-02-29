@@ -12,6 +12,7 @@ export const SelectComponent = ({ options, selectedOption, selectOption, openOpt
       <div className="select">
         <div className="selected-option" onClick={openOptions}>
           <div className="title">
+            { selectedOption && selectedOption.icon ? <ClueConditionIcon type={selectedOption.icon}/> : ''}
             <span>{ selectedOption ? selectedOption.title : 'Choisir une option' }</span>
             <FontAwesomeIcon icon={ displayOptions ? faAngleUp : faAngleDown} size="lg"/>
           </div>
