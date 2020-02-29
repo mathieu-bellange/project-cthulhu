@@ -42,9 +42,11 @@ const AppWrapper = ({ isFullScreen, scenariosLoaded, isHelpDocDisplayed,
         <Route
           path="/:scenarioId"
           exact
-          render={({ match }) =>
-            <Dashboard scenarioId={match.params.scenarioId}>
+          render={({ match }) => {
+             if (match.params.scenarioId === 'new') return'';
+            return <Dashboard scenarioId={match.params.scenarioId}>
             </Dashboard>
+          }
           }
         />
         { scenariosLoaded ? <Route

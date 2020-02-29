@@ -1,6 +1,8 @@
 .places-modification
   display: flex
   width: 100%
+  flex-wrap: wrap
+  align-content: flex-start
   .add-place
     width: 150px
     height: 200px
@@ -13,6 +15,9 @@
     svg
       color: #03DAC6
   .card
-    max-width: calc(150px - 1.5em)
-    max-height: calc(200px - 1.5em)
+    width: calc(150px - 1.5em + 2px)
+    height: calc(200px - 1.5em + 2px)
     margin-left: 1em
+    margin-bottom: 1em
+    &:nth-child(6n)
+      margin-left: 0

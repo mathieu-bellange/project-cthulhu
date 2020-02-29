@@ -24,7 +24,7 @@ export const ScenarioComponent = ({ scenario, submit }) => {
   return (
       <div className="scenario-overview">
         {
-          scenario ? <Card showTitle={true} showImg={true}
+          scenario ? <Card showTitle={true} showImg={true} scrollDesc={true}
             showDesc={true} card={ scenario } limitImgHeight={true}></Card>
         :
           <form onSubmit={handleSubmit}>

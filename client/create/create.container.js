@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { selectScenarios, saveScenarioUpdating } from '../store';
 import { map } from 'lodash';
 
+import './create.container.sss';
+
 class CreateContainer extends React.Component {
   static propTypes = {
     saveScenarioUpdating: PropTypes.func,
@@ -16,9 +18,21 @@ class CreateContainer extends React.Component {
   constructor(props){
     super(props);
     this.onSelectOption = this.onSelectOption.bind(this);
+    this.state = {
+      displayScenario: false
+    }
+  }
+
+  componentDidUpdate() {
+    window.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   onSelectOption(scenario) {
+    this.setState({ displayScenario: true });
     const updatingScenario = scenario.title === 'Nouveau scénario' ? null : scenario;
     this.props.saveScenarioUpdating(updatingScenario);
   }
@@ -27,9 +41,13 @@ class CreateContainer extends React.Component {
   render() {
     const { scenarios } = this.props;
     return(
-      <div>
-        <SelectComponent options={ [{ title: 'Nouveau scénario' }, ...map(scenarios, scenario => scenario)] } onSelectOption={this.onSelectOption}/>
-        <ScenarioComponent />
+      <div className="create-container">
+        <div>
+          <SelectComponent options={ [{ title: 'Nouveau scénario' }, ...map(scenarios, scenario => scenario)] } onSelectOption={this.onSelectOption}/>
+        </div>
+        <div className={`${this.state.displayScenario ? '' : 'hide'}`}>
+          <ScenarioComponent />
+        </div>
       </div>
     );
   }

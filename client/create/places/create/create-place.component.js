@@ -29,7 +29,7 @@ export const CreatePlaceComponent = ({ submit }) => {
   }
   return (
     <div className="create-place">
-      <form onSubmit={handleSubmit}>
+      <form className="form-place" onSubmit={handleSubmit}>
         <div className="form-control">
           <input id="place-id" type="text" onChange={handleChange}/>
           <label>Id du Lieu</label>
